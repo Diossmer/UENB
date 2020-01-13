@@ -12,10 +12,6 @@
         color: #fff;
         font-weight: 600;
     }
-    @keyframe color{
-        from{background:black;}
-        to{background:green;}
-    }
     #sidebar .sidebar-header {
         padding: 20px;
         width: 100vw !important;
