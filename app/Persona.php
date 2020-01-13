@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Persona extends Model
 {
-    use Notifiable;
     protected $guard = "persona";
     protected $table='personas';
     protected $fillable=[

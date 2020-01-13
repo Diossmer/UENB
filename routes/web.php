@@ -1,5 +1,5 @@
 <?php
-
+use Barryvdh\DomPDF\Facade as PDF;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,3 +28,5 @@ Route::prefix('admin')->group(function(){
 });
 
 Route::resource('user', 'Admin\UserController');
+
+Route::resource('persona', 'PersonRoleController');

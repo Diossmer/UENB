@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Role;
 use App\Persona;
 Use App\AnioEscolar;
 use App\PersonRole;
@@ -18,6 +17,9 @@ class PersonRoleController extends Controller
     public function index()
     {
         //
+        $anioEscolar = Persona::paginate(15);
+        $Persona=Persona::paginate(15);
+        return view('personas.home', compact('persona'));
     }
 
     /**

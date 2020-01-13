@@ -14,7 +14,7 @@
                     <a href="{{route('user.create')}}">Docentes</a>
                     </li>
                     <li>
-                        <a href="#">Usuarios</a>
+                    <a href="{{route('persona.index')}}">Persona</a>
                     </li>
                     <li>
                         <a href="#">Docentes</a>
