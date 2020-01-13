@@ -12,22 +12,19 @@
 
 @section('script-bottom')
 {{-- link de js --}}
-<script src="{{ asset('js/app.js') }}"></script>
-<script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
-<script src="{{ asset('js/styles.js') }}"></script>
 @parent
 @show
 
 @section('navbar')
-@include('admin.include.nav')
+@include('include.nav')
 @endsection
 
 @section('sidebar')
-@include('admin.include.aside')
+@include('include.aside')
 @endsection
 
 @section('footer')
-@include('admin.include.footer')
+@include('include.footer')
 @endsection
 
 @section('content')
@@ -43,8 +40,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    @component('components.who')
-                    @endcomponent
+
                     <table class="table">
                         <thead class="thead-dark">
                         <tr>
@@ -57,7 +53,7 @@
                         </tr>
                         </thead>
                         {{-- sección de aviso aqui --}}
-                        {{-- @foreach ($usuario as $usuarios)
+                        @foreach ($usuario as $usuarios)
                         <tbody>
                             <tr>
                                 <th scope="row">{{$usuarios->id}}</th>
@@ -70,40 +66,10 @@
                         </tbody>
                         @endforeach
                     </table>
-                    {{$usuario->links()}} --}}
+                    {{$usuario->links()}}
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-    {{-- <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">ADMIN Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    @component('components.who')
-                    @endcomponent
-                </div>
-            </div>
-        </div>
-    </div> --}}
 </div>
 @endsection
