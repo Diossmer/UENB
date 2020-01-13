@@ -12,6 +12,10 @@
         color: #fff;
         font-weight: 600;
     }
+    @keyframe color{
+        from{background:black;}
+        to{background:green;}
+    }
     #sidebar .sidebar-header {
         padding: 20px;
         width: 100vw !important;
@@ -21,7 +25,7 @@
     .components{
         display: none;
     }
-
+    
     #sidebar ul.components {
         padding: 2% 10% !important;
         border-bottom: 1px solid #47748b;
@@ -63,7 +67,7 @@
     color: #fff;
     padding: 10px;
     font-weight: 600;
-
+    
 }
 
 #sidebar ul li a {

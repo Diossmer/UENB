@@ -11,11 +11,8 @@
 @show
 
 @section('script-bottom')
-{{-- link de js --}}
-<script src="{{ asset('js/app.js') }}"></script>
-<script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
-<script src="{{ asset('js/styles.js') }}"></script>
 @parent
+{{-- link de js --}}
 @show
 
 @section('navbar')
