@@ -26,3 +26,5 @@ Route::prefix('admin')->group(function(){
     Route::get('/', 'Admin\AdminController@index')->name('admin.dashboard');
     Route::get('/logout','Admin\AdminLoginController@logout')->name('admin.logout');
 });
+
+Route::resource('user', 'Admin\UserController');

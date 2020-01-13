@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Admin;
+use App\User;
 class AdminController extends Controller
 {
     /**
@@ -24,6 +25,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.home');
+        $admin=Admin::paginate(3);
+        $docente=User::paginate(5);
+        return view('admin.home',compact('admin','docente'));
     }
 }

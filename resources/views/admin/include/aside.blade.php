@@ -2,7 +2,7 @@
     <!-- Sidebar -->
     <nav id="sidebar">
     <div class="sidebar-header">
-        <a href="" style="font-size:2em;font-weight:900;text-decoration:none; color:#61ff54;">
+    <a href="{{route('admin.dashboard')}}" style="font-size:2em;font-weight:900;text-decoration:none; color:#61ff54;">
             Dashboard</a>
             <h5>Parroquía La Vega</h5>
         </div>
@@ -11,7 +11,7 @@
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Registros</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li>
-                        <a href="">Aplicacion</a>
+                    <a href="{{route('user.create')}}">Docentes</a>
                     </li>
                     <li>
                         <a href="#">Usuarios</a>

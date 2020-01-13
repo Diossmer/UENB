@@ -16,15 +16,15 @@
 @show
 
 @section('navbar')
-@include('include.nav')
+@include('admin.include.nav')
 @endsection
 
 @section('sidebar')
-@include('include.aside')
+@include('admin.include.aside')
 @endsection
 
 @section('footer')
-@include('include.footer')
+@include('admin.include.footer')
 @endsection
 
 @section('content')
@@ -32,10 +32,10 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+                <div class="panel-heading">Registrar Docentes</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('admin.store') }}">
+                    <form class="form-horizontal" method="POST" action="{{ route('user.store') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -65,7 +65,7 @@
                                 @endif
                             </div>
                         </div>
-
+{{--
                         <div class="form-group{{ $errors->has('roles') ? ' has-error' : '' }}">
                             <label for="roles" class="col-md-4 control-label">Roles</label>
 
@@ -81,7 +81,7 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
