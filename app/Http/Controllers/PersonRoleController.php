@@ -38,7 +38,7 @@ class PersonRoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //$persona
     }
 
     /**

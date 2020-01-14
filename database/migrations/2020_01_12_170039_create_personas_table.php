@@ -23,7 +23,7 @@ class CreatePersonasTable extends Migration
             $table->text('direccion');
             $table->date('fNacimiento');
             $table->string('email');
-            $table->enum('roles',['representante','estudiante']);
+            $table->enum('roles',['representante','Alumno']);
             $table->string('edad');
             $table->string('sexo');
             $table->timestamps();
