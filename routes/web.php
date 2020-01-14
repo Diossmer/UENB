@@ -32,4 +32,5 @@ Route::prefix('admin')->group(function(){
     Route::get('/logout','Admin\AdminLoginController@logout')->name('admin.logout');
 });
 Route::resource('user', 'Admin\UserController');
-
+//INSCRIPCION
+Route::resource('inscripcion', 'PersonRoleController');

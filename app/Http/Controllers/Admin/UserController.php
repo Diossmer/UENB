@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Admin;
+//AGREGANDO LOS MODELOS PARA RELACIONAR CON TODOS
+use App\AlumnRepre;
 
 class UserController extends Controller
 {
@@ -17,9 +19,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
-        // $docente = User::paginate(5);
-        // return view('admin.home',['admin' => $docente]);
+
+        $alumnoRepre = AlumnRepre::paginate(15);
+        return view('home',compact('alumnoRepre'));
     }
 
     /**

@@ -17,9 +17,6 @@ class PersonRoleController extends Controller
     public function index()
     {
         //
-        $anioEscolar = Persona::paginate(15);
-        $persona=Persona::paginate(15);
-        return view('admin.personas.home', compact('persona'));
     }
 
     /**
@@ -30,6 +27,7 @@ class PersonRoleController extends Controller
     public function create()
     {
         //
+        return view('personas.create');
     }
 
     /**

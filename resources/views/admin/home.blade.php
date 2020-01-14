@@ -48,7 +48,7 @@
                             {!!link_to_route('admin.create', $title = "Nuevo",$admin, ["class" => "btn btn-success"])!!}
                         </h1>
                     </span>
-                    <table class="table table-responsive" border="3">
+                    <table class="table table-responsive-sm" border="3">
                         <thead class="thead-dark">
                         <tr>
                             <th scope="col">Id</th>
@@ -85,7 +85,7 @@
                     <span><h1 class="text-sucess">
                         Docentes
                     </h1></span>
-                        <table class="table table-responsive" border="3">
+                        <table class="table table-responsive-sm" border="3">
                             <thead class="thead-dark">
                             <tr>
                                 <th scope="col">Id</th>

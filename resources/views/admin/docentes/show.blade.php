@@ -41,7 +41,7 @@
                         @endif
                         <div class=" text-justify">
                             {!!link_to('/admin','Volver',["class"=>"btn btn-primary"]) !!}
-                            <table class="table table-hover table-responsive">
+                            <table class="table table-hover table-responsive-sm">
                             <h1>Docente: {{$docente->name}}&nbsp;{{$docente->apellido}}<h1>
                                 <caption class="text-primary tw-3"><b>Alumnos</b></caption>
                                 <thead>
