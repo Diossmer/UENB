@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Admin;
 
 class UserController extends Controller
 {
@@ -43,10 +44,11 @@ class UserController extends Controller
         //
         $docente = new User();
         $docente->name = $request->name;
+        $docente ->apellido = $request->apellido;
         $docente->email = $request->email;
         $docente->password = bcrypt($request->password);
         $docente->save();
-        return redirect("/admin");
+        return redirect("admin");
     }
 
     /**
@@ -58,6 +60,9 @@ class UserController extends Controller
     public function show($id)
     {
         //
+        $admin = Admin::find($id);
+        $docente = User::find($id);
+        return view('admin.docentes.show', compact('docente','admin'));
     }
 
     /**
@@ -69,6 +74,8 @@ class UserController extends Controller
     public function edit($id)
     {
         //
+        $docente = User::find($id);
+        return view('admin.docentes.edit',compact('docente'));
     }
 
     /**
@@ -81,6 +88,13 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $docente = User::findOrFail($id);
+        $docente ->name = $request->name;
+        $docente ->apellido = $request->apellido;
+        $docente ->email = $request->email;
+        $docente ->password = bcrypt($request->password);
+        $docente ->save();
+        return redirect('admin');
     }
 
     /**
@@ -92,5 +106,8 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+        $madre = User::find($id);
+        $madre->delete();
+        return redirect('admin');
     }
 }

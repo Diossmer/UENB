@@ -3,8 +3,7 @@
     <nav id="sidebar">
     <div class="sidebar-header">
     <a href="{{route('admin.dashboard')}}" style="font-size:2em;font-weight:900;text-decoration:none; color:#61ff54;">
-            Dashboard</a>
-            <h5>Parroquía La Vega</h5>
+        Parroquía <br>La Vega</a>
         </div>
         <ul class="list-unstyled components">
             <li class="active">
@@ -13,22 +12,10 @@
                     <li>
                     <a href="{{route('user.create')}}">Docentes</a>
                     </li>
-                    <li>
-                    <a href="{{route('persona.index')}}">Persona</a>
-                    </li>
-                    <li>
-                        <a href="#">Docentes</a>
-                    </li>
-                    <li>
-                        <a href="#">Alumnos</a>
-                    </li>
-                    <li>
-                        <a href="#">Representantes</a>
-                    </li>
                 </ul>
             </li>
             <li>
-                <a href="#">Generar Archivo</a>
+            <a href="">Generar Archivo</a>
             </li>
         </ul>
     </nav>

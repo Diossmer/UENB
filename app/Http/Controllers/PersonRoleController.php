@@ -18,8 +18,8 @@ class PersonRoleController extends Controller
     {
         //
         $anioEscolar = Persona::paginate(15);
-        $Persona=Persona::paginate(15);
-        return view('personas.home', compact('persona'));
+        $persona=Persona::paginate(15);
+        return view('admin.personas.home', compact('persona'));
     }
 
     /**
