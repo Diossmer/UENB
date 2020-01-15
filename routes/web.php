@@ -17,9 +17,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
-
 Route::prefix('admin')->group(function(){
     Route::get('/login', 'Admin\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Admin\AdminLoginController@login')->name('admin.login.submit');
@@ -30,7 +27,13 @@ Route::prefix('admin')->group(function(){
     Route::get('/create','Admin\AdminController@create')->name("admin.create");
     Route::get('/', 'Admin\AdminController@index')->name('admin.dashboard');
     Route::get('/logout','Admin\AdminLoginController@logout')->name('admin.logout');
+    //PDF falta...
 });
 Route::resource('user', 'Admin\UserController');
-//INSCRIPCION
-Route::resource('inscripcion', 'PersonRoleController');
+Route::get('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
+Route::get('/home', 'HomeController@index')->name('home');
+//AQUI EMPIEZA EL USUARIO.....
+Route::resource('inscripcion', 'PersonaController');
+
+
+// ACUERDATE DE CREAR UNA SESSION EN DOCENTE CADA USUARIO...

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePersonRolesTable extends Migration
+class CreatePersonEscolarTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreatePersonRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('person_roles', function (Blueprint $table) {
+        Schema::create('person_escolar', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('persona_id')->unsigned();
-            $table->unsignedBigInteger('anioEscolar_id')->unsigned();
+            $table->unsignedBigInteger('persona_id')->unsigned()->unique();
+            $table->unsignedBigInteger('anioEscolar_id')->unsigned()->unique();
             $table->foreign('persona_id')->references('id')->on('personas')->onDelete('cascade');
             $table->foreign('anioEscolar_id')->references('id')->on('anio_escolars')->onDelete('cascade');
             $table->timestamps();
@@ -30,6 +30,6 @@ class CreatePersonRolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('person_roles');
+        Schema::dropIfExists('person_escolar');
     }
 }

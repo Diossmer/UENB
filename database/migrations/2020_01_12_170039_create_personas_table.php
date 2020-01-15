@@ -19,11 +19,12 @@ class CreatePersonasTable extends Migration
             $table->string('segNombres');
             $table->string('apellidos');
             $table->string('segApellidos');
+            $table->string('cedula');
             $table->string('lgNacimiento');
             $table->text('direccion');
             $table->date('fNacimiento');
             $table->string('email');
-            $table->enum('roles',['representante','Alumno']);
+            $table->enum('roles',['representante','alumno']);
             $table->string('edad');
             $table->string('sexo');
             $table->timestamps();

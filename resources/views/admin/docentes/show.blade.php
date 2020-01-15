@@ -45,15 +45,17 @@
                             <h1>Docente: {{$docente->name}}&nbsp;{{$docente->apellido}}<h1>
                                 <caption class="text-primary tw-3"><b>Alumnos</b></caption>
                                 <thead>
-                                    <th scope="col">nombres</th>
-                                    <th scope="col">segNombres</th>
-                                    <th scope="col">apellidos</th>
-                                    <th scope="col">segApellidos</th>
-                                    <th scope="col">email</th>
-                                    <th scope="col">edad</th>
-                                    <th scope="col">sexo</th>
-                                    <th scope="col">cedula</th>
-                                    <th scope="col">estatus</th>
+                                    <tr>
+                                    <th scope="col">Nombres</th>
+                                    <th scope="col">Seg-Nombres</th>
+                                    <th scope="col">Apellidos</th>
+                                    <th scope="col">Seg-Apellidos</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Edad</th>
+                                    <th scope="col">Sexo</th>
+                                    <th scope="col">Cedula</th>
+                                    <th scope="col">Estatus</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
@@ -65,7 +67,7 @@
                                 </tbody>
                             </table>
                             <div class="text-right">
-                                <span class="text-left text-primary"><b>Director: &nbsp;{{$admin->name}}</b></span>
+                                <span class="text-left text-primary"><b>Director: &nbsp;
                                 <br>
                                 <span class="text-right text-primary"><b>Representante: &nbsp;$representante->name</b></span>
                             </div>

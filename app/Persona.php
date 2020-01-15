@@ -6,21 +6,39 @@ use Illuminate\Database\Eloquent\Model;
 
 class Persona extends Model
 {
-    protected $guard = "persona";
+    protected $guard = "personas";
     protected $table='personas';
     protected $fillable=[
         'nombres','segNombres','apellidos','segApellidos',
-        'lgNacimiento','direccion','fNacimiento','email',
-        'roles','edad','sexo'
+        'cedula','lgNacimiento','direccion','fNacimiento',
+        'email','roles','edad','sexo'
     ];
-    //relacion de uno a muchos con User
+    /*RELACIONES ONE TO MANY INVERSE
+    **Las Personas*/
     public function users()
     {
-        return $this->hasMany('App\User');
+        //que "pertenece a un" Usuario.
+        return $this->belongsTo('App\User');
     }
-
-    // relacion de uno a muchos con PersonaRole
-    public function person_roles() {
-        return $this->hasMany('App\PersonaRole');
+    /*RELACIONES MANY TO MANY
+    **Las Personas*/
+    public function representantes()
+    {
+        //esto "pertenece a muchos" Representante.
+        return $this->belongsToMany('App\Representante');
+    }
+    /*RELACIONES MANY TO MANY
+    **Las Personas*/
+    public function alumnos()
+    {
+        //esto "pertenece a muchos" Alumno.
+        return $this->belongsToMany('App\Alumno');
+    }
+    /*RELACIONES MANY TO ONE
+    **Las Personas*/
+    public function anio_escolars()
+    {
+        //esto "pertenece a un" Año_Escolar.
+        return $this->belongsTo('App\AnioEscolar');
     }
 }

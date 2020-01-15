@@ -5,10 +5,9 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
-use App\User;
 use App\Admin;
-//AGREGANDO LOS MODELOS PARA RELACIONAR CON TODOS
-use App\AlumnRepre;
+use App\User;
+use App\PersonEscolar;
 
 class UserController extends Controller
 {
@@ -19,9 +18,8 @@ class UserController extends Controller
      */
     public function index()
     {
-
-        $alumnoRepre = AlumnRepre::paginate(15);
-        return view('home',compact('alumnoRepre'));
+        //
+        return view('home');
     }
 
     /**

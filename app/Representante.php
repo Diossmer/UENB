@@ -10,9 +10,11 @@ class Representante extends Model
     protected $fillable=[
         'Trabajo','gradoInstruccion','ProfOcupacion','lgTrabajo','Telefonos'
     ];
-    //relacion de uno a muchos con AlumnRepre
-    public function alumn_repres()
+    /*RELACIONES MANY TO MANY INVERSE
+    **Los Represetantes*/
+    public function personas()
     {
-        return $this->hasMany('App\AlumnRepre');
+        //esto "pertenece a muchos" Persona.
+        return $this->belongsToMany('App\Persona');
     }
 }

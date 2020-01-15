@@ -10,9 +10,11 @@ class Alumno extends Model
     protected $fillable=[
         'camisas','pantalon','zapatos','enfemPadecida','enfemPsicologica'
     ];
-    //relacion de uno a uno con AlumnRepre
-    public function alumn_repres()
+    /*RELACIONES MANY TO MANY INVERSE
+    **Los Alumnos*/
+    public function personas()
     {
-        return $this->hasOne('App\AlumnRepre');
+        //esto "pertenece a muchas" Persona.
+        return $this->belongsToMany('App\Persona');
     }
 }

@@ -70,6 +70,20 @@
                         {!! Form::radio('sexo', 'Masculino')!!}
                         {!! Form::label("sexo", "Femenino", ["class"=>"text-primary"]) !!}
                         {!! Form::radio('sexo', 'Femenino')!!} <br>
+
+                        {!! Form::label("cedula", "Cedula", ["class"=>"label label-primary"]) !!}
+                        {!! Form::text("cedula", false?true:false, ["class"=>"form-control"]) !!}
+                        {!! Form::label("fechaIngreso", "Fecha de Ingreso", ["class"=>"label label-primary"]) !!}
+                        {!! Form::date("fechaIngreso", false?true:false, ["class"=>"form-control"]) !!}
+                        {!! Form::label("fechaEngreso", "Fecha de Egreso", ["class"=>"label label-primary"]) !!}
+                        {!! Form::date("fechaEngreso", false?true:false, ["class"=>"form-control"]) !!}
+                        {!! Form::label("grado", "Grado", ["class"=>"label label-primary"]) !!}
+                        {!! Form::text("grado", false?true:false, ["class"=>"form-control"]) !!}
+                        {!! Form::label("seccion", "Seccion", ["class"=>"label label-primary"]) !!}
+                        {!! Form::text("seccion", false?true:false, ["class"=>"form-control"]) !!}
+                        {!! Form::label("estatus", "Estatus", ["class"=>"label label-primary"]) !!}
+                        {!! Form::text("estatus", false?true:false, ["class"=>"form-control"]) !!}
+
                         {!! Form::submit("Registrar", ["class"=>"btn btn-primary"]) !!}
                         {!!link_to_route('user.index','Regresar',"",['class'=>'btn btn-success'])!!}
                         {!! Form::close() !!}

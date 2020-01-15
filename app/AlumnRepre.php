@@ -10,9 +10,5 @@ class AlumnRepre extends Model
     protected $fillable=[
         'representante_id','alumno_id'
     ];
-    //relacion de uno a uno con Representante
-    public function alumn_repres()
-    {
-        return $this->hasOne('App\Representante');
-    }
+
 }

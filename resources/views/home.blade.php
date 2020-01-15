@@ -32,7 +32,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Docentes</div>
+                <div class="panel-heading">Date</div>
 
                 <div class="panel-body">
                     @if (session('status'))
@@ -40,9 +40,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <div class="table-responsive-sm">
-HOME
-                    </div>
+
                 </div>
             </div>
         </div>

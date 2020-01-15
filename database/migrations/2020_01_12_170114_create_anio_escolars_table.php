@@ -15,11 +15,10 @@ class CreateAnioEscolarsTable extends Migration
     {
         Schema::create('anio_escolars', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('cedula');
-            $table->date('fechaIngreso');
-            $table->date('fechaEngreso');
             $table->string('grado');
             $table->string('seccion');
+            $table->date('fechaIngreso');
+            $table->date('fechaEngreso');
             $table->string('estatus');
             $table->timestamps();
         });

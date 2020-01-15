@@ -10,9 +10,11 @@ class AnioEscolar extends Model
     protected $fillable=[
         'cedula','fechaIngreso','fechaEngreso','grado','seccion','estatus'
     ];
-    //relacion de uno a muchos con PersonaRole
-    public function personroles()
+    /*RELACIONES MANY TO ONE INVERSE
+    **Las Personas*/
+    public function anio_escolars()
     {
-        return $this->hasMany('App\PersonaRole');
+        //esto "pertenece a un" Año_Escolar.
+        return $this->belongsTo('App\AnioEscolar');
     }
 }
