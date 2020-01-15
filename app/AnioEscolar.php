@@ -18,7 +18,7 @@ class AnioEscolar extends Model
         return $this->belongsTo('App\Personas');
     }
     /*RELACIONES MANY TO MANY INVERSE
-    **El anio_escolars*/
+    **El Año_Escolar*/
     public function person_escolar()
     {
         //esto "pertenece a muchos" PersonEscolar.

@@ -17,4 +17,11 @@ class Alumno extends Model
         //esto "pertenece a muchas" Persona.
         return $this->belongsToMany('App\Persona');
     }
+    /*RELACIONES MANY TO MANY INVERSE
+    **Los alumnos*/
+    public function alumn_repres()
+    {
+        //esto "pertenece a muchos" AlumnRepre.
+        return $this->belongsToMany('App\AlumnRepre');
+    }
 }
