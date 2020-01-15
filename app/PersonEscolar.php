@@ -10,5 +10,25 @@ class PersonRole extends Model
     protected $fillable=[
         'persona_id','anioEscolar_id'
     ];
-
+    /*RELACIONES MANY TO MANY
+    **Las person_escolar*/
+    public function personas()
+    {
+        //esto "pertenece a muchos" Persona.
+        return $this->belongsToMany('App\Persona');
+    }
+    /*RELACIONES MANY TO MANY
+    **Las person_escolar*/
+    public function users()
+    {
+        //esto "pertenece a muchos" User.
+        return $this->belongsToMany('App\User');
+    }
+    /*RELACIONES MANY TO MANY INVERSE
+    **Las person_escolar*/
+    public function anio_escolars()
+    {
+        //esto "pertenece a muchos" AnioEscolar.
+        return $this->belongsToMany('App\AnioEscolar');
+    }
 }

@@ -11,10 +11,17 @@ class AnioEscolar extends Model
         'cedula','fechaIngreso','fechaEngreso','grado','seccion','estatus'
     ];
     /*RELACIONES MANY TO ONE INVERSE
-    **Las Personas*/
-    public function anio_escolars()
+    **El Año_Escolar*/
+    public function personas()
     {
-        //esto "pertenece a un" Año_Escolar.
-        return $this->belongsTo('App\AnioEscolar');
+        //esto "pertenece a un" Persona.
+        return $this->belongsTo('App\Personas');
+    }
+    /*RELACIONES MANY TO MANY INVERSE
+    **El anio_escolars*/
+    public function person_escolar()
+    {
+        //esto "pertenece a muchos" PersonEscolar.
+        return $this->belongsToMany('App\PersonEscolar');
     }
 }

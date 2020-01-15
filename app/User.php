@@ -50,4 +50,18 @@ class User extends Authenticatable
         //que "tiene mucha" Persona.
         return $this->hasMany('App\Persona');
     }
+    /*RELACIONES MANY TO MANY INVERSE
+    **Los Usuarios*/
+    public function person_escolar()
+    {
+        //esto "pertenece a muchos" PersonEscolar.
+        return $this->belongsToMany('App\PersonEscolar');
+    }
+    /*RELACIONES MANY TO MANY
+    **Los Usuarios*/
+    public function alumn_repres()
+    {
+        //esto "pertenece a muchos" AlumnRepre.
+        return $this->belongsToMany('App\AlumnRepre');
+    }
 }
