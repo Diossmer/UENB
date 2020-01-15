@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Persona;
 use App\User;
+use App\Persona;
+use App\AnioEscolar;
 use App\Representante;
 use App\Alumno;
-use App\AnioEscolar;
 
 class PersonaController extends Controller
 {

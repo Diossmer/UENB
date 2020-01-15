@@ -15,13 +15,13 @@ class CreateAnioEscolarsTable extends Migration
     {
         Schema::create('anio_escolars', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger("persona_id");
+            $table->unsignedBigInteger('persona_id');
             $table->string('grado');
             $table->string('seccion');
             $table->date('fechaIngreso');
             $table->date('fechaEngreso');
             $table->string('estatus');
-            $table->foreign("persona_id")->references("personas")->on("id")->onDelete("cascade");
+            $table->foreign('persona_id')->references('personas')->on('id')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -1,16 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
-
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use App\Http\Controllers\Controller;
-use App\Admin;
-use App\User;
-use App\Persona;
+namespace App\Http\Controllers;
 use App\Alumno;
+use App\Persona;
+use App\Representante;
+use Illuminate\Http\Request;
 
-class UserController extends Controller
+class AlumnoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -30,7 +26,6 @@ class UserController extends Controller
     public function create()
     {
         //
-        return view('admin.docentes.create');
     }
 
     /**
@@ -42,13 +37,6 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
-        $docente = new User();
-        $docente->name = $request->name;
-        $docente ->apellido = $request->apellido;
-        $docente->email = $request->email;
-        $docente->password = bcrypt($request->password);
-        $docente->save();
-        return redirect("admin");
     }
 
     /**
@@ -60,12 +48,6 @@ class UserController extends Controller
     public function show($id)
     {
         //
-        $admin = Admin::find($id);
-        $docente = User::find($id);
-        $persona = Persona::find($id);
-        $personEscolar = PersonEscolar::find($id);
-        $alumnRepre = AlumnRepre::find($id);
-        return view('admin.docentes.show', compact('docente','admin','persona','personEscolar','alumnRepre'));
     }
 
     /**
@@ -77,8 +59,6 @@ class UserController extends Controller
     public function edit($id)
     {
         //
-        $docente = User::find($id);
-        return view('admin.docentes.edit',compact('docente'));
     }
 
     /**
@@ -91,13 +71,6 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $docente = User::findOrFail($id);
-        $docente ->name = $request->name;
-        $docente ->apellido = $request->apellido;
-        $docente ->email = $request->email;
-        $docente ->password = bcrypt($request->password);
-        $docente ->save();
-        return redirect('admin');
     }
 
     /**
@@ -109,8 +82,5 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
-        $madre = User::find($id);
-        $madre->delete();
-        return redirect('admin');
     }
 }

@@ -1,14 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-use App\User;
 use App\Representante;
+use App\Persona;
 use App\Alumno;
-use App\AlumnRepre;
+use Illuminate\Http\Request;
 
-class AlumnRepreController extends Controller
+class RepresentanteController extends Controller
 {
     /**
      * Display a listing of the resource.
