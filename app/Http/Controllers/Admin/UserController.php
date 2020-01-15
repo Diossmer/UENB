@@ -10,6 +10,7 @@ use App\User;
 use App\Persona;
 use App\PersonEscolar;
 use App\AlumnRepre;
+use App\PersonRole;
 
 class UserController extends Controller
 {
@@ -21,10 +22,6 @@ class UserController extends Controller
     public function index()
     {
         //
-        $persona = Persona::paginate(15);
-        $personEscolar = PersonEscolar::paginate(15);
-        $alumnRepre = AlumnRepre::paginate(15);
-        return view('home',compact("persona","personEscolar","alumnRepre"));
     }
 
     /**
@@ -67,7 +64,10 @@ class UserController extends Controller
         //
         $admin = Admin::find($id);
         $docente = User::find($id);
-        return view('admin.docentes.show', compact('docente','admin'));
+        $persona = Persona::findOrFail($id);
+        $personEscolar = PersonEscolar::findOrFail($id);
+        $alumnRepre = AlumnRepre::findOrFail($id);
+        return view('admin.docentes.show', compact('docente','admin','persona','personEscolar','alumnRepre'));
     }
 
     /**

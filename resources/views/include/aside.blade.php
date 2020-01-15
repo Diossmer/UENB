@@ -7,7 +7,7 @@
         </div>
         <ul class="list-unstyled components">
             <li>
-            <a href="">Inscripción</a>
+            <a href="{{route('inscripcion.create')}}">Inscripción</a>
             </li>
             <li class="active">
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
