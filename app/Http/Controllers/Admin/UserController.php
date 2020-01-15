@@ -7,7 +7,9 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use App\Admin;
 use App\User;
+use App\Persona;
 use App\PersonEscolar;
+use App\AlumnRepre;
 
 class UserController extends Controller
 {
@@ -19,7 +21,10 @@ class UserController extends Controller
     public function index()
     {
         //
-        return view('home');
+        $persona = Persona::paginate(15);
+        $personEscolar = PersonEscolar::paginate(15);
+        $alumnRepre = AlumnRepre::paginate(15);
+        return view('home',compact("persona","personEscolar","alumnRepre"));
     }
 
     /**

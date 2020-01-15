@@ -2,12 +2,12 @@
     <!-- Sidebar -->
     <nav id="sidebar">
     <div class="sidebar-header">
-    <a href="{{route('user.index')}}" style="font-size:2em;font-weight:900;text-decoration:none; color:#61ff54;">
+    <a href="" style="font-size:2em;font-weight:900;text-decoration:none; color:#61ff54;">
         Parroquía <br>La Vega</a>
         </div>
         <ul class="list-unstyled components">
             <li>
-            <a href="{{route('inscripcion.create')}}">Inscripción</a>
+            <a href="">Inscripción</a>
             </li>
             <li class="active">
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
