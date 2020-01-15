@@ -15,14 +15,14 @@ class Representante extends Model
     public function personas()
     {
         //esto "pertenece a muchos" Persona.
-        return $this->belongsToMany('App\Persona');
+        return $this->belongsToMany('App\Persona','persona_id');
     }
     /*RELACIONES MANY TO MANY INVERSE
     **Los Alumnos*/
     public function alumnos()
     {
         //esto "pertenece a muchos" Alumno.
-        return $this->belongsToMany('App\Alumno');
+        return $this->belongsToMany('App\Alumno', 'persona_id');
     }
     /*RELACIONES MANY TO MANY INVERSE
     **Los Represetantes

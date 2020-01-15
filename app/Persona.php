@@ -35,7 +35,7 @@ class Persona extends Model
     }
     /*RELACIONES MANY TO ONE
     **Las Personas*/
-    public function anio_escolars()
+    public function anioEscolar()
     {
         //esto "pertenece a un" Año_Escolar.
         return $this->belongsTo('App\AnioEscolar');

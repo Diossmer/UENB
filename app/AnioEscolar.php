@@ -6,16 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class AnioEscolar extends Model
 {
-    protected $table='anio_escolars';
+    protected $table='anioEscolar';
     protected $fillable=[
-        'persona_id', 'fechaIngreso','fechaEngreso','grado','seccion','estatus'
+        'personas_id', 'fechaIngreso','fechaEngreso','grado','seccion','estatus'
     ];
     /*RELACIONES MANY TO ONE INVERSE
     **El Año_Escolar*/
     public function personas()
     {
         //esto "pertenece a un" Persona.
-        return $this->belongsTo('App\Personas');
+        return $this->belongsTo('App\Personas','personas_id');
     }
     /*RELACIONES MANY TO MANY INVERSE
     **El Año_Escolar

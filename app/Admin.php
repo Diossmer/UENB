@@ -39,10 +39,10 @@ class Admin extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     /*RELACIONES ONE TO ONE
-    **Los Administradores*/
+    **Los Administradores
     public function users()
     {
         //que "tiene un" Usuario.
         return $this->hasOne('App\User');
-    }
+    }*/
 }

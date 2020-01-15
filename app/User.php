@@ -37,12 +37,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     /*RELACIONES ONE TO ONE INVERSE
-    **Los Usuarios*/
+    **Los Usuarios
     public function admins()
     {
         //que "pertenece a un" Admin.
         return $this->belongsTo('App\Admin');
-    }
+    }*/
     /*RELACIONES ONE TO MANY
     **Los Usuarios*/
     public function personas()
