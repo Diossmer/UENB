@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Representante;
 use App\Alumno;
+use App\AlumnRepre;
 
 class AlumnRepreController extends Controller
 {

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Persona;
 use App\User;
 use App\AnioEscolar;
+use App\PersonEscolar;
 
 class PersonEscolarController extends Controller
 {

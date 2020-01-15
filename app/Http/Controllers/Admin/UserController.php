@@ -10,7 +10,6 @@ use App\User;
 use App\Persona;
 use App\PersonEscolar;
 use App\AlumnRepre;
-use App\PersonRole;
 
 class UserController extends Controller
 {

@@ -8,7 +8,7 @@ class Representante extends Model
 {
     protected $table='representantes';
     protected $fillable=[
-        'Trabajo','gradoInstruccion','ProfOcupacion','lgTrabajo','Telefonos'
+        'trabajo','gradoInstruccion','profOcupacion','lgTrabajo','telefonos'
     ];
     /*RELACIONES MANY TO MANY INVERSE
     **Los Represetantes*/

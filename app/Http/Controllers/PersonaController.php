@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Persona;
 use App\User;
 use App\Representante;
 use App\Alumno;
@@ -18,6 +19,11 @@ class PersonaController extends Controller
     public function index()
     {
         //
+        $persona = Persona::paginate(15);
+        $anioEscolar = AnioEscolar::paginate(15);
+        $representante = Representante::paginate(15);
+        $alumno = Alumno::paginate(15);
+        return view("home",compact('persona','representante','alumno','anioEscolar'));
     }
 
     /**
@@ -28,6 +34,7 @@ class PersonaController extends Controller
     public function create()
     {
         //
+        return view('personas.create');
     }
 
     /**
@@ -39,6 +46,45 @@ class PersonaController extends Controller
     public function store(Request $request)
     {
         //
+        $persona = new Persona();
+        $persona->nombres = $request->nombres;
+        $persona->segNombres = $request->segNombres;
+        $persona->apellidos = $request->apellidos;
+        $persona->segApellidos = $request->segApellidos;
+        $persona->cedula = $request->cedula;
+        $persona->lgNacimiento = $request->lgNacimiento;
+        $persona->direccion = $request->direccion;
+        $persona->fNacimiento = $request->fNacimiento;
+        $persona->email = $request->email;
+        $persona->roles = $request->roles;
+        $persona->edad = $request->edad;
+        $persona->sexo = $request->sexo;
+        $persona->save();
+        $anioEscolar = new AnioEscolar();
+        $anioEscolar->grado = $request->grado;
+        $anioEscolar->seccion = $request->seccion;
+        $anioEscolar->fechaIngreso = $request->fechaIngreso;
+        $anioEscolar->fechaEngreso = $request->fechaEngreso;
+        $anioEscolar->estatus = $request->estatus;
+        $anioEscolar->save();
+        $representante=new Representante();
+        $representante->trabajo = $request-> trabajo;
+        $representante->gradoInstruccion = $request-> gradoInstruccion;
+        $representante->profOcupacion = $request-> profOcupacion;
+        $representante->lgTrabajo = $request-> lgTrabajo;
+        $representante->telefonos = $request-> telefonos;
+        $representante->save();
+        $alumno = new Alumno();
+        $alumno->camisas = $request->camisas;
+        $alumno->pantalon = $request->pantalon;
+        $alumno->zapatos = $request->zapatos;
+        $alumno->enfemPadecida = $request->enfemPadecida;
+        $alumno->enfemPsicologica = $request->enfemPsicologica;
+        $alumno->save();
+        if(isset($persona)|| isset($anioEscolar) || isset($representante) || isset($alumno)){
+            $this->save();
+        }
+        return redirect('home');
     }
 
     /**
@@ -61,6 +107,11 @@ class PersonaController extends Controller
     public function edit($id)
     {
         //
+        $persona = Persona::findOrFail($id);
+        $anioEscolar = AnioEscolar::findOrFail($id);
+        $representante = Representante::findOrFail($id);
+        $alumno = Alumno::findOrFail($id);
+        return view('personas.edit',compact('persona','representante','alumno','anioEscolar'));
     }
 
     /**

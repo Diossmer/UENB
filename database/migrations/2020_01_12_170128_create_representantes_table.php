@@ -15,11 +15,11 @@ class CreateRepresentantesTable extends Migration
     {
         Schema::create('representantes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('Trabajo');
+            $table->string('trabajo');
             $table->string('gradoInstruccion');
-            $table->string('ProfOcupacion');
+            $table->string('profOcupacion');
             $table->text('lgTrabajo');
-            $table->string('Telefonos');
+            $table->string('telefonos');
             $table->timestamps();
         });
     }

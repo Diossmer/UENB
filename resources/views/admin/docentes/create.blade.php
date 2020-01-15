@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Registro')
+@section('title','Registrar')
 @section('css')
 @parent
 {{-- link de css --}}
