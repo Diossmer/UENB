@@ -37,6 +37,14 @@ class RepresentanteController extends Controller
     public function store(Request $request)
     {
         //
+
+        $representante=new Representante();
+        $representante->trabajo = $request-> trabajo;
+        $representante->gradoInstruccion = $request-> gradoInstruccion;
+        $representante->profOcupacion = $request-> profOcupacion;
+        $representante->lgTrabajo = $request-> lgTrabajo;
+        $representante->telefonos = $request-> telefonos;
+        $representante->save();
     }
 
     /**

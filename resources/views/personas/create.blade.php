@@ -41,7 +41,12 @@
                         </div>
                     @endif
                     <div class="table-responsive-sm">
-    {!! Form::open(["route"=>["inscripcion.store"],"method"=>"POST", "autocomplete"=>"on"]) !!}
+    @if(session()->has('person'))
+                    <div class="alert alert-info" role="alert">{{session('person')}}</div>
+    @endif
+    {!! Form::open(["route"=>["inscripcion.store"],"method"=>"POST", "autocomplete"=>"on","enctype"=>"multipart/form-data"]) !!}
+    {!! Form::token()!!}
+    {!! Form::file('fotos', ["class"=>"text-primary","multiple"]) !!}
     {!! Form::label("nombres", "Nombres", ["class"=>"label label-success"]) !!}
     {!! Form::text("nombres", old("nombres"), ["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Nombre"]) !!}
 
@@ -80,30 +85,46 @@
 
     {!! Form::label("roles", "Roles", ["class"=>"label label-success"]) !!}
     {!!Form::select('roles'/*,foreach,[$persona->name]*/,['placeholder'=>'Selecciona Un Rol','representante' => 'Representante','alumno' => 'Alumno'],old('roles'),["class"=>"form-control"]) !!}
+    <br>
+    {!! Form::submit("Registrar", ["class"=>"btn btn-primary"]) !!}
+    {!!link_to_route('inscripcion.index','Regresar',"",['class'=>'btn btn-success'])!!}
+    {!! Form::close() !!}
 
-    <span><h2 class="text-success">Año escolar</h2></span> <br>
+    <div class="Mostrar text-info">
+        Mostrar Formulario de <b>REPRESENTANTE</b>, <b>ALUMNOS</b> y <b>AÑO ESCOLAR</b>
+    {!!Form::select('formularios'/*,foreach,[$persona->name]*/,['placeholder'=>'Formularios','anioescolar' => 'Año Escolar','representante' => 'Representante','alumno' => 'Alumno'],old('roles'),["class"=>"form-control formularios"]) !!}
+    </div>
 
-    {!! Form::label("users_id", "Persona", ["class"=>"label label-primary"]) !!}
-    {!!Form::select('users_id',$persona,null,["class"=>"form-control"],['placeholder'=>'Selecciona Una opcion']) !!}
+    <div class="anioescolar">
+        {!! Form::open(["route"=>["anioescolar.store"],"method"=>"POST", "autocomplete"=>"on","enctype"=>"multipart/form-data"]) !!}
+        <span><h2 class="text-success">Año escolar</h2></span> <br>
+        {!! Form::token()!!}
+        {!! Form::label("users_id", "Persona", ["class"=>"label label-primary"]) !!}
+        {!!Form::select('users_id',$persona,null,["class"=>"form-control"],['placeholder'=>'Selecciona Una opcion']) !!}
 
-    {!! Form::label("fechaIngreso", "Fecha de Ingreso", ["class"=>"label label-primary"]) !!}
-    {!! Form::date("fechaIngreso", old('fechaIngreso'), ["class"=>"form-control"]) !!}
+        {!! Form::label("fechaIngreso", "Fecha de Ingreso", ["class"=>"label label-primary"]) !!}
+        {!! Form::date("fechaIngreso", old('fechaIngreso'), ["class"=>"form-control"]) !!}
 
-    {!! Form::label("fechaEngreso", "Fecha de Egreso", ["class"=>"label label-primary"]) !!}
-    {!! Form::date("fechaEngreso", old('fechaEngreso'), ["class"=>"form-control"]) !!}
+        {!! Form::label("fechaEngreso", "Fecha de Egreso", ["class"=>"label label-primary"]) !!}
+        {!! Form::date("fechaEngreso", old('fechaEngreso'), ["class"=>"form-control"]) !!}
 
-    {!! Form::label("grado", "Grado", ["class"=>"label label-primary"]) !!}
-    {!! Form::text("grado", old('grado'), ["class"=>"form-control", "placeholder"=>"Grado"]) !!}
+        {!! Form::label("grado", "Grado", ["class"=>"label label-primary"]) !!}
+        {!! Form::text("grado", old('grado'), ["class"=>"form-control", "placeholder"=>"Grado"]) !!}
 
-    {!! Form::label("seccion", "Seccion", ["class"=>"label label-primary"]) !!}
-    {!! Form::text("seccion", old('seccion'), ["class"=>"form-control","placeholder"=>"Seccion"]) !!}
+        {!! Form::label("seccion", "Seccion", ["class"=>"label label-primary"]) !!}
+        {!! Form::text("seccion", old('seccion'), ["class"=>"form-control","placeholder"=>"Seccion"]) !!}
 
-    {!! Form::label("estatus", "Estatus", ["class"=>"label label-primary"]) !!}
-    {!! Form::text("estatus", old('estatus'), ["class"=>"form-control", "placeholder"=>"Estatus"]) !!}
+        {!! Form::label("estatus", "Estatus", ["class"=>"label label-primary"]) !!}
+        {!! Form::text("estatus", old('estatus'), ["class"=>"form-control", "placeholder"=>"Estatus"]) !!}
 
+        {!! Form::submit("Registrar", ["class"=>"btn btn-primary"]) !!}
+        {!!link_to_route('inscripcion.index','Regresar',"",['class'=>'btn btn-success'])!!}
+        {!! Form::close() !!}
+    </div>
     <div class="representante">
-
+        {!! Form::open(["route"=>["representante.store"],"method"=>"POST", "autocomplete"=>"on","enctype"=>"multipart/form-data"]) !!}
         <span><h2 class="text-success">Representante</h2></span> <br>
+        {!! Form::token()!!}
         {!! Form::label("trabajo", "Trabajo", ["class"=>"label label-warning"]) !!}
         {!! Form::text("trabajo", old('trabajo'), ["class"=>"form-control", "placeholder"=>"Trabajo"]) !!}
 
@@ -118,9 +139,15 @@
 
         {!! Form::label("telefonos", "Telefonos", ["class"=>"label label-warning"]) !!}
         {!! Form::text("telefonos", old('telefonos'), ["class"=>"form-control", "placeholder"=>"telefonos"]) !!}
+
+        {!! Form::submit("Registrar", ["class"=>"btn btn-primary"]) !!}
+        {!!link_to_route('inscripcion.index','Regresar',"",['class'=>'btn btn-success'])!!}
+        {!! Form::close() !!}
     </div>
     <div class="alumno">
+        {!! Form::open(["route"=>["alumno.store"],"method"=>"POST", "autocomplete"=>"on","enctype"=>"multipart/form-data"]) !!}
         <span><h2 class="text-success">Alumno</h2></span> <br>
+        {!! Form::token()!!}
         {!! Form::label("camisas", "Camisa", ["class"=>"label label-info"]) !!}
         {!! Form::text("camisas", old('camisas'), ["class"=>"form-control", "placeholder"=>"Camisa"]) !!}
 
@@ -135,12 +162,11 @@
 
         {!! Form::label("enfemPsicologica", "Enfermedades Psicologíca", ["class"=>"label label-danger"]) !!}
         {!! Form::text("enfemPsicologica", old('enfemPsicologica'), ["class"=>"form-control", "placeholder"=>"Enfermedades Psicologíca"]) !!}
-    </div>
-    <br>
-    {!! Form::submit("Registrar", ["class"=>"btn btn-primary"]) !!}
-    {!!link_to_route('user.index','Regresar',"",['class'=>'btn btn-success'])!!}
-    {!! Form::close() !!}
 
+        {!! Form::submit("Registrar", ["class"=>"btn btn-primary"]) !!}
+        {!!link_to_route('inscripcion.index','Regresar',"",['class'=>'btn btn-success'])!!}
+        {!! Form::close() !!}
+    </div>
                     </div>
                 </div>
             </div>

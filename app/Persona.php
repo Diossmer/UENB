@@ -9,7 +9,7 @@ class Persona extends Model
     protected $table='personas';
     protected $fillable=[
         'nombres','segNombres','apellidos','segApellidos',
-        'cedula','lgNacimiento','direccion','fNacimiento',
+        'cedula','lgNacimiento','direccion','fotos','fNacimiento',
         'email','roles','edad','sexo',
     ];
     /*RELACIONES ONE TO MANY INVERSE

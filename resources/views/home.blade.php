@@ -36,28 +36,10 @@
 
                 <div class="panel-body">
                     @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <span><h1 class="text-sucess">Registro</h1></span>
-                    <table class="table" border="3">
-                        <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Apellido</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Cedula</th>
-                            <th scope="col">Roles</th>
-                            <th scope="col">Telefono</th>
-                            <th scope="col">Status</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            Aqui va personEscuela
-                        </tbody>
-
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                @endif
             </div>
         </div>
     </div>

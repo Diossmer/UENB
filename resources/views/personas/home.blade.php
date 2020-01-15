@@ -30,7 +30,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-9 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Docentes</div>
 
@@ -40,20 +40,15 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <div class="card-header">
-                        <span>Mostrar las personas agregadas</span>
-                        {!! Form::open(["route"=>["inscripcion.uniontabla"],"method"=>"POST"]) !!}
-                        {!! Form::label("Buscar", "Buscar", ["class"=>"label label-primary"]) !!}
-                        {!! Form::select("personas_id", $persona,null,['placeholder'=>'Select Option'], ["class"=>"form-control"]) !!}
-                        {!! Form::select("anioEscolar_id",$anioEscolar,null,['placeholder'=>'Select Option'], ["class"=>"form-control"]) !!}
-                        {!! Form::submit("Guardar", ["class"=>"btn btn-danger"]) !!}
-                        {!! Form::close() !!}
-                    </div>
-                    <table class="table-responsive-sm">
-                        <caption>Inscripción</caption>
+
+                    <table class="table table-responsive-sm table-bordered">
+                        <caption class="table text-center">Inscripción
+                            {!!link_to_route('inscripcion.create', $title = "Registrarse",null, ["class" => "btn btn-success"])!!}
+                        </caption>
                         <thead>
                             <tr>
-                            <th scope="col">Mostrar</th>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">Nombres</th>
                             <th scope="col">segNombres</th>
                             <th scope="col">apellidos</th>
                             <th scope="col">segApellidos</th>
@@ -61,11 +56,29 @@
                             <th scope="col">edad</th>
                             <th scope="col">sexo</th>
                             <th scope="col">cedula</th>
-                            <th scope="col">estatus</th>
+                            <th scope="col">accion</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($persona as $personas)
+                                <tr>
+                                    <td>
+                                        <img src="images/{{$personas->fotos}}" alt="" sizes="" srcset="" height="100" width="100">
+                                    </td>
+                                <td>{{$personas->nombres}}</td>
+                                <td>{{$personas->segNombres}}</td>
+                                <td>{{$personas->apellidos}}</td>
+                                <td>{{$personas->segApellidos}}</td>
+                                <td>{{$personas->roles}}</td>
+                                <td>{{$personas->edad}}</td>
+                                <td>{{$personas->sexo}}</td>
+                                <td>{{$personas->cedula}}</td>
 
+                                <td>
+                                        {!!link_to_route('inscripcion.edit', $title = "Editar",$personas->id, ["class" => "btn btn-success"])!!}
+                                </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

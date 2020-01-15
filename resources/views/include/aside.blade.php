@@ -11,10 +11,7 @@
                     Registros</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li>
-                    <a href="{{route('inscripcion.create')}}">Inscripción</a>
-                    </li>
-                    <li>
-                        <a href="#">Representante</a>
+                    <a href="{{route('inscripcion.index')}}">Inscripción</a>
                     </li>
                 </ul>
             </li>

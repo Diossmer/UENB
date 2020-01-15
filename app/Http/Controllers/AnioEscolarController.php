@@ -37,6 +37,14 @@ class AnioEscolarController extends Controller
     public function store(Request $request)
     {
         //
+        $anioEscolar = new AnioEscolar();
+        $anioEscolar->users_id=$request->users_id;
+        $anioEscolar->grado = $request->grado;
+        $anioEscolar->seccion = $request->seccion;
+        $anioEscolar->fechaIngreso = $request->fechaIngreso;
+        $anioEscolar->fechaEngreso = $request->fechaEngreso;
+        $anioEscolar->estatus = $request->estatus;
+        $anioEscolar->save();
     }
 
     /**

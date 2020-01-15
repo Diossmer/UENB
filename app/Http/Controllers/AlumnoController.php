@@ -37,6 +37,13 @@ class AlumnoController extends Controller
     public function store(Request $request)
     {
         //
+        $alumno = new Alumno();
+        $alumno->camisas = $request->camisas;
+        $alumno->pantalon = $request->pantalon;
+        $alumno->zapatos = $request->zapatos;
+        $alumno->enfemPadecida = $request->enfemPadecida;
+        $alumno->enfemPsicologica = $request->enfemPsicologica;
+        $alumno->save();
     }
 
     /**

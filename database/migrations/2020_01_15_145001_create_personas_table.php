@@ -26,6 +26,7 @@ class CreatePersonasTable extends Migration
             $table->string('email');
             $table->string('edad');
             $table->string('sexo');
+            $table->string('fotos');
             $table->enum('roles',['representante','alumno']);
             $table->timestamps();
         });

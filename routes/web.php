@@ -34,6 +34,7 @@ Route::get('/users/logout', 'Auth\LoginController@userLogout')->name('user.logou
 Route::get('/home', 'HomeController@index')->name('home');
 //AQUI EMPIEZA EL USUARIO.....
 Route::resource('inscripcion', 'PersonaController');
-
-
+Route::resource('anioescolar', 'AnioEscolarController');
+Route::resource('representante', 'RepresentanteController');
+Route::resource('alumno', 'AlumnoController');
 // ACUERDATE DE CREAR UNA SESSION EN DOCENTE CADA USUARIO...
