@@ -8,7 +8,7 @@ class Representante extends Model
 {
     protected $table='representantes';
     protected $fillable=[
-        'trabajo','gradoInstruccion','profOcupacion','lgTrabajo','telefonos'
+        'persona_id', 'trabajo','gradoInstruccion','profOcupacion','lgTrabajo','telefonos'
     ];
     /*RELACIONES MANY TO MANY INVERSE
     **Los Represetantes*/
@@ -18,10 +18,17 @@ class Representante extends Model
         return $this->belongsToMany('App\Persona');
     }
     /*RELACIONES MANY TO MANY INVERSE
-    **Los Represetantes*/
-    public function alumn_repres()
+    **Los Alumnos*/
+    public function alumnos()
     {
+        //esto "pertenece a muchos" Alumno.
+        return $this->belongsToMany('App\Alumno');
+    }
+    /*RELACIONES MANY TO MANY INVERSE
+    **Los Represetantes
+    public function alumn_repres()
+    //{
         //esto "pertenece a muchos" AlumnRepre.
         return $this->belongsToMany('App\AlumnRepre');
-    }
+    }*/
 }

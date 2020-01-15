@@ -58,12 +58,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="active">ALUMNOS->name</td>
-                                        <td class="succes">NOMBRES</td>
-                                        <td class="danger">Apellido</td>
-                                        <td class="warning">BLA BLA</td>
-                                    </tr>
+
+
                                 </tbody>
                             </table>
                             <div class="text-right">
