@@ -15,13 +15,13 @@ class CreateRepresentantesTable extends Migration
     {
         Schema::create('representantes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('persona_id');
+            $table->unsignedBigInteger('personas_id')->unsigned();
             $table->string('trabajo');
             $table->string('gradoInstruccion');
             $table->string('profOcupacion');
             $table->text('lgTrabajo');
             $table->string('telefonos');
-            $table->foreign('persona_id')->references('personas')->on('id')->onDelete('cascade');
+            $table->foreign('personas_id')->references('personas')->on('id')->onDelete('cascade');
             $table->timestamps();
         });
     }
