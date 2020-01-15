@@ -34,7 +34,8 @@ class PersonaController extends Controller
     public function create()
     {
         //
-        return view('personas.create');
+        $persona = Persona::pluck('nombres','id')->all();
+        return view('personas.create',compact('persona'));
     }
 
     /**
@@ -61,6 +62,7 @@ class PersonaController extends Controller
         $persona->sexo = $request->sexo;
         $persona->save();
         $anioEscolar = new AnioEscolar();
+        $anioEscolar->users_id=$request->users_id;
         $anioEscolar->grado = $request->grado;
         $anioEscolar->seccion = $request->seccion;
         $anioEscolar->fechaIngreso = $request->fechaIngreso;

@@ -52,6 +52,13 @@ class User extends Authenticatable
     }
     /*RELACIONES ONE TO MANY
     **Los Usuarios*/
+    public function anioEscolar()
+    {
+        //que "tiene mucha" AnioEscolar.
+        return $this->hasMany('App\AnioEscolar');
+    }
+    /*RELACIONES ONE TO MANY
+    **Los Usuarios*/
     public function alumnos()
     {
         //que "tiene mucho" Alumno.

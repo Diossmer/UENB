@@ -63,9 +63,8 @@ class UserController extends Controller
         $admin = Admin::find($id);
         $docente = User::find($id);
         $persona = Persona::find($id);
-        $personEscolar = PersonEscolar::find($id);
-        $alumnRepre = AlumnRepre::find($id);
-        return view('admin.docentes.show', compact('docente','admin','persona','personEscolar','alumnRepre'));
+        $alumno = Alumno::find($id);
+        return view('admin.docentes.show', compact('docente','admin','persona','alumno'));
     }
 
     /**

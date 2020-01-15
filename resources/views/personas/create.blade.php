@@ -80,7 +80,12 @@
 
     {!! Form::label("roles", "Roles", ["class"=>"label label-success"]) !!}
     {!!Form::select('roles'/*,foreach,[$persona->name]*/,['placeholder'=>'Selecciona Un Rol','representante' => 'Representante','alumno' => 'Alumno'],old('roles'),["class"=>"form-control"]) !!}
+
     <span><h2 class="text-success">Año escolar</h2></span> <br>
+
+    {!! Form::label("users_id", "Persona", ["class"=>"label label-primary"]) !!}
+    {!!Form::select('users_id',$persona,null,["class"=>"form-control"],['placeholder'=>'Selecciona Una opcion']) !!}
+
     {!! Form::label("fechaIngreso", "Fecha de Ingreso", ["class"=>"label label-primary"]) !!}
     {!! Form::date("fechaIngreso", old('fechaIngreso'), ["class"=>"form-control"]) !!}
 
@@ -97,6 +102,7 @@
     {!! Form::text("estatus", old('estatus'), ["class"=>"form-control", "placeholder"=>"Estatus"]) !!}
 
     <div class="representante">
+
         <span><h2 class="text-success">Representante</h2></span> <br>
         {!! Form::label("trabajo", "Trabajo", ["class"=>"label label-warning"]) !!}
         {!! Form::text("trabajo", old('trabajo'), ["class"=>"form-control", "placeholder"=>"Trabajo"]) !!}

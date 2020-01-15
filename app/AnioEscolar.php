@@ -8,14 +8,21 @@ class AnioEscolar extends Model
 {
     protected $table='anioEscolar';
     protected $fillable=[
-        'personas_id', 'fechaIngreso','fechaEngreso','grado','seccion','estatus'
+        'users_id', 'fechaIngreso','fechaEngreso','grado','seccion','estatus'
     ];
     /*RELACIONES MANY TO ONE INVERSE
     **El Año_Escolar*/
     public function personas()
     {
         //esto "pertenece a un" Persona.
-        return $this->belongsTo('App\Personas','personas_id');
+        return $this->belongsTo('App\Personas','users_id');
+    }
+    /*RELACIONES ONE TO MANY INVERSE
+    **El Año_Escolar*/
+    public function users()
+    {
+        //que "pertenece a un" Usuario.
+        return $this->belongsTo('App\User','users_id');
     }
     /*RELACIONES MANY TO MANY INVERSE
     **El Año_Escolar
