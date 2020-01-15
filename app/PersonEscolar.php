@@ -15,7 +15,7 @@ class PersonRole extends Model
     public function personas()
     {
         //esto "pertenece a muchos" Persona.
-        return $this->belongsToMany('App\Persona');
+        return $this->belongsToMany('App\Persona',"persona_id");
     }
     /*RELACIONES MANY TO MANY
     **Las person_escolar*/
@@ -29,6 +29,6 @@ class PersonRole extends Model
     public function anio_escolars()
     {
         //esto "pertenece a muchos" AnioEscolar.
-        return $this->belongsToMany('App\AnioEscolar');
+        return $this->belongsToMany('App\AnioEscolar','anioEscolar_id');
     }
 }
