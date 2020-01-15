@@ -21,7 +21,7 @@ class CreateAnioEscolarTable extends Migration
             $table->date('fechaIngreso');
             $table->date('fechaEngreso');
             $table->string('estatus');
-            $table->foreign('personas_id')->references('personas')->on('id')->onDelete('cascade');
+            $table->foreign('personas_id')->references('id')->on('personas')->onDelete('cascade');
             $table->timestamps();
         });
     }

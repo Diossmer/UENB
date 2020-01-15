@@ -21,7 +21,7 @@ class CreateRepresentantesTable extends Migration
             $table->string('profOcupacion');
             $table->text('lgTrabajo');
             $table->string('telefonos');
-            $table->foreign('personas_id')->references('personas')->on('id')->onDelete('cascade');
+            $table->foreign('personas_id')->references('id')->on('personas')->onDelete('cascade');
             $table->timestamps();
         });
     }

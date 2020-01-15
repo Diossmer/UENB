@@ -22,8 +22,8 @@ class CreateAlumnosTable extends Migration
             $table->string('zapatos');
             $table->string('enfemPadecida');
             $table->string('enfemPsicologica');
-            $table->foreign('personas_id')->references('personas')->on('id')->onDelete('cascade');
-            $table->foreign('representantes_id')->references('representantes')->on('id')->onDelete('cascade');
+            $table->foreign('personas_id')->references('id')->on('personas')->onDelete('cascade');
+            $table->foreign('representantes_id')->references('id')->on('representantes')->onDelete('cascade');
             $table->timestamps();
         });
     }
