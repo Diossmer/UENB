@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Create')
+@section('title','Actualizar')
 @section('css')
 @parent
 {{-- link de css --}}
@@ -11,6 +11,7 @@
 @show
 
 @section('script-bottom')
+
 {{-- link de js --}}
 @parent
 @show
@@ -44,59 +45,55 @@
     @if(session()->has('person'))
                     <div class="alert alert-info" role="alert">{{session('person')}}</div>
     @endif
-    {!! Form::open(["route"=>["inscripcion.store"],"method"=>"POST", "autocomplete"=>"on","enctype"=>"multipart/form-data"]) !!}
+    {!! Form::open(["route"=>["inscripcion.update",$persona->id],"method"=>"PUT", "autocomplete"=>"off","enctype"=>"multipart/form-data"]) !!}
     {!! Form::token()!!}
-    {!! Form::file('fotos', ["class"=>"text-primary","multiple"]) !!}
+    <img src="{{asset("images/$persona->fotos")}}" alt="" sizes="" srcset="" height="50" width="100">
+    {!! Form::file('fotos',null,$persona->fotos,["class"=>"text-primary","multiple"]) !!}
     {!! Form::label("nombres", "Nombres", ["class"=>"label label-success"]) !!}
-    {!! Form::text("nombres", old("nombres"), ["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Nombre"]) !!}
+    {!! Form::text("nombres", $persona->nombres, ["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Nombre"]) !!}
 
     {!! Form::label("segNombres", "Segundo Nombre", ["class"=>"label label-success"]) !!}
-    {!! Form::text("segNombres", old('segNombres'), ["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Segundo Nombre"]) !!}
+    {!! Form::text("segNombres", $persona->segNombres, ["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Segundo Nombre"]) !!}
 
     {!! Form::label("apellidos", "Apellido", ["class"=>"label label-success"]) !!}
-    {!! Form::text("apellidos", old('apellidos'), ["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Apellido"]) !!}
+    {!! Form::text("apellidos", $persona->apellidos, ["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Apellido"]) !!}
 
     {!! Form::label("segApellidos", "Segundo Apellido", ["class"=>"label label-success"]) !!}
-    {!! Form::text("segApellidos", old('segApellidos'), ["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Segundo Apellido"]) !!}
+    {!! Form::text("segApellidos", $persona->segApellidos, ["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Segundo Apellido"]) !!}
 
     {!! Form::label("cedula", "Cedula", ["class"=>"label label-success"]) !!}
-    {!! Form::text("cedula", old('cedula'), ["class"=>"form-control", "placeholder" => "Cedula"]) !!}
+    {!! Form::text("cedula", $persona->cedula, ["class"=>"form-control", "placeholder" => "Cedula"]) !!}
 
     {!! Form::label("lgNacimiento", "Lugar de Nacimiento", ["class"=>"label label-success"]) !!}
-    {!! Form::text("lgNacimiento", old('lgNacimiento'), ["class"=>"form form-control","placeholder"=>"Lugar de Nacimiento"]) !!}
+    {!! Form::text("lgNacimiento", $persona->lgNacimiento, ["class"=>"form form-control","placeholder"=>"Lugar de Nacimiento"]) !!}
 
     {!! Form::label("direccion", "Dirección", ["class"=>"label label-success"]) !!}
-    {!! Form::text("direccion", old('direccion'), ["class"=>"form form-control","placeholder"=>"Dirección"]) !!}
+    {!! Form::text("direccion", $persona->direccion, ["class"=>"form form-control","placeholder"=>"Dirección"]) !!}
 
     {!! Form::label("fNacimiento", "Fecha de nacimiento", ["class"=>"label label-success"]) !!}
-    {!! Form::date("fNacimiento", old('fNacimiento'), ["class"=>"form form-control","maxlength"=>"10"]) !!}
+    {!! Form::date("fNacimiento", $persona->fNacimiento, ["class"=>"form form-control","maxlength"=>"10"]) !!}
 
     {!! Form::label("email", "E-Mail Dirección ", ["class"=>"label label-success"]) !!}
-    {!! Form::text("email", old('email'), ["class"=>"form form-control","placeholder"=>"E-Mail Dirección"]) !!}
+    {!! Form::text("email", $persona->email, ["class"=>"form form-control","placeholder"=>"E-Mail Dirección"]) !!}
 
     {!! Form::label("edad", "Edad", ["class"=>"label label-success"]) !!}
-    {!! Form::text("edad", old('edad'), ["class"=>"form-control","maxlength"=>"2", "placeholder"=>"Edad"]) !!}
+    {!! Form::text("edad", $persona->edad, ["class"=>"form-control","maxlength"=>"2", "placeholder"=>"Edad"]) !!}
 
-    {!! Form::label("sexo", "Sexo", ["class"=>"label label-success"]) !!}<br>
+    {!! Form::label("sexo", $persona->sexo, ["class"=>"label label-success"]) !!}<br>
     {!! Form::label("sexo", "Femenino", ["class"=>"text-primary"]) !!}
     {!! Form::radio('sexo', 'Femenino')!!}
     {!! Form::label("sexo", "Masculino", ["class"=>"text-primary"]) !!}
     {!! Form::radio('sexo', 'Masculino')!!} <br>
 
     {!! Form::label("roles", "Roles", ["class"=>"label label-success"]) !!}
-    {!!Form::select('roles'/*,foreach,[$persona->name]*/,['placeholder'=>'Selecciona Un Rol','representante' => 'Representante','alumno' => 'Alumno'],old('roles'),["class"=>"form-control"]) !!}
+    {!!Form::select('roles',['placeholder'=>'Selecciona Un Rol','representante' => 'Representante','alumno' => 'Alumno'],$persona->roles,["class"=>"form-control"]) !!}
     <br>
-    {!! Form::submit("Registrar", ["class"=>"btn btn-primary"]) !!}
+    {!! Form::submit("Actualizar", ["class"=>"btn btn-primary"]) !!}
     {!!link_to_route('inscripcion.index','Regresar',"",['class'=>'btn btn-success'])!!}
     {!! Form::close() !!}
 
-    <div class="Mostrar text-info">
-        Mostrar Formulario de <b>REPRESENTANTE</b>, <b>ALUMNOS</b> y <b>AÑO ESCOLAR</b>
-    {!!Form::select('formularios'/*,foreach,[$persona->name]*/,['placeholder'=>'Formularios','anioescolar' => 'Año Escolar','representante' => 'Representante','alumno' => 'Alumno'],old('roles'),["class"=>"form-control formularios"]) !!}
-    </div>
-
     <div class="anioescolar">
-        {!! Form::open(["route"=>["anioescolar.store"],"method"=>"POST", "autocomplete"=>"on","enctype"=>"multipart/form-data"]) !!}
+        {!! Form::open(["route"=>["anioescolar.update",$anioEscolar->id],"method"=>"PUT", "autocomplete"=>"on","enctype"=>"multipart/form-data"]) !!}
         <span><h2 class="text-success">Año escolar</h2></span> <br>
         {!! Form::token()!!}
         {!! Form::label("users_id", "Persona", ["class"=>"label label-primary"]) !!}
@@ -122,7 +119,7 @@
         {!! Form::close() !!}
     </div>
     <div class="representante">
-        {!! Form::open(["route"=>["representante.store"],"method"=>"POST", "autocomplete"=>"on","enctype"=>"multipart/form-data"]) !!}
+        {!! Form::open(["route"=>["representante.update",$representante->id],"method"=>"PUT", "autocomplete"=>"on","enctype"=>"multipart/form-data"]) !!}
         <span><h2 class="text-success">Representante</h2></span> <br>
         {!! Form::token()!!}
         {!! Form::label("trabajo", "Trabajo", ["class"=>"label label-warning"]) !!}
@@ -145,7 +142,7 @@
         {!! Form::close() !!}
     </div>
     <div class="alumno">
-        {!! Form::open(["route"=>["alumno.store"],"method"=>"POST", "autocomplete"=>"on","enctype"=>"multipart/form-data"]) !!}
+        {!! Form::open(["route"=>["alumno.update",$alumno->id],"method"=>"PUT", "autocomplete"=>"on","enctype"=>"multipart/form-data"]) !!}
         <span><h2 class="text-success">Alumno</h2></span> <br>
         {!! Form::token()!!}
         {!! Form::label("camisas", "Camisa", ["class"=>"label label-info"]) !!}
@@ -166,6 +163,10 @@
         {!! Form::submit("Registrar", ["class"=>"btn btn-primary"]) !!}
         {!!link_to_route('inscripcion.index','Regresar',"",['class'=>'btn btn-success'])!!}
         {!! Form::close() !!}
+    </div>
+    <div class="Mostrar text-info">
+        Mostrar Formulario de <b>REPRESENTANTE</b>, <b>ALUMNOS</b> y <b>AÑO ESCOLAR</b>
+    {!!Form::select('formularios'/*,foreach,[$persona->name]*/,['placeholder'=>'Formularios','anioescolar' => 'Año Escolar','representante' => 'Representante','alumno' => 'Alumno'],old('roles'),["class"=>"form-control formularios"]) !!}
     </div>
                     </div>
                 </div>

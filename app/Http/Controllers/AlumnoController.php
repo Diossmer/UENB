@@ -43,7 +43,9 @@ class AlumnoController extends Controller
         $alumno->zapatos = $request->zapatos;
         $alumno->enfemPadecida = $request->enfemPadecida;
         $alumno->enfemPsicologica = $request->enfemPsicologica;
-        $alumno->save();
+        if($alumno->save()){
+            return back()->with('person','Datos guardados');
+        }
     }
 
     /**

@@ -105,11 +105,27 @@ class PersonaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
         //
+        /*
+        $persona = Persona::findOrFail($id);
+        $persona->nombres       = $request->nombres;
+        $persona->segNombres    = $request->segNombres;
+        $persona->apellidos     = $request->apellidos;
+        $persona->segApellidos  = $request->segApellidos;
+        $persona->cedula        = $request->cedula;
+        $persona->lgNacimiento  = $request->lgNacimiento;
+        $persona->direccion     = $request->direccion;
+        $persona->fNacimiento   = $request->fNacimiento;
+        $persona->email         = $request->email;
+        $persona->roles         = $request->roles;
+        $persona->edad          = $request->edad;
+        $persona->sexo          = $request->sexo;
+        $persona->save();
+        return redirect('home');
+        */
     }
-
     /**
      * Remove the specified resource from storage.
      *

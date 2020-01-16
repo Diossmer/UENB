@@ -41,9 +41,9 @@
                         </div>
                     @endif
                     <div class="table-responsive-sm">
-    @if(session()->has('person'))
+                        @if(session()->has('person'))
                     <div class="alert alert-info" role="alert">{{session('person')}}</div>
-    @endif
+@endif
     {!! Form::open(["route"=>["inscripcion.store"],"method"=>"POST", "autocomplete"=>"on","enctype"=>"multipart/form-data"]) !!}
     {!! Form::token()!!}
     {!! Form::file('fotos', ["class"=>"text-primary","multiple"]) !!}
@@ -90,12 +90,8 @@
     {!!link_to_route('inscripcion.index','Regresar',"",['class'=>'btn btn-success'])!!}
     {!! Form::close() !!}
 
-    <div class="Mostrar text-info">
-        Mostrar Formulario de <b>REPRESENTANTE</b>, <b>ALUMNOS</b> y <b>AÑO ESCOLAR</b>
-    {!!Form::select('formularios'/*,foreach,[$persona->name]*/,['placeholder'=>'Formularios','anioescolar' => 'Año Escolar','representante' => 'Representante','alumno' => 'Alumno'],old('roles'),["class"=>"form-control formularios"]) !!}
-    </div>
-
     <div class="anioescolar">
+
         {!! Form::open(["route"=>["anioescolar.store"],"method"=>"POST", "autocomplete"=>"on","enctype"=>"multipart/form-data"]) !!}
         <span><h2 class="text-success">Año escolar</h2></span> <br>
         {!! Form::token()!!}
@@ -125,6 +121,9 @@
         {!! Form::open(["route"=>["representante.store"],"method"=>"POST", "autocomplete"=>"on","enctype"=>"multipart/form-data"]) !!}
         <span><h2 class="text-success">Representante</h2></span> <br>
         {!! Form::token()!!}
+        {!! Form::label("users_id", "Persona", ["class"=>"label label-primary"]) !!}
+        {!!Form::select('users_id',$persona,null,["class"=>"form-control"],['placeholder'=>'Selecciona Una opcion']) !!}
+
         {!! Form::label("trabajo", "Trabajo", ["class"=>"label label-warning"]) !!}
         {!! Form::text("trabajo", old('trabajo'), ["class"=>"form-control", "placeholder"=>"Trabajo"]) !!}
 
@@ -148,6 +147,10 @@
         {!! Form::open(["route"=>["alumno.store"],"method"=>"POST", "autocomplete"=>"on","enctype"=>"multipart/form-data"]) !!}
         <span><h2 class="text-success">Alumno</h2></span> <br>
         {!! Form::token()!!}
+        {!! Form::label("persona_id", "Persona", ["class"=>"label label-primary"]) !!}
+        {!!Form::select('persona_id',$persona,null,["class"=>"form-control"],['placeholder'=>'Selecciona Una opcion']) !!}
+        {!! Form::label("representante_id", "Representante", ["class"=>"label label-primary"]) !!}
+        {!!Form::select('representante_id',$persona,null,["class"=>"form-control"],['placeholder'=>'Selecciona Una opcion']) !!}
         {!! Form::label("camisas", "Camisa", ["class"=>"label label-info"]) !!}
         {!! Form::text("camisas", old('camisas'), ["class"=>"form-control", "placeholder"=>"Camisa"]) !!}
 
@@ -166,6 +169,10 @@
         {!! Form::submit("Registrar", ["class"=>"btn btn-primary"]) !!}
         {!!link_to_route('inscripcion.index','Regresar',"",['class'=>'btn btn-success'])!!}
         {!! Form::close() !!}
+    </div>
+    <div class="Mostrar text-info">
+        Mostrar Formulario de <b>REPRESENTANTE</b>, <b>ALUMNOS</b> y <b>AÑO ESCOLAR</b>
+    {!!Form::select('formularios'/*,foreach,[$persona->name]*/,['placeholder'=>'Formularios','anioescolar' => 'Año Escolar','representante' => 'Representante','alumno' => 'Alumno'],old('roles'),["class"=>"form-control formularios"]) !!}
     </div>
                     </div>
                 </div>
