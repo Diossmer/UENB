@@ -56,7 +56,7 @@
     </div>
     <div class="col-md-3">
         {!! Form::label("segNombres", "Segundo Nombre", ["class"=>"label label-success"]) !!}
-    {!! Form::text("segNombres", $persona->, ["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Segundo Nombre"]) !!}
+        {!! Form::text("segNombres", $persona->segNombres, ["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Segundo Nombre"]) !!}
     </div>
     <div class="col-md-3">
         {!! Form::label("apellidos", "Apellido", ["class"=>"label label-success"]) !!}
@@ -64,7 +64,7 @@
     </div>
     <div class="col-md-3">
         {!! Form::label("segApellidos", "Segundo Apellido", ["class"=>"label label-success"]) !!}
-    {!! Form::text("segApellidos",$persona->segApellidos, ["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Segundo Apellido"]) !!}
+        {!! Form::text("segApellidos",$persona->segApellidos, ["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Segundo Apellido"]) !!}
     </div>
 </div>
 <div class="row">
