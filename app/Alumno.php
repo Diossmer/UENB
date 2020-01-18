@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Alumno extends Model
 {
@@ -13,7 +14,7 @@ class Alumno extends Model
         "apellidos", "segApellidos", "lgNacimiento",
         "direccion", "fNacimiento", "email", "edad",
         "sexo", "camisas", "pantalon", "zapatos",
-        "enfemPadecida", "enfemPsicologica",
+        "enfemPadecida", "enfemPsicologica","estatus",
     ];
     /*RELACIONES ONE TO MANY INVERSE
     **El Alumno*/

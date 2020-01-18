@@ -43,7 +43,7 @@
 
                     <table class="table table-responsive-sm table-bordered">
                         <caption class="table text-center">Inscripción
-                            {!!link_to_route('inscripcion.create', $title = "Registrarse",null, ["class" => "btn btn-success"])!!}
+                            {!!link_to_route('alumno.create', $title = "Registrarse",null, ["class" => "btn btn-success"])!!}
                         </caption>
                         <thead>
                             <tr>
@@ -60,27 +60,28 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($persona as $personas)
+                            @foreach ($alumno as $alumnos)
                                 <tr>
                                     <td>
-                                        <img src="images/{{$personas->fotos}}" alt="" sizes="" srcset="" height="100" width="100">
+                                        <img src="images/{{$alumnos->fotos}}" alt="" sizes="" srcset="" height="100" width="100">
                                     </td>
-                                <td>{{$personas->nombres}}</td>
-                                <td>{{$personas->segNombres}}</td>
-                                <td>{{$personas->apellidos}}</td>
-                                <td>{{$personas->segApellidos}}</td>
-                                <td>{{$personas->roles}}</td>
-                                <td>{{$personas->edad}}</td>
-                                <td>{{$personas->sexo}}</td>
-                                <td>{{$personas->cedula}}</td>
+                                <td>{{$alumnos->nombres}}</td>
+                                <td>{{$alumnos->segNombres}}</td>
+                                <td>{{$alumnos->apellidos}}</td>
+                                <td>{{$alumnos->segApellidos}}</td>
+                                <td>{{$alumnos->roles}}</td>
+                                <td>{{$alumnos->edad}}</td>
+                                <td>{{$alumnos->sexo}}</td>
+                                <td>{{$alumnos->cedula}}</td>
 
                                 <td>
-                                        {!!link_to_route('inscripcion.edit', $title = "Editar",$personas->id, ["class" => "btn btn-success"])!!}
+                                        {!!link_to_route('inscripcion.edit', $title = "Editar",$alumnos->id, ["class" => "btn btn-success"])!!}
                                 </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
+                    {{$alumno->links()}}
                 </div>
             </div>
         </div>

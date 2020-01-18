@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Alumno;
+use Carbon\Carbon;
+use App\AnioEscolar;
 use Illuminate\Http\Request;
 
 class AlumnoController extends Controller
@@ -15,6 +17,8 @@ class AlumnoController extends Controller
     public function index()
     {
         //
+        $alumno = Alumno::paginate(5);
+        return view('alumnos.home',compact('alumno'));
     }
 
     /**
@@ -25,6 +29,7 @@ class AlumnoController extends Controller
     public function create()
     {
         //
+        return view('alumnos.create');
     }
 
     /**
@@ -36,6 +41,25 @@ class AlumnoController extends Controller
     public function store(Request $request)
     {
         //
+        $alumno = new Alumno();
+        $alumno->nombres = $request->nombres;
+        $alumno->segNombres = $request->segNombres;
+        $alumno->apellidos = $request->apellidos;
+        $alumno->segApellidos = $request->segApellidos;
+        $alumno->estatus = $request->estatus;
+        $alumno->lgNacimiento = $request->lgNacimiento;
+        $alumno->fNacimiento = $request->fNacimiento;
+        $alumno->edad = $request->edad;
+        $alumno->direccion = $request->direccion;
+        $alumno->email = $request->email;
+        $alumno->sexo = $request->sexo;
+        $alumno->enfemPadecida = $request->enfemPadecida;
+        $alumno->camisas = $request->camisas;
+        $alumno->pantalon = $request->pantalon;
+        $alumno->zapatos = $request->zapatos;
+        if($alumno->save()){
+            return back()->with('alumno','Exitazo!!!');
+        }
     }
 
     /**
