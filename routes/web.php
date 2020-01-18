@@ -1,5 +1,4 @@
 <?php
-use Barryvdh\DomPDF\Facade as PDF;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,7 +26,11 @@ Route::prefix('admin')->group(function(){
     Route::get('/create','Admin\AdminController@create')->name("admin.create");
     Route::get('/', 'Admin\AdminController@index')->name('admin.dashboard');
     Route::get('/logout','Admin\AdminLoginController@logout')->name('admin.logout');
-    //PDF falta...
+    Route::get('download','Admin\AdminController@ExportPDF')->name('ExportPDF.Admin');
+    // Route::get('download',function(){
+    //     $pdf= PDF::loadView('admin\pdf.show');
+    //     return $pdf->stream();
+    // });
 });
 Route::resource('user', 'Admin\UserController');
 Route::get('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
@@ -37,4 +40,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('anioescolar', 'AnioEscolarController');
 Route::resource('alumno', 'AlumnoController');
 Route::resource('representante', 'RepresentanteController');
-
+Route::get('download','HomeController@ExportarPDF')->name('ExportarPDF.USER');

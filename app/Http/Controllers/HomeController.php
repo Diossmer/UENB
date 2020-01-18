@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Barryvdh\DomPDF\Facade as PDF;
 class HomeController extends Controller
 {
     /**
@@ -24,5 +24,9 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+    public function ExportarPDF(){
+        $pdf= PDF::loadView('pdf.show');
+        return $pdf->stream('FicheroAdministrador.pdf');
     }
 }

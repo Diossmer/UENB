@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Dompdf\Dompdf;
 use Barryvdh\DomPDF\Facade as PDF;
 use App\Http\Controllers\Controller;
 use App\Admin;
@@ -57,9 +58,9 @@ class AdminController extends Controller
         Admin::destroy($id);
         return redirect('admin');
     }
-    public function createpdf(){
-        $pdf = Admin::make('dompdf.wrapper');
-        $pdf->loadHTML('<h1>HOLA</h1>');
-        return $pdf->stream('admin.home');
+    public function ExportPDF(){
+        $docente = User::get();
+        $pdf= PDF::loadView('admin.pdf.show',$docente);
+        return $pdf->stream('FicheroAdministrador.pdf');
     }
 }
