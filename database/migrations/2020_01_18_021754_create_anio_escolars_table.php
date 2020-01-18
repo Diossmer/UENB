@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAnioEscolarTable extends Migration
+class CreateAnioEscolarsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateAnioEscolarTable extends Migration
      */
     public function up()
     {
-        Schema::create('anioEscolar', function (Blueprint $table) {
+        Schema::create('anio_escolars', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('users_id')->unsigned();
+            //$table->unsignedBigInteger('users_id')->unsigned();
             $table->string('grado');
             $table->string('seccion');
             $table->date('fechaIngreso');
-            $table->date('fechaEngreso');
-            $table->string('estatus');
-            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('cedula');
+            $table->string('matricula');
+            //$table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -33,6 +33,6 @@ class CreateAnioEscolarTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('anioEscolar');
+        Schema::dropIfExists('anio_escolars');
     }
 }

@@ -43,44 +43,34 @@
 
                     <table class="table table-responsive-sm table-bordered">
                         <caption class="table text-center">Inscripción
-                            {!!link_to_route('inscripcion.create', $title = "Registrarse",null, ["class" => "btn btn-success"])!!}
+                            {!!link_to_route('anioescolar.create', $title = "Registrarse",null, ["class" => "btn btn-success"])!!}
                         </caption>
                         <thead>
                             <tr>
-                            <th scope="col">Usuario</th>
-                            <th scope="col">Nombres</th>
-                            <th scope="col">segNombres</th>
-                            <th scope="col">apellidos</th>
-                            <th scope="col">segApellidos</th>
-                            <th scope="col">rol</th>
-                            <th scope="col">edad</th>
-                            <th scope="col">sexo</th>
+                            <th scope="col">Grado</th>
+                            <th scope="col">Seccion</th>
                             <th scope="col">cedula</th>
+                            <th scope="col">fechaIngreso</th>
+                            <th scope="col">matricula</th>
                             <th scope="col">accion</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($persona as $personas)
+                            @foreach ($escolar as $escolares)
                                 <tr>
-                                    <td>
-                                        <img src="images/{{$personas->fotos}}" alt="" sizes="" srcset="" height="100" width="100">
-                                    </td>
-                                <td>{{$personas->nombres}}</td>
-                                <td>{{$personas->segNombres}}</td>
-                                <td>{{$personas->apellidos}}</td>
-                                <td>{{$personas->segApellidos}}</td>
-                                <td>{{$personas->roles}}</td>
-                                <td>{{$personas->edad}}</td>
-                                <td>{{$personas->sexo}}</td>
-                                <td>{{$personas->cedula}}</td>
-
+                                <td>{{$escolares->grado}}</td>
+                                <td>{{$escolares->seccion}}</td>
+                                <td>{{$escolares->cedula}}</td>
+                                <td>{{$escolares->fechaIngreso}}</td>
+                                <td>{{$escolares->matricula}}</td>
                                 <td>
-                                        {!!link_to_route('inscripcion.edit', $title = "Editar",$personas->id, ["class" => "btn btn-success"])!!}
+                                        {!!link_to_route('anioescolar.edit', $title = "Editar",$escolares->id, ["class" => "btn btn-success"])!!}
                                 </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
+                    {{$escolar->links()}}
                 </div>
             </div>
         </div>

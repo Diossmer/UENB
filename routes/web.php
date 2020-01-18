@@ -33,7 +33,8 @@ Route::resource('user', 'Admin\UserController');
 Route::get('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 Route::get('/home', 'HomeController@index')->name('home');
 //AQUI EMPIEZA EL USUARIO.....
-Route::resource('inscripcion', 'AñoEscolarController');
+// Route::resource('inscripcion', 'inscripcionController');
+Route::resource('anioescolar', 'AnioEscolarController');
 Route::resource('alumno', 'AlumnoController');
 Route::resource('representante', 'RepresentanteController');
 

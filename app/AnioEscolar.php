@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AñoEscolar extends Model
+class AnioEscolar extends Model
 {
     //
-    protected $table="año_escolars";
+    protected $table="anio_escolars";
     protected $fillable = [
-        "users_id", "grado", "seccion", "fechaIngreso",
+        "grado", "seccion", "fechaIngreso",
         "cedula", "matricula", "estatus",
     ];
     /*RELACIONES ONE TO MANY INVERSE
@@ -17,13 +17,13 @@ class AñoEscolar extends Model
     public function users()
     {
         //que "pertenece a un" Usuario.
-        return $this->belongsTo('App\User','users_id');
+        return $this->belongsTo('App\User');
     }
     /*RELACIONES ONE TO MANY
     **El año_escolars*/
     public function alumnos()
     {
         //que "tiene mucho" Alumno.
-        return $this->hasMany('App\Alumno',"users_id");
+        return $this->hasMany('App\Alumno');
     }
 }

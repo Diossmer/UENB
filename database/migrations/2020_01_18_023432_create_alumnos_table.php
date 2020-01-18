@@ -15,7 +15,7 @@ class CreateAlumnosTable extends Migration
     {
         Schema::create('alumnos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('añoEscolar_id')->unsigned();
+            $table->unsignedBigInteger('anioEscolar_id')->unsigned();
             $table->string('fotos');
             $table->string('nombres');
             $table->string('segNombres');
@@ -32,7 +32,8 @@ class CreateAlumnosTable extends Migration
             $table->string('zapatos');
             $table->string('enfemPadecida');
             $table->string('enfemPsicologica');
-            $table->foreign('añoEscolar_id')->references('id')->on('año_escolars')->onDelete('cascade');
+            $table->string('estatus');
+            $table->foreign('anioEscolar_id')->references('id')->on('anio_escolars')->onDelete('cascade');
             $table->timestamps();
         });
     }

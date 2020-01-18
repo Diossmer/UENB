@@ -45,10 +45,10 @@ class User extends Authenticatable
     }
     /*RELACIONES ONE TO MANY
     **Los Usuarios*/
-    public function año_escolars()
+    public function anio_escolars()
     {
         //que "tiene mucho" AnioEscolar.
-        return $this->hasMany('App\AñoEscolar');
+        return $this->hasMany('App\AnioEscolar');
     }
     /*RELACIONES MANY TO MANY INVERSE
     **Los Usuarios

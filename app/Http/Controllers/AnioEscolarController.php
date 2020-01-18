@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\AnioEscolar;
-use App\Persona;
-
 use Illuminate\Http\Request;
 
 class AnioEscolarController extends Controller
@@ -16,6 +14,8 @@ class AnioEscolarController extends Controller
     public function index()
     {
         //
+        $escolar = AnioEscolar::paginate(5);
+        return view('anioescolar.home',compact("escolar"));
     }
 
     /**
@@ -26,6 +26,7 @@ class AnioEscolarController extends Controller
     public function create()
     {
         //
+        return view('anioescolar.create');
     }
 
     /**
@@ -37,15 +38,14 @@ class AnioEscolarController extends Controller
     public function store(Request $request)
     {
         //
-        $anioEscolar = new AnioEscolar();
-        $anioEscolar->users_id = $request->users_id;
-        $anioEscolar->grado = $request->grado;
-        $anioEscolar->seccion = $request->seccion;
-        $anioEscolar->fechaIngreso = $request->fechaIngreso;
-        $anioEscolar->fechaEngreso = $request->fechaEngreso;
-        $anioEscolar->estatus = $request->estatus;
-        if($anioEscolar->save()){
-            return back()->with('person','Datos guardados');
+        $escolar = new AnioEscolar();
+        $escolar->grado          = $request->grado;
+        $escolar->seccion        = $request->seccion;
+        $escolar->fechaIngreso   = $request->fechaIngreso;
+        $escolar->cedula   = $request->cedula;
+        $escolar->matricula   = $request->matricula;
+        if($escolar->save()){
+            return back()->with('añoescolar','Exitoso!!!');
         }
     }
 
@@ -69,6 +69,8 @@ class AnioEscolarController extends Controller
     public function edit($id)
     {
         //
+        $escolar = AnioEscolar::find($id);
+        return view('anioescolar.edit',compact('escolar'));
     }
 
     /**
@@ -81,6 +83,15 @@ class AnioEscolarController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $escolar =AnioEscolar::find($id);
+        $escolar->grado          = $request->grado;
+        $escolar->seccion        = $request->seccion;
+        $escolar->fechaIngreso   = $request->fechaIngreso;
+        $escolar->cedula         = $request->cedula;
+        $escolar->matricula      = $request->matricula;
+        if($escolar->save()){
+            return back()->with('añoescolar','Exitoso!!!');
+        }
     }
 
     /**
