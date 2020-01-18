@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Docentes')
+@section('title','')
 @section('css')
 @parent
 {{-- link de css --}}
@@ -32,7 +32,7 @@
     <div class="row">
         <div class="col-md-9 col-md-offset-3">
             <div class="panel panel-default">
-                <div class="panel-heading">Registro Universitario</div>
+                <div class="panel-heading"></div>
 
                 <div class="panel-body">
                     @if (session('status'))

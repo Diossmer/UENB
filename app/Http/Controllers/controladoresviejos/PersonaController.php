@@ -108,7 +108,7 @@ class PersonaController extends Controller
     public function update($id)
     {
         //
-
+/*
         $persona = Persona::findOrFail($id);
         $persona->nombres       = $request->nombres;
         $persona->segNombres    = $request->segNombres;
@@ -124,7 +124,7 @@ class PersonaController extends Controller
         $persona->sexo          = $request->sexo;
         $persona->save();
         return redirect('home');
-
+*/
     }
     /**
      * Remove the specified resource from storage.

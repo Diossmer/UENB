@@ -6,29 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Representante extends Model
 {
-    protected $table='representantes';
-    protected $fillable=[
-        'persona_id', 'trabajo','gradoInstruccion','profOcupacion','lgTrabajo','telefonos'
+    //
+    protected $table="representantes";
+    protected $fillable = [
+        "alumno_id", "nombres", "segNombres", "apellidos",
+        "segApellidos", "fNacimiento", "email",
+        "trabajo", "gradoInstruccion", "profOcupacion",
+        "lgTrabajo", "telefonos",
     ];
-    /*RELACIONES MANY TO MANY INVERSE
-    **Los Represetantes*/
-    public function personas()
-    {
-        //esto "pertenece a muchos" Persona.
-        return $this->belongsToMany('App\Persona','persona_id');
-    }
-    /*RELACIONES MANY TO MANY INVERSE
-    **Los Alumnos*/
+    /*RELACIONES ONE TO MANY
+    **El Representante*/
     public function alumnos()
     {
-        //esto "pertenece a muchos" Alumno.
-        return $this->belongsToMany('App\Alumno', 'persona_id');
+        //que "tiene mucho" Alumno.
+        return $this->hasMany('App\Alumno',"alumno_id");
     }
-    /*RELACIONES MANY TO MANY INVERSE
-    **Los Represetantes
-    public function alumn_repres()
-    //{
-        //esto "pertenece a muchos" AlumnRepre.
-        return $this->belongsToMany('App\AlumnRepre');
-    }*/
 }

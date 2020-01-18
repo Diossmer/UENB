@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Representante;
+use App\Persona;
 use App\Alumno;
 use Illuminate\Http\Request;
 
-class AlumnoController extends Controller
+class RepresentanteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,15 +37,23 @@ class AlumnoController extends Controller
     public function store(Request $request)
     {
         //
+
+        $representante=new Representante();
+        $representante->trabajo = $request-> trabajo;
+        $representante->gradoInstruccion = $request-> gradoInstruccion;
+        $representante->profOcupacion = $request-> profOcupacion;
+        $representante->lgTrabajo = $request-> lgTrabajo;
+        $representante->telefonos = $request-> telefonos;
+        $representante->save();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Alumno  $alumno
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Alumno $alumno)
+    public function show($id)
     {
         //
     }
@@ -52,10 +61,10 @@ class AlumnoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Alumno  $alumno
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Alumno $alumno)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +73,10 @@ class AlumnoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Alumno  $alumno
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Alumno $alumno)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +84,10 @@ class AlumnoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Alumno  $alumno
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Alumno $alumno)
+    public function destroy($id)
     {
         //
     }

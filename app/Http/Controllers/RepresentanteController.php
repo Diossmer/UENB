@@ -1,9 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Representante;
-use App\Persona;
-use App\Alumno;
 use Illuminate\Http\Request;
 
 class RepresentanteController extends Controller
@@ -37,23 +36,15 @@ class RepresentanteController extends Controller
     public function store(Request $request)
     {
         //
-
-        $representante=new Representante();
-        $representante->trabajo = $request-> trabajo;
-        $representante->gradoInstruccion = $request-> gradoInstruccion;
-        $representante->profOcupacion = $request-> profOcupacion;
-        $representante->lgTrabajo = $request-> lgTrabajo;
-        $representante->telefonos = $request-> telefonos;
-        $representante->save();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Representante  $representante
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Representante $representante)
     {
         //
     }
@@ -61,10 +52,10 @@ class RepresentanteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Representante  $representante
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Representante $representante)
     {
         //
     }
@@ -73,10 +64,10 @@ class RepresentanteController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Representante  $representante
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Representante $representante)
     {
         //
     }
@@ -84,10 +75,10 @@ class RepresentanteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Representante  $representante
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Representante $representante)
     {
         //
     }

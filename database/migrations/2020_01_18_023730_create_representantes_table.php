@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePersonasTable extends Migration
+class CreateRepresentantesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,21 @@ class CreatePersonasTable extends Migration
      */
     public function up()
     {
-        Schema::create('personas', function (Blueprint $table) {
+        Schema::create('representantes', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('alumno_id')->unsigned();
             $table->string('nombres');
             $table->string('segNombres');
             $table->string('apellidos');
             $table->string('segApellidos');
-            $table->string('cedula');
-            $table->string('lgNacimiento');
-            $table->text('direccion');
             $table->date('fNacimiento');
             $table->string('email');
-            $table->string('edad');
-            $table->string('sexo');
-            $table->string('fotos');
-            $table->enum('roles',['representante','alumno']);
+            $table->string('trabajo');
+            $table->string('gradoInstruccion');
+            $table->string('profOcupacion');
+            $table->text('lgTrabajo');
+            $table->string('telefonos');
+            $table->foreign('alumno_id')->references('id')->on('alumnos')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -39,6 +39,6 @@ class CreatePersonasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('personas');
+        Schema::dropIfExists('representantes');
     }
 }

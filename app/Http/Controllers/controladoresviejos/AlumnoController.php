@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Alumno;
+use App\Persona;
+use App\Representante;
 use Illuminate\Http\Request;
 
 class AlumnoController extends Controller
@@ -36,15 +37,24 @@ class AlumnoController extends Controller
     public function store(Request $request)
     {
         //
+        $alumno = new Alumno();
+        $alumno->camisas = $request->camisas;
+        $alumno->pantalon = $request->pantalon;
+        $alumno->zapatos = $request->zapatos;
+        $alumno->enfemPadecida = $request->enfemPadecida;
+        $alumno->enfemPsicologica = $request->enfemPsicologica;
+        if($alumno->save()){
+            return redirect('inscripcion')->with('person','Datos guardados');
+        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Alumno  $alumno
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Alumno $alumno)
+    public function show($id)
     {
         //
     }
@@ -52,10 +62,10 @@ class AlumnoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Alumno  $alumno
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Alumno $alumno)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +74,10 @@ class AlumnoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Alumno  $alumno
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Alumno $alumno)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +85,10 @@ class AlumnoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Alumno  $alumno
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Alumno $alumno)
+    public function destroy($id)
     {
         //
     }
