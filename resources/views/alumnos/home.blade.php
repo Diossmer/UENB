@@ -63,7 +63,7 @@
                             @foreach ($alumno as $alumnos)
                                 <tr>
                                     <td>
-                                    <img src="{{ asset('storage/app/public/uploads/', $alumnos->fotos )}}" alt="" sizes="" srcset="" height="100" width="100">
+                                    <img src="{{asset("images/".$alumnos->fotos)}}" alt="zz" sizes="" srcset="" height="100" width="100">
                                     </td>
                                 <td>{{$alumnos->nombres}}</td>
                                 <td>{{$alumnos->segNombres}}</td>

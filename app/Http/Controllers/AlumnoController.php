@@ -107,17 +107,34 @@ class AlumnoController extends Controller
     public function update(Request $request, Alumno $alumno)
     {
         //
-        if($request->hasfile('fotos')){
-            $logoName = $this->updateLogo($request);
-            $request->merge(['logo' => $logoName]);
-            Storage::delete($alumno->fotos);
-            $dato = $request->file('fotos');
-            $name=time().$dato->getClientOriginalName();
-            // $dato->store('uploads','public');
-            $dato->move(public_path().'/images/', $name);
+        $alumno = Alumno::findOrFail($alumno);
+        if($request->hasFile('fotos')){
+            $archivo=Request()->except('_token');
+            $archivo = $request->file('fotos');
+            $nombre= $archivo->getClientOriginalName();
+            $alumno->fotos = $nombre;
+            $archivo->move(public_path().'/images/',$nombre);
         }
-        $alumno->fotos = $name->update($dato);
-        $alumno->save();
+        $alumno->nombres = $request->nombres;
+        $alumno->segNombres = $request->segNombres;
+        $alumno->apellidos = $request->apellidos;
+        $alumno->segApellidos = $request->segApellidos;
+        $alumno->estatus = $request->estatus;
+        $alumno->lgNacimiento = $request->lgNacimiento;
+        $alumno->dia = $request->dia;
+        $alumno->mes = $request->mes;
+        $alumno->anio = $request->anio;
+        $alumno->direccion = $request->direccion;
+        $alumno->email = $request->email;
+        $alumno->sexo = $request->sexo;
+        $alumno->enfemPadecida = $request->enfemPadecida;
+        $alumno->camisas = $request->camisas;
+        $alumno->pantalon = $request->pantalon;
+        $alumno->zapatos = $request->zapatos;
+        $alumno->anioEscolar_id = $request->anioEscolar_id;
+        if($alumno->save()){
+            return back()->with('alumno','EXITO');
+        }
     }
 
     /**
