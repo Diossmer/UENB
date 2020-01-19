@@ -89,7 +89,6 @@ class RepresentanteController extends Controller
     public function update(Request $request, $representante)
     {
         //
-        dd($request);
         $representante = Representante::findOrFail($representante);
         $representante->alumno_id = $request->alumno_id;
         $representante->nombres = $request->nombres;
