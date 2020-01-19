@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\AnioEscolar;
+use App\Alumno;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
 class HomeController extends Controller
@@ -26,7 +27,9 @@ class HomeController extends Controller
         return view('home');
     }
     public function ExportarPDF(){
-        $pdf= PDF::loadView('pdf.show');
+        $alumno = Alumno::all();
+        $escolar = AnioEscolar::all();
+        $pdf= PDF::loadView('pdf.show',compact('alumno','escolar'));
         return $pdf->stream('FicheroAdministrador.pdf');
     }
 }

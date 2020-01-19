@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Alumno;
 use App\Representante;
 use Illuminate\Http\Request;
 
@@ -25,6 +25,9 @@ class RepresentanteController extends Controller
     public function create()
     {
         //
+        $alumno = Alumno::pluck('nombres','id')->all();
+        $anioEscolar = AnioEscolar::pluck('fechaIngreso','id')->all();
+        return view('inscripcion.create',compact('alumno','anioEscolar'));
     }
 
     /**
@@ -36,6 +39,22 @@ class RepresentanteController extends Controller
     public function store(Request $request)
     {
         //
+        $representante = new Representante();
+        $representante->alumno_id = $request->alumno_id;
+        $representante->nombres = $request->nombres;
+        $representante->segNombres = $request->segNombres;
+        $representante->apellidos = $request->apellidos;
+        $representante->segApellidos = $request->segApellidos;
+        $representante->fNacimiento = $request->fNacimiento;
+        $representante->email = $request->email;
+        $representante->trabajo = $request->trabajo;
+        $representante->gradoInstruccion = $request->gradoInstruccion;
+        $representante->profOcupacion = $request->profOcupacion;
+        $representante->lgTrabajo = $request->lgTrabajo;
+        $representante->telefonos = $request->telefonos;
+        if($representante->save()){
+            return back()->with('representante','EXITO');
+        }
     }
 
     /**
@@ -70,6 +89,22 @@ class RepresentanteController extends Controller
     public function update(Request $request, Representante $representante)
     {
         //
+        $representante = Representante::find($representante);
+        $representante->alumno_id = $request->alumno_id;
+        $representante->nombres = $request->nombres;
+        $representante->segNombres = $request->segNombres;
+        $representante->apellidos = $request->apellidos;
+        $representante->segApellidos = $request->segApellidos;
+        $representante->fNacimiento = $request->fNacimiento;
+        $representante->email = $request->email;
+        $representante->trabajo = $request->trabajo;
+        $representante->gradoInstruccion = $request->gradoInstruccion;
+        $representante->profOcupacion = $request->profOcupacion;
+        $representante->lgTrabajo = $request->lgTrabajo;
+        $representante->telefonos = $request->telefonos;
+        if($representante->save()){
+            return back()->with('representante','EXITO');
+        }
     }
 
     /**

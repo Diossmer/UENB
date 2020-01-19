@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 use App\AnioEscolar;
+use App\Alumno;
+use App\Representante;
 use Illuminate\Http\Request;
+use \Illuminate\Http\Response;
 
-class AnioEscolarController extends Controller
+class InscripcionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,6 +17,10 @@ class AnioEscolarController extends Controller
     public function index()
     {
         //
+        $representante = Representante::paginate(10);
+        $alumno = Alumno ::paginate(15);
+        $escolar = AnioEscolar::paginate(5);
+        return view('inscripcion.home',compact('escolar','alumno','representante'));
     }
 
     /**
@@ -24,6 +31,9 @@ class AnioEscolarController extends Controller
     public function create()
     {
         //
+        $alumno = Alumno::pluck('nombres','id')->all();
+        $escolar = AnioEscolar::pluck('fechaIngreso','id')->all();
+        return view('inscripcion.create',compact('escolar','alumno'));
     }
 
     /**
@@ -66,6 +76,10 @@ class AnioEscolarController extends Controller
     public function edit($id)
     {
         //
+        $representante = Representante::find($id);
+        $alumno = Alumno::find($id);
+        $escolar = AnioEscolar::find($id);
+        return view('inscripcion.edit',compact('escolar','alumno','representante'));
     }
 
     /**
@@ -78,7 +92,7 @@ class AnioEscolarController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $escolar =AnioEscolar::find($id);
+        $escolar = AnioEscolar::find($id);
         $escolar->grado          = $request->grado;
         $escolar->seccion        = $request->seccion;
         $escolar->fechaIngreso   = $request->fechaIngreso;
