@@ -22,7 +22,7 @@
             </thead>
             <tbody>
                 {{-- <td><img src="images/{{$alumno->fotos}}" alt="" sizes="" srcset="" height="100" width="100"></td> --}}
-                    {{ $escolar->alumno->anioEscolar_id }}
+                    {{ $alumno->anioEscolar_id }}
             </tbody>
         </table>
         <table border="3" valing="middle" align="center">

@@ -5,7 +5,7 @@ use App\AnioEscolar;
 use App\Alumno;
 use App\Representante;
 use Illuminate\Http\Request;
-use \Illuminate\Http\Response;
+
 
 class InscripcionController extends Controller
 {
@@ -77,9 +77,11 @@ class InscripcionController extends Controller
     {
         //
         $representante = Representante::find($id);
+        $estudiante = Alumno::pluck('nombres','id')->all();
+        $anioescolar = AnioEscolar::pluck('fechaIngreso','id')->all();
         $alumno = Alumno::find($id);
         $escolar = AnioEscolar::find($id);
-        return view('inscripcion.edit',compact('escolar','alumno','representante'));
+        return view('inscripcion.edit',compact('escolar','alumno','representante','estudiante','anioescolar'));
     }
 
     /**

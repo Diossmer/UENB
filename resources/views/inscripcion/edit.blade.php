@@ -164,16 +164,16 @@
     </div>
     <div class="col-md-6">
     {!! Form::label("anioEscolar_id", "Año Escolar", ["class"=>"label label-success"]) !!}
-    {!! Form::select("anioEscolar_id", $escolar,null,["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Selection Option"]) !!}
+    {!! Form::select("anioEscolar_id", $anioescolar,null,["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Selection Option"]) !!}
     </div>
 </div>
     {!! Form::submit("Actualizar", ["class"=>"btn btn-primary"]) !!}
-    {!!link_to_route('alumno.index','Regresar',"",['class'=>'btn btn-success'])!!}
+    {!!link_to_route('inscripcion.index','Regresar',"",['class'=>'btn btn-success'])!!}
     {!! Form::close() !!}
     </div>
     <div class="representante">
-        {!! Form::open(["url"=>["representante/".$representante->id],'method' => 'put', "autocomplete"=>"on","enctype"=>"multipart/form-data"]) !!}
         <span><h2 class="text-warning">Representante</h2></span> <br>
+        {!! Form::open(["route"=>["representante.update",$representante->id],'method' => 'PUT', "autocomplete"=>"off","enctype"=>"multipart/form-data"]) !!}
         {!! Form::token()!!}
         <div class="row">
         <div class="col-md-3">
@@ -182,57 +182,57 @@
         </div>
         <div class="col-md-3">
         {!! Form::label("segNombres", "Segundo Nombre", ["class"=>"label label-warning"]) !!}
-        {!! Form::text("segNombres", old('segNombres'), ["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Segundo Nombre"]) !!}
+        {!! Form::text("segNombres", $representante->segNombres, ["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Segundo Nombre"]) !!}
         </div>
         <div class="col-md-3">
         {!! Form::label("apellidos", "Apellido", ["class"=>"label label-warning"]) !!}
-        {!! Form::text("apellidos", old('apellidos'), ["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Apellido"]) !!}
+        {!! Form::text("apellidos", $representante->apellidos, ["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Apellido"]) !!}
         </div>
         <div class="col-md-3">
         {!! Form::label("segApellidos", "Segundo Apellido", ["class"=>"label label-warning"]) !!}
-        {!! Form::text("segApellidos", old('segApellidos'), ["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Segundo Apellido"]) !!}
+        {!! Form::text("segApellidos", $representante->segApellidos, ["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Segundo Apellido"]) !!}
         </div>
         </div>
         <div class="row">
             <div class="col-md-4">
                 {!! Form::label("gradoInstruccion", "Grado de Instruccion", ["class"=>"label label-warning"]) !!}
-                {!! Form::text("gradoInstruccion", old('gradoInstruccion'), ["class"=>"form-control", "placeholder"=>"Grado de Instruccion"]) !!}
+                {!! Form::text("gradoInstruccion", $representante->gradoInstruccion, ["class"=>"form-control", "placeholder"=>"Grado de Instruccion"]) !!}
                 </div>
             <div class="col-md-4">
                 {!! Form::label("lgTrabajo", "Lugar de trabajo", ["class"=>"label label-warning"]) !!}
-                {!! Form::text("lgTrabajo", old('lgTrabajo'), ["class"=>"form-control", "placeholder"=>"Lugar de trabajo"]) !!}
+                {!! Form::text("lgTrabajo", $representante->lgTrabajo, ["class"=>"form-control", "placeholder"=>"Lugar de trabajo"]) !!}
                 </div>
             <div class="col-md-4">
                 {!! Form::label("telefonos", "Telefonos", ["class"=>"label label-warning"]) !!}
-                {!! Form::text("telefonos", old('telefonos'), ["class"=>"form-control", "placeholder"=>"telefonos"]) !!}
+                {!! Form::text("telefonos", $representante->telefonos, ["class"=>"form-control", "placeholder"=>"telefonos"]) !!}
             </div>
         </div>
         <div class="row">
         <div class="col-md-3">
         {!! Form::label("fNacimiento", "Fecha de nacimiento", ["class"=>"label label-warning"]) !!}
-        {!! Form::date("fNacimiento", old('fNacimiento'), ["class"=>"form form-control","maxlength"=>"10"]) !!}
+        {!! Form::date("fNacimiento", $representante->fNacimiento, ["class"=>"form form-control","maxlength"=>"10"]) !!}
         </div>
         <div class="col-md-4">
         {!! Form::label("trabajo", "Trabajo", ["class"=>"label label-warning"]) !!}
-        {!! Form::text("trabajo", old('trabajo'), ["class"=>"form-control", "placeholder"=>"Trabajo"]) !!}
+        {!! Form::text("trabajo", $representante->trabajo, ["class"=>"form-control", "placeholder"=>"Trabajo"]) !!}
         </div>
         <div class="col-md-5">
         {!! Form::label("email", "E-Mail Dirección ", ["class"=>"label label-warning"]) !!}
-        {!! Form::text("email", old('email'), ["class"=>"form form-control","placeholder"=>"E-Mail Dirección"]) !!}
+        {!! Form::text("email", $representante->email, ["class"=>"form form-control","placeholder"=>"E-Mail Dirección"]) !!}
         </div>
         </div>
         <div class="row">
         <div class="col-md-5">
         {!! Form::label("profOcupacion", "Profesion o Ocupacion", ["class"=>"label label-warning"]) !!}
-        {!! Form::text("profOcupacion", old('profOcupacion'), ["class"=>"form-control", "placeholder"=>"Profesion o Ocupacion"]) !!}
+        {!! Form::text("profOcupacion", $representante->profOcupacion, ["class"=>"form-control", "placeholder"=>"Profesion o Ocupacion"]) !!}
         </div>
         <div class="col-md-5">
         {!! Form::label("alumno_id", "Alumno", ["class"=>"label label-warning"]) !!}
-        {!! Form::select("alumno_id", $alumno, null,["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Selection Option"]) !!}
+        {!! Form::select("alumno_id", $estudiante, null,["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Selection Option"]) !!}
         </div>
-    </div>
-        {!! Form::submit("Registrar", ["class"=>"btn btn-primary"]) !!}
-        {!!link_to_route('representante.index','Regresar',"",['class'=>'btn btn-success'])!!}
+        </div>
+        {!! Form::submit("Actualizar", ["class"=>"btn btn-primary"]) !!}
+        {!!link_to_route('inscripcion.index','Regresar',"",['class'=>'btn btn-success'])!!}
         {!! Form::close() !!}
     </div>
     <div class="Mostrar text-info">
