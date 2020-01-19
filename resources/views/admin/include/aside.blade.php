@@ -14,9 +14,9 @@
                     </li>
                 </ul>
             </li>
-            <li>
+            {{-- <li>
             <a href="{{route('ExportPDF.Admin')}}">Generar Archivo</a>
-            </li>
+            </li> --}}
         </ul>
     </nav>
 </div>

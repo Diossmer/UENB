@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\AnioEscolar;
 use App\Alumno;
+use App\Representante;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
 class HomeController extends Controller
@@ -24,12 +25,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
-    }
-    public function ExportarPDF(){
+        $representante = Representante::all();
         $alumno = Alumno::all();
         $escolar = AnioEscolar::all();
-        $pdf= PDF::loadView('pdf.show',compact('alumno','escolar'));
-        return $pdf->stream('FicheroAdministrador.pdf');
+        return view('home',compact('escolar','alumno','representante'));
+    }
+    public function ExportarPDF($id){
+        $representante = Representante::find($id);
+        $alumno = Alumno::find($id);
+        $escolar = AnioEscolar::select('cedula','matricula')->where('id',"=",$id)->latest()->get();
+        $pdf= PDF::loadView('pdf.show',compact('escolar','alumno',"representante"));
+        return $pdf->stream('FicheroUsuario.pdf');
     }
 }

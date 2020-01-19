@@ -75,7 +75,7 @@
     </div>
 </div>
         {!! Form::submit("Registrar", ["class"=>"btn btn-primary"]) !!}
-        {!!link_to_route('anioescolar.index','Regresar',"",['class'=>'btn btn-success'])!!}
+        {!!link_to_route('inscripcion.index','Regresar',"",['class'=>'btn btn-success'])!!}
         {!! Form::close() !!}
     </div>
     <div class="alumno">
@@ -171,12 +171,12 @@
         {!! Form::text("zapatos", old('zapatos'), ["class"=>"form-control", "placeholder"=>"S"]) !!}
         </div>
         <div class="col-md-6">
-            {!! Form::label("anioEscolar_id", "Año Escolar", ["class"=>"label label-success"]) !!}
-            {!! Form::select("anioEscolar_id", $escolar, null,["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Selection Option"]) !!}
+        {!! Form::label("anioEscolar_id", "Año Escolar", ["class"=>"label label-success"]) !!}
+        {!! Form::select("anioEscolar_id", $escolar, null,["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Selection Option"]) !!}
         </div>
     </div>
         {!! Form::submit("Registrar", ["class"=>"btn btn-primary"]) !!}
-        {!!link_to_route('alumno.index','Regresar',null,['class'=>'btn btn-success'])!!}
+        {!!link_to_route('inscripcion.index','Regresar',null,['class'=>'btn btn-success'])!!}
         {!! Form::close() !!}
     </div>
     <div class="representante">

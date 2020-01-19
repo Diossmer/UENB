@@ -40,4 +40,4 @@ Route::resource('inscripcion', 'InscripcionController');
 Route::resource('anioescolar', 'AnioEscolarController');
 Route::resource('alumno', 'AlumnoController');
 Route::resource('representante', 'RepresentanteController');
-Route::get('download','HomeController@ExportarPDF')->name('ExportarPDF.USER');
+Route::get('download/{id?}','HomeController@ExportarPDF')->name('ExportarPDF.USER');

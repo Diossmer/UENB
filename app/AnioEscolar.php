@@ -10,7 +10,7 @@ class AnioEscolar extends Model
     protected $table="anio_escolars";
     protected $fillable = [
         "grado", "seccion", "fechaIngreso",
-        "cedula", "matricula", "estatus",
+        "cedula", "matricula",
     ];
     /*RELACIONES ONE TO MANY INVERSE
     **El Año_Escolar*/
