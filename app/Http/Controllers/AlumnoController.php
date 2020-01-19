@@ -47,7 +47,7 @@ class AlumnoController extends Controller
         if($request->hasFile('fotos')){
             $archivo=Request()->except('_token');
             $archivo = $request->file('fotos');
-            $nombre= $archivo->getClientOriginalName();
+            $nombre= time().$archivo->getClientOriginalName();
             $archivo->move(public_path().'/images/',$nombre);
         }
         $alumno = new Alumno();
@@ -94,7 +94,8 @@ class AlumnoController extends Controller
     public function edit(Alumno $alumno)
     {
         //
-        return view('alumnos.edit',compact('alumno'));
+        $anioescolar = AnioEscolar::pluck('fechaIngreso','id')->all();
+        return view('alumnos.edit',compact('alumno','anioescolar'));
     }
 
     /**
@@ -107,14 +108,13 @@ class AlumnoController extends Controller
     public function update(Request $request, Alumno $alumno)
     {
         //
-        $alumno = Alumno::findOrFail($alumno);
         if($request->hasFile('fotos')){
             $archivo=Request()->except('_token');
             $archivo = $request->file('fotos');
-            $nombre= $archivo->getClientOriginalName();
-            $alumno->fotos = $nombre;
+            $nombre= time().$archivo->getClientOriginalName();
             $archivo->move(public_path().'/images/',$nombre);
         }
+        $alumno->fotos=$nombre;
         $alumno->nombres = $request->nombres;
         $alumno->segNombres = $request->segNombres;
         $alumno->apellidos = $request->apellidos;

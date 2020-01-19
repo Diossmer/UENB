@@ -129,7 +129,7 @@
     </div>
     <div class="col-md-6">
     {!! Form::label("anioEscolar_id", "Año Escolar", ["class"=>"label label-success"]) !!}
-    {!! Form::select("anioEscolar_id", $alumno,null,["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Selection Option"]) !!}
+    {!! Form::select("anioEscolar_id", $anioescolar,null,["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Selection Option"]) !!}
     </div>
 </div>
     {!! Form::submit("Actualizar", ["class"=>"btn btn-primary"]) !!}
