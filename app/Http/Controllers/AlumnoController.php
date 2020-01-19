@@ -65,6 +65,7 @@ class AlumnoController extends Controller
         $alumno->email = $request->email;
         $alumno->sexo = $request->sexo;
         $alumno->enfemPadecida = $request->enfemPadecida;
+        $alumno->enfemPsicologica = $request->enfemPsicologica;
         $alumno->camisas = $request->camisas;
         $alumno->pantalon = $request->pantalon;
         $alumno->zapatos = $request->zapatos;
@@ -108,13 +109,7 @@ class AlumnoController extends Controller
     public function update(Request $request, Alumno $alumno)
     {
         //
-        if($request->hasFile('fotos')){
-            $archivo=Request()->except('_token');
-            $archivo = $request->file('fotos');
-            $nombre= time().$archivo->getClientOriginalName();
-            $archivo->move(public_path().'/images/',$nombre);
-        }
-        $alumno->fotos=$nombre;
+        $alumno = Alumno::findOrFail($alumno);
         $alumno->nombres = $request->nombres;
         $alumno->segNombres = $request->segNombres;
         $alumno->apellidos = $request->apellidos;
@@ -128,10 +123,18 @@ class AlumnoController extends Controller
         $alumno->email = $request->email;
         $alumno->sexo = $request->sexo;
         $alumno->enfemPadecida = $request->enfemPadecida;
+        $alumno->enfemPsicologica = $request->enfemPsicologica;
         $alumno->camisas = $request->camisas;
         $alumno->pantalon = $request->pantalon;
         $alumno->zapatos = $request->zapatos;
         $alumno->anioEscolar_id = $request->anioEscolar_id;
+        if($request->hasFile('fotos')){
+            $archivo=Request()->except('_token');
+            $archivo = $request->file('fotos');
+            $nombre= time().$archivo->getClientOriginalName();
+            $alumno->fotos=$nombre->update();
+            $archivo->move(public_path().'/images/',$nombre);
+        }
         if($alumno->save()){
             return back()->with('alumno','EXITO');
         }

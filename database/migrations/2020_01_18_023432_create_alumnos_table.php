@@ -31,8 +31,8 @@ class CreateAlumnosTable extends Migration
             $table->string('camisas');
             $table->string('pantalon');
             $table->string('zapatos');
-            $table->string('enfemPadecida')->nullable();
-            $table->string('enfemPsicologica')->nullable();
+            $table->string('enfemPadecida');
+            $table->string('enfemPsicologica');
             $table->string('estatus');
             $table->foreign('anioEscolar_id')->references('id')->on('anio_escolars')->onDelete('cascade');
             $table->timestamps();

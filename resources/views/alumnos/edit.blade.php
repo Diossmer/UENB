@@ -75,16 +75,16 @@
     {!! Form::text("lgNacimiento", $alumno->lgNacimiento, ["class"=>"form form-control","placeholder"=>"Lugar de Nacimiento"]) !!}
     </div>
     <div class="col-md-2">
-    {!! Form::label("dia", $alumno->dia, ["class"=>"label label-success"]) !!}
-    {!! Form::text("dia", 0, ["class"=>"form form-control","maxlength"=>"10"]) !!}
+    {!! Form::label("dia", "dia", ["class"=>"label label-success"]) !!}
+    {!! Form::text("dia", $alumno->dia, ["class"=>"form form-control","maxlength"=>"10"]) !!}
     </div>
     <div class="col-md-2">
-    {!! Form::label("mes", $alumno->mes, ["class"=>"label label-success"]) !!}
-    {!! Form::text("mes", 0, ["class"=>"form form-control","maxlength"=>"10"]) !!}
+    {!! Form::label("mes", "mes", ["class"=>"label label-success"]) !!}
+    {!! Form::text("mes", $alumno->mes, ["class"=>"form form-control","maxlength"=>"10"]) !!}
     </div>
     <div class="col-md-2">
-    {!! Form::label("anio", $alumno->anio, ["class"=>"label label-success"]) !!}
-    {!! Form::text("anio", /*\Carbon\Carbon::createFromDate()->age*/0, ["class"=>"form form-control","maxlength"=>"10"]) !!}
+    {!! Form::label("anio", "Año", ["class"=>"label label-success"]) !!}
+    {!! Form::text("anio", /*\Carbon\Carbon::createFromDate()->age*/$alumno->anio, ["class"=>"form form-control","maxlength"=>"10"]) !!}
     </div>
 </div>
 <div class="row">
@@ -99,7 +99,7 @@
 </div>
 <div class="row">
     <div class="col-md-4">
-    {!! Form::label("sexo", $alumno->sexo, ["class"=>"label label-success"]) !!}<br>
+    {!! Form::label("sexo", "sexo", ["class"=>"label label-success"]) !!}<br>
     {!! Form::label("sexo", "Femenino", ["class"=>"text-primary"]) !!}
     {!! Form::radio('sexo', 'Femenino')!!}
     {!! Form::label("sexo", "Masculino", ["class"=>"text-primary"]) !!}
