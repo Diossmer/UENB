@@ -70,8 +70,8 @@
                         </tbody>
                     </table>
                     {{$escolar->links()}}
-                    
-                    
+
+
                     <table class="table table-responsive-sm table-bordered">
                         <caption class="table text-center">Inscripción de alumno </caption>
                         <thead>
@@ -82,7 +82,6 @@
                             <th scope="col">Apellido</th>
                             <th scope="col">Segundo apellido</th>
                             <th scope="col">Edad</th>
-                            <th scope="col">accion</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -94,9 +93,6 @@
                                 <td>{{$alumnos->apellidos}}</td>
                                 <td>{{$alumnos->segApellidos}}</td>
                                 <th>{{\Carbon\Carbon::createFromDate($alumnos->anio)->age}}</th>
-                                <td>
-                                        {!!link_to_route('inscripcion.edit', $title = "Editar",$alumnos->id, ["class" => "btn btn-success"])!!}
-                                </td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -113,7 +109,6 @@
                             <th scope="col">Apellido</th>
                             <th scope="col">Segundo apellido</th>
                             <th scope="col">Edad</th>
-                            <th scope="col">accion</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -125,9 +120,6 @@
                                 <td>{{$representantes->apellidos}}</td>
                                 <td>{{$representantes->segApellidos}}</td>
                                 <th>{{\Carbon\Carbon::createFromDate($representantes->anio)->age}}</th>
-                                <td>
-                                        {!!link_to_route('inscripcion.edit', $title = "Editar",$representantes->id, ["class" => "btn btn-success"])!!}
-                                </td>
                                 </tr>
                             @endforeach
                         </tbody>
