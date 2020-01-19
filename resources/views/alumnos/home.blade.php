@@ -63,7 +63,7 @@
                             @foreach ($alumno as $alumnos)
                                 <tr>
                                     <td>
-                                        <img src="images/{{$alumnos->fotos}}" alt="" sizes="" srcset="" height="100" width="100">
+                                    <img src="{{ asset('storage/app/public/uploads/', $alumnos->fotos )}}" alt="" sizes="" srcset="" height="100" width="100">
                                     </td>
                                 <td>{{$alumnos->nombres}}</td>
                                 <td>{{$alumnos->segNombres}}</td>
@@ -75,7 +75,7 @@
                                 <td>{{$alumnos->cedula}}</td>
 
                                 <td>
-                                        {!!link_to_route('inscripcion.edit', $title = "Editar",$alumnos->id, ["class" => "btn btn-success"])!!}
+                                        {!!link_to_route('alumno.edit', $title = "Editar",$alumnos->id, ["class" => "btn btn-success"])!!}
                                 </td>
                                 </tr>
                             @endforeach

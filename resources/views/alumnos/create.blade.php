@@ -75,16 +75,16 @@
     {!! Form::text("lgNacimiento", old('lgNacimiento'), ["class"=>"form form-control","placeholder"=>"Lugar de Nacimiento"]) !!}
     </div>
     <div class="col-md-2">
-    {!! Form::label("fNacimiento", "Dia", ["class"=>"label label-success"]) !!}
-    {!! Form::text("fNacimiento", 0, ["class"=>"form form-control","maxlength"=>"10"]) !!}
+    {!! Form::label("dia", "Dia", ["class"=>"label label-success"]) !!}
+    {!! Form::text("dia", 0, ["class"=>"form form-control","maxlength"=>"10"]) !!}
     </div>
     <div class="col-md-2">
-    {!! Form::label("fNacimiento", "mes", ["class"=>"label label-success"]) !!}
-    {!! Form::text("fNacimiento", 0, ["class"=>"form form-control","maxlength"=>"10"]) !!}
+    {!! Form::label("mes", "mes", ["class"=>"label label-success"]) !!}
+    {!! Form::text("mes", 0, ["class"=>"form form-control","maxlength"=>"10"]) !!}
     </div>
     <div class="col-md-2">
-    {!! Form::label("fNacimiento", "año", ["class"=>"label label-success"]) !!}
-    {!! Form::text("fNacimiento", /*\Carbon\Carbon::createFromDate()->age*/0, ["class"=>"form form-control","maxlength"=>"10"]) !!}
+    {!! Form::label("anio", "año", ["class"=>"label label-success"]) !!}
+    {!! Form::text("anio", /*\Carbon\Carbon::createFromDate()->age*/0, ["class"=>"form form-control","maxlength"=>"10"]) !!}
     </div>
 </div>
 <div class="row">
@@ -127,9 +127,13 @@
     {!! Form::label("zapatos", "Zapatos", ["class"=>"label label-info"]) !!}
     {!! Form::text("zapatos", old('zapatos'), ["class"=>"form-control", "placeholder"=>"S"]) !!}
     </div>
+    <div class="col-md-6">
+        {!! Form::label("anioEscolar_id", "Año Escolar", ["class"=>"label label-success"]) !!}
+        {!! Form::select("anioEscolar_id", $anioEscolar, null,["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Selection Option"]) !!}
+    </div>
 </div>
     {!! Form::submit("Registrar", ["class"=>"btn btn-primary"]) !!}
-    {!!link_to_route('alumno.index','Regresar',"",['class'=>'btn btn-success'])!!}
+    {!!link_to_route('alumno.index','Regresar',null,['class'=>'btn btn-success'])!!}
     {!! Form::close() !!}
                     </div>
                 </div>
