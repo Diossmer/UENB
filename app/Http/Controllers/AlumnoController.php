@@ -106,10 +106,10 @@ class AlumnoController extends Controller
      * @param  \App\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Alumno $alumno)
+    public function update(Request $request, $alumno)
     {
         //
-/*        
+/*
         if($request->hasFile('fotos')){
             $archivo=Request()->except('_token');
             $archivo = $request->file('fotos');

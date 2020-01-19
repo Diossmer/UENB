@@ -79,10 +79,11 @@
     </div>
     <div class="alumno">
         <h2 class="text-success">Alumno</h2>
+        <img src="{{asset('images').'/'.$alumno->fotos}}" alt="" sizes="" srcset="" height="100" width="100">
+        {!! Form::file('fotos', ["class"=>"text-primary","multiple"]) !!}
     {!! Form::open(["route"=>["alumno.update",$alumno->id],'method' => 'put', "autocomplete"=>"off","enctype"=>"multipart/form-data"]) !!}
     {!! Form::token()!!}
-                    <img src="{{asset('images').'/'.$alumno->fotos}}" alt="" sizes="" srcset="" height="100" width="100">{!! Form::file('fotos', ["class"=>"text-primary","multiple"]) !!}
-<div class="row">
+    <div class="row">
     <div class="col-md-3">
     {!! Form::label("nombres", "Nombres", ["class"=>"label label-success"]) !!}
     {!! Form::text("nombres", $alumno->nombres, ["class"=>"form form-control","maxlength"=>"25","placeholder"=>"Nombre"]) !!}

@@ -86,10 +86,11 @@ class RepresentanteController extends Controller
      * @param  \App\Representante  $representante
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Representante $representante)
+    public function update(Request $request, $representante)
     {
         //
-        $representante = Representante::find($representante);
+        dd($request);
+        $representante = Representante::findOrFail($representante);
         $representante->alumno_id = $request->alumno_id;
         $representante->nombres = $request->nombres;
         $representante->segNombres = $request->segNombres;
