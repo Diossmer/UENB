@@ -53,7 +53,7 @@ class RepresentanteController extends Controller
         $representante->lgTrabajo = $request->lgTrabajo;
         $representante->telefonos = $request->telefonos;
         if($representante->save()){
-            return back()->with('representante','EXITO');
+            return redirect('inscripcion')->with('representante','EXITO');
         }
     }
 
@@ -103,7 +103,7 @@ class RepresentanteController extends Controller
         $representante->lgTrabajo = $request->lgTrabajo;
         $representante->telefonos = $request->telefonos;
         if($representante->save()){
-            return back()->with('representante','EXITO');
+            return redirect('inscripcion')->with('representante','EXITO');
         }
     }
 

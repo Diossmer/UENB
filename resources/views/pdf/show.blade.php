@@ -38,7 +38,7 @@
                 </tr>
             </thead>
             <tbody>
-                {{-- @foreach ($representante as $representantes)
+            {{-- @foreach ($representante as $representantes)
                     <tr valing="middle" align="center">
                     <td><img src="images/{{$alumnos->fotos}}" alt="" sizes="" srcset="" height="100" width="100"></td>
                     <td>{{$alumnos->nombres}}</td>

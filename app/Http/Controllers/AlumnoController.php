@@ -109,16 +109,14 @@ class AlumnoController extends Controller
     public function update(Request $request, $alumno)
     {
         //
-/*
+        $alumno = Alumno::find($alumno);
         if($request->hasFile('fotos')){
-            $archivo=Request()->except('_token');
+            // $archivo=Request()->except('_token');
             $archivo = $request->file('fotos');
             $nombre= time().$archivo->getClientOriginalName();
             $nombre=$alumno->fotos;
             $archivo->move(public_path().'/images/',$nombre);
         }
-*/
-        $alumno = Alumno::find($alumno);
         $alumno->nombres = $request->nombres;
         $alumno->segNombres = $request->segNombres;
         $alumno->apellidos = $request->apellidos;
