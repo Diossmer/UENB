@@ -85,7 +85,7 @@ class AnioEscolarController extends Controller
         $escolar->cedula         = $request->cedula;
         $escolar->matricula      = $request->matricula;
         if($escolar->save()){
-            return back()->with('añoescolar','Exitoso!!!');
+            return redirect('inscripcion')->with('añoescolar','Exitoso!!!');
         }
     }
 

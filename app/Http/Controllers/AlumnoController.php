@@ -136,7 +136,7 @@ class AlumnoController extends Controller
         $alumno->zapatos = $request->zapatos;
         $alumno->anioEscolar_id = $request->anioEscolar_id;
         if($alumno->save()){
-            return back()->with('alumno','EXITO');
+            return redirect('inscripcion')->with('alumno','EXITO');
         }
     }
 
