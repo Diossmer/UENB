@@ -47,10 +47,8 @@
                     </div>
     <div class="alert alert-danger" role="alert">
         <h5>Completar primero <br>
-            (AÑO ESCOLAR) <br>
-            (ALUMNO) <br>
-            (REPRESENTANTE). <br>
-            Para lograr Actualizar datos
+            1. (AÑO ESCOLAR) 2. (ALUMNO) 3. (REPRESENTANTE). <br>
+            Para lograr, "<b>Actualizar</b>" datos
         </h5>
     </div>
     @if ($errors->any())
