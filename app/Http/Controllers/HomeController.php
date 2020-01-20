@@ -25,16 +25,22 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $representante = Representante::all();
-        $alumno = Alumno::all();
-        $escolar = AnioEscolar::all();
-        return view('home',compact('escolar','alumno','representante'));
+
+        $escolar = AnioEscolar::orderBy('seccion','asc')->get();
+        return view('home',compact('escolar'));
     }
-    public function ExportarPDF($id){
-        $representante = Representante::find($id);
-        $alumno = Alumno::find($id);
-        $escolar = AnioEscolar::select('cedula','matricula')->where('id',"=",$id)->latest()->get();
+    public function ExportarPDF(){
+        $representante = Representante::orderBy('nombres','asc')->get();
+        $escolar = AnioEscolar::orderBy('seccion','asc')->get();
+        $alumno = Alumno::orderBy('nombres','asc')->get();//->pluck('nombres');
         $pdf= PDF::loadView('pdf.show',compact('escolar','alumno',"representante"));
         return $pdf->stream('FicheroUsuario.pdf');
     }
+    // public function ExportarPDF($id){
+    //     $representante = Representante::find($id)->orderBy('nombres','asc')->all();
+    //     $escolar = AnioEscolar::find($id)->orderBy('seccion','asc')->get();
+    //     $alumno = Alumno::find($id)->orderBy('nombres','asc')->get();//->pluck('nombres');
+    //     $pdf= PDF::loadView('pdf.show',compact('escolar','alumno',"representante"));
+    //     return $pdf->stream('FicheroUsuario.pdf');
+    // }
 }

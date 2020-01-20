@@ -12,7 +12,7 @@ class Alumno extends Model
     protected $fillable = [
         "anioEscolar_id", "fotos", "nombres", "segNombres",
         "apellidos", "segApellidos", "lgNacimiento",
-        "direccion", "fNacimiento", "email","dia","mes","anio",
+        "direccion", "email","dia","mes","anio",
         "sexo", "camisas", "pantalon", "zapatos",
         "enfemPadecida", "enfemPsicologica","estatus",
     ];

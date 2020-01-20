@@ -31,12 +31,12 @@ class ValidationRepresentante extends FormRequest
             "apellidos"=>"required",
             "segApellidos"=>"required",
             "fNacimiento"=>"required",
-            "email"=>"required",
+            "email"=>"email|required",
             "trabajo"=>"required",
             "gradoInstruccion"=>"required",
             "profOcupacion"=>"required",
             "lgTrabajo"=>"required",
-            "telefonos"=>"required",
+            "telefonos"=>"required|numeric",
         ];
     }
 }

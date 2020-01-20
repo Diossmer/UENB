@@ -104,7 +104,7 @@ class AlumnoController extends Controller
      * @param  \App\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $alumno)
+    public function update(ValidationAlumno $request, $alumno)
     {
         //
         $alumno = Alumno::find($alumno);

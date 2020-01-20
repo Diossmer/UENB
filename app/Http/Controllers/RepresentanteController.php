@@ -88,7 +88,7 @@ class RepresentanteController extends Controller
      * @param  \App\Representante  $representante
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $representante)
+    public function update(ValidationRepresentante $request, $representante)
     {
         //
         $representante = Representante::findOrFail($representante);

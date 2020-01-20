@@ -92,7 +92,7 @@ class InscripcionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ValidationInscription $request, $id)
     {
         //
         $escolar = AnioEscolar::find($id);

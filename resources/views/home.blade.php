@@ -42,14 +42,14 @@
                 @endif
 
                 <table class="table table-responsive-sm table-bordered">
-                    <caption class="table text-center">Año escolar</caption>
+                    <caption class="table text-center">Año escolar {!! link_to_route('ExportarPDF.USER','Ver Listado pdf',null,['class'=>'btn btn-primary','target'=>'_blank'])!!}</caption>
                     <thead>
                         <tr valing="middle" align="center">
                         <th scope="col">Grado</th>
                         <th scope="col">Seccion</th>
-                        <th scope="col">cedula</th>
-                        <th scope="col">fechaIngreso</th>
-                        <th scope="col">matricula</th>
+                        <th scope="col">Cedula</th>
+                        <th scope="col">Fecha de ingreso</th>
+                        <th scope="col">Matricula</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,14 +57,15 @@
                             <tr valing="middle" align="center">
                             <td>{{$escolares->grado}}</td>
                             <td>{{$escolares->seccion}}</td>
-                            <td>{{link_to_route('ExportarPDF.USER',$escolares->cedula,$escolares->id) }}</td>
+                            <td>{{$escolares->cedula}}</td>
                             <td>{{$escolares->fechaIngreso}}</td>
                             <td>{{$escolares->matricula}}</td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
-                <table class="table table-responsive-sm table-bordered">
+
+                {{-- <table class="table table-responsive-sm table-bordered">
                     <caption class="table text-center">Alumnos </caption>
                     <thead>
                         <tr valing="middle" align="center">
@@ -74,22 +75,24 @@
                         <th scope="col">Apellido</th>
                         <th scope="col">Segundo apellido</th>
                         <th scope="col">Edad</th>
+                        <th scope="col">Seccion</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        @foreach ($alumno as $alumnos)
-                            <tr valing="middle" align="center">
-                            <td><a href="download/{{$alumnos->id}}"><img src="{{asset("images/$alumnos->fotos")}}" alt="" width="111" heigth="222"></a>
+                    <tbody> --}}
+                        {{-- @foreach ($alumno as $alumnos) --}}
+                            {{-- <tr valing="middle" align="center">
+                            <td><a href="download/{{$alumnos->id}}"><img src="{{asset("images/$alumnos->fotos")}}" alt="" width="111" heigth="222"></a> --}}
                                 {{-- {{link_to_route('ExportarPDF.USER',"images/$alumnos->fotos",$alumnos->id)}}</td> --}}
-                            <td>{{$alumnos->anioEscolar_id}}</td>
+                            {{-- <td>{{$alumnos->anioEscolar_id}}</td>
                             <td>{{$alumnos->segNombres}}</td>
                             <td>{{$alumnos->apellidos}}</td>
                             <td>{{$alumnos->segApellidos}}</td>
                             <th>{{\Carbon\Carbon::createFromDate($alumnos->anio)->age}}</th>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                            <th>{{$alumnos->anioEscolar_id}}</th>
+                            </tr> --}}
+                        {{-- @endforeach --}}
+                    {{-- </tbody>
+                </table> --}}
 
             </div>
         </div>

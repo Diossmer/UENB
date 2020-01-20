@@ -8,7 +8,7 @@
         <ul class="list-unstyled components">
             <li class="active">
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    Registros</a>
+                    <b>Registro</b></a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li>
                     <a href="{{route('inscripcion.index')}}">Inscripción</a>

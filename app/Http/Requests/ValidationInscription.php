@@ -25,11 +25,11 @@ class ValidationInscription extends FormRequest
     {
         return [
             //Año escolar
-            "grado"=>"bail|required",
-            "seccion"=>"required|size:1",
+            "grado"=>"required|numeric",
+            "seccion"=>"required|alpha",
             "fechaIngreso"=>"required",
-            "cedula"=>"required",
-            "matricula"=>"required",
+            "cedula"=>"integer|required",
+            "matricula"=>"integer|required",
         ];
     }
 }

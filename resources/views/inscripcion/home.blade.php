@@ -58,10 +58,10 @@
                             <tr>
                             <th scope="col">Grado</th>
                             <th scope="col">Seccion</th>
-                            <th scope="col">cedula</th>
-                            <th scope="col">fechaIngreso</th>
-                            <th scope="col">matricula</th>
-                            <th scope="col">accion</th>
+                            <th scope="col">Cedula</th>
+                            <th scope="col">Fecha de ingreso</th>
+                            <th scope="col">Matricula</th>
+                            <th scope="col">Accion</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -82,7 +82,7 @@
                     {{$escolar->links()}}
 
 
-                    <table class="table table-responsive-sm table-bordered">
+                    {{-- <table class="table table-responsive-sm table-bordered">
                         <caption class="table text-center">Inscripción de alumno </caption>
                         <thead>
                             <tr>
@@ -107,35 +107,38 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{$alumno->links()}}
+                    {{$alumno->links()}} --}}
 
             <table class="table table-responsive-sm table-bordered">
                         <caption class="table text-center">Representantes </caption>
                         <thead>
                             <tr>
-                            <th scope="col">Fotos</th>
                             <th scope="col">Nombres</th>
-                            <th scope="col">Segundo nombre</th>
-                            <th scope="col">Apellido</th>
-                            <th scope="col">Segundo apellido</th>
-                            <th scope="col">Edad</th>
+                            <th scope="col">Apellidos</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Trabajo</th>
+                            <th scope="col">Grado de instrucción</th>
+                            <th scope="col">Profesión o Ocupación</th>
+                            <th scope="col">Lugar de trabajo</th>
+                            <th scope="col">Telefonos</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($representante as $representantes)
                                 <tr>
-                                <td><img src="{{asset("images/".$representantes->fotos)}}" alt="" sizes="" srcset="" height="100" width="100"></td>
                                 <td>{{$representantes->nombres}}</td>
-                                <td>{{$representantes->segNombres}}</td>
                                 <td>{{$representantes->apellidos}}</td>
-                                <td>{{$representantes->segApellidos}}</td>
-                                <th>{{\Carbon\Carbon::createFromDate($representantes->anio)->age}}</th>
-                                </tr>
-                            @endforeach
+                                <td>{{$representantes->email}}</td>
+                                <td>{{$representantes->trabajo}}</td>
+                                <td>{{$representantes->gradoInstruccion}}</td>
+                                <td>{{$representantes->profOcupacion}}</td>
+                                <td>{{$representantes->lgTrabajo}}</td>
+                                <td>{{$representantes->telefonos}}</td>
+                                @endforeach
+                            </tr>
                         </tbody>
                     </table>
                     {{$representante->links()}}
-
                 </div>
             </div>
         </div>

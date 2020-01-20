@@ -32,19 +32,9 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Inscripción</div>
+                <div class="panel-heading">Validación</div>
 
                 <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                    <div class="table-responsive-sm">
-                        @if(session()->has('añoescolar'))
-                    <div class="alert alert-info" role="alert">{{session('añoescolar')}}</div>
-                        @endif
-                    </div>
     @if ($errors->any())
     <div class="alert alert-danger">
     <ul>
@@ -52,6 +42,18 @@
     <li>{{ $error }}</li>
     @endforeach
     </ul>
+    </div>
+    @elseif(session('añoescolar'))
+    <div class="alert alert-info" role="alert">
+        <li>{{session('añoescolar')}}</li>
+    </div>
+    @elseif(session('alumno'))
+    <div class="alert alert-info" role="alert">
+        <li>{{session('alumno')}}</li>
+    </div>
+    @elseif(session('representante'))
+    <div class="alert alert-info" role="alert">
+        <li>{{session('representante')}}</li>
     </div>
     @endif
     <div class="anioescolar">
@@ -121,15 +123,15 @@
     </div>
     <div class="col-md-2">
     {!! Form::label("dia", "dia", ["class"=>"label label-success"]) !!}
-    {!! Form::text("dia", $alumno->dia, ["class"=>"form form-control","maxlength"=>"10"]) !!}
+    {!! Form::text("dia", $alumno->dia, ["class"=>"form form-control","maxlength"=>"2"]) !!}
     </div>
     <div class="col-md-2">
     {!! Form::label("mes", "mes", ["class"=>"label label-success"]) !!}
-    {!! Form::text("mes", $alumno->mes, ["class"=>"form form-control","maxlength"=>"10"]) !!}
+    {!! Form::text("mes", $alumno->mes, ["class"=>"form form-control","maxlength"=>"2"]) !!}
     </div>
     <div class="col-md-2">
     {!! Form::label("anio", "Año", ["class"=>"label label-success"]) !!}
-    {!! Form::text("anio", /*\Carbon\Carbon::createFromDate()->age*/$alumno->anio, ["class"=>"form form-control","maxlength"=>"10"]) !!}
+    {!! Form::text("anio", /*\Carbon\Carbon::createFromDate()->age*/$alumno->anio, ["class"=>"form form-control","maxlength"=>"4"]) !!}
     </div>
 </div>
 <div class="row">
