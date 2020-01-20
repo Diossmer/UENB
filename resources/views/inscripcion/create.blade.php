@@ -45,7 +45,7 @@
                     <div class="alert alert-info" role="alert">{{session('añoescolar')}}</div>
                         @endif
                     </div>
-    <div class="alert alert-danger" role="alert">
+    <div class="alert alert-success" role="alert">
         <h5>Completar primero <br>
             1. (AÑO ESCOLAR) 2. (ALUMNO) 3. (REPRESENTANTE). <br>
             Para lograr, "<b>Actualizar</b>" datos
