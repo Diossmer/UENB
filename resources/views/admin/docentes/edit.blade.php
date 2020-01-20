@@ -55,7 +55,7 @@
                     {!!Form::text('password',$docente->password,['class' => 'form-control'])!!}<br>
 
                     {!!Form::submit('Actualizar',["class"=>'btn btn-primary'])!!}
-                    {!!Form::reset('Borrar',["class"=>'btn btn-info'])!!}
+                    {!!Form::reset('Refrescar',["class"=>'btn btn-info'])!!}
                     {!!link_to_route('admin.dashboard','Regresar',"",['class'=>'btn btn-success'])!!}
                     {!! Form::close() !!}
                     </div>
