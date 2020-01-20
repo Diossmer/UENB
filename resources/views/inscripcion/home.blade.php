@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','inscripcion')
+@section('title','Inscripcion')
 @section('css')
 @parent
 {{-- link de css --}}
@@ -99,7 +99,7 @@
                     </table>
                     {{$alumno->links()}}
 
-<table class="table table-responsive-sm table-bordered">
+            <table class="table table-responsive-sm table-bordered">
                         <caption class="table text-center">Representantes </caption>
                         <thead>
                             <tr>
