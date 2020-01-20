@@ -44,7 +44,16 @@
                         @if(session()->has('añoescolar'))
                     <div class="alert alert-info" role="alert">{{session('añoescolar')}}</div>
                         @endif
-
+                    </div>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+    <ul>
+    @foreach ($errors->all() as $error)
+    <li>{{ $error }}</li>
+    @endforeach
+    </ul>
+    </div>
+    @endif
     <div class="anioescolar">
         {!! Form::open(["url"=>["inscripcion/".$escolar->id],'method' => 'put', "autocomplete"=>"on","enctype"=>"multipart/form-data"]) !!}
         <span><h2 class="text-primary">Año escolar</h2></span> <br>

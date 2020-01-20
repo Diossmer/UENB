@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Alumno;
 use App\Representante;
+use App\AnioEscolar;
+use App\Http\Requests\ValidationRepresentante;
 use Illuminate\Http\Request;
 
 class RepresentanteController extends Controller
@@ -36,7 +38,7 @@ class RepresentanteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ValidationRepresentante $request)
     {
         //
         $representante = new Representante();

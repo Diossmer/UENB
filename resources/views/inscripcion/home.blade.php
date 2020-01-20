@@ -35,11 +35,21 @@
                 <div class="panel-heading">Inscripcion</div>
 
                 <div class="panel-body">
-                    @if (session('status'))
+                    @if (session('alumno'))
                         <div class="alert alert-success">
-                            {{ session('status') }}
+                            {{ session('alumno') }}
                         </div>
                     @endif
+                    {{-- <div class="table-responsive-sm">
+                        @if(session()->has('alumno'))
+                    <div class="alert alert-info" role="alert">{{session('alumno')}}</div>
+                        @endif
+                    </div> --}}
+                    <div class="table-responsive-sm">
+                        @if(session()->has('representante'))
+                    <div class="alert alert-info" role="alert">{{session('representante')}}</div>
+                        @endif
+                    </div>
                     <table class="table table-responsive-sm table-bordered">
                         <caption class="table text-center">Inscripción
                             {!!link_to_route('inscripcion.create', $title = "Registrarse",null, ["class" => "btn btn-success"])!!}

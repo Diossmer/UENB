@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Alumno;
-use Carbon\Carbon;
 use App\AnioEscolar;
-use Faker\Provider\File;
+use App\Http\Requests\ValidationAlumno;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class AlumnoController extends Controller
 {
@@ -41,7 +39,7 @@ class AlumnoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ValidationAlumno $request)
     {
         //
         if($request->hasFile('fotos')){

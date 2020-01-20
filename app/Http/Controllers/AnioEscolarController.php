@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Http\Requests\ValidationInscription;
 use App\AnioEscolar;
 use Illuminate\Http\Request;
 
@@ -32,7 +34,7 @@ class AnioEscolarController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ValidationInscription $request)
     {
         //
         $escolar = new AnioEscolar();

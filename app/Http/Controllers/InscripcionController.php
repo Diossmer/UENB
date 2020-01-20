@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\AnioEscolar;
 use App\Alumno;
 use App\Representante;
+use App\Http\Requests\ValidationInscription;
 use Illuminate\Http\Request;
 
 
@@ -42,7 +43,7 @@ class InscripcionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ValidationInscription $request)
     {
         //
         $escolar = new AnioEscolar();
