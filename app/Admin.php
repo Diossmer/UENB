@@ -38,11 +38,5 @@ class Admin extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    /*RELACIONES ONE TO ONE
-    **Los Administradores*/
-    public function users()
-    {
-        //que "tiene un" Usuario.
-        return $this->hasOne('App\User');
-    }
+
 }
