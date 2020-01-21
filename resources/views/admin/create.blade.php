@@ -43,14 +43,14 @@
 
                     <div class="form-group">
                     <h1>Registro de la Aplicación</h1>
-                    {!!Form::open(['url' => "/admin", 'method' => 'POST'])!!}
+                    {!!Form::open(['url' => "/admin", 'method' => 'POST',"autocomplete"=>"off"])!!}
                     {{csrf_field()}}
                     {{Form::label('nombres', 'Nombre del Padre:')}}
                     {!!Form::text('name',null,['class' => 'form-control'])!!}<br>
                     {{Form::label('email', 'Email')}}
                     {!!Form::text('email',null,['class' => 'form-control'])!!}<br>
                     {{Form::label('password', 'Contraseña')}}
-                    {!!Form::text('password',null,['class' => 'form-control','maxlength'=>'4'])!!}<br>
+                    {!!Form::text('password',null,['class' => 'form-control','maxlength'=>'10'])!!}<br>
 
                     {!!Form::submit('Crear',["class"=>'btn btn-primary'])!!}
                     {!!Form::reset('Borrar',["class"=>'btn btn-info'])!!}

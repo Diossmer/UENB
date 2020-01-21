@@ -43,7 +43,7 @@
 
                     <div class="form-group">
                     <h1>Registro de la Aplicación</h1>
-                    {!!Form::open(['url' => 'user/'.$docente->id, 'method' => 'PUT'])!!}
+                    {!!Form::open(['url' => 'user/'.$docente->id, 'method' => 'PUT', "autocomplete"=>"off"])!!}
                     {{csrf_field()}}
                     {{Form::label('nombre', 'Nombres:')}}
                     {!!Form::text('name',$docente->name,['class' => 'form-control'])!!}<br>
@@ -52,7 +52,7 @@
                     {{Form::label('email', 'Email')}}
                     {!!Form::text('email',$docente->email,['class' => 'form-control'])!!}<br>
                     {{Form::label('password', 'Contraseña')}}
-                    {!!Form::text('password',$docente->password,['class' => 'form-control'])!!}<br>
+                    {!!Form::text('password',$docente->password,['class' => 'form-control',"maxlength"=>"10"])!!}<br>
 
                     {!!Form::submit('Actualizar',["class"=>'btn btn-primary'])!!}
                     {!!Form::reset('Borrar',["class"=>'btn btn-info'])!!}

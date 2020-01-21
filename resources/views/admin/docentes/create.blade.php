@@ -35,7 +35,7 @@
                 <div class="panel-heading">Registrar Docentes</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('user.store') }}">
+                    <form class="form-horizontal" method="POST" autocomplete="off" action="{{ route('user.store') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -102,7 +102,7 @@
                             <label for="password" class="col-md-4 control-label">Password</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" maxlength="4" required>
+                                <input id="password" type="password" class="form-control" name="password" maxlength="10" required>
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -116,7 +116,7 @@
                             <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" maxlength="4" required>
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" maxlength="10" required>
                             </div>
                         </div>
 

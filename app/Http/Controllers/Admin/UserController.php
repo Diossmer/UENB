@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use Barryvdh\DomPDF\Facade as PDF;
 use App\Http\Controllers\Controller;
 use App\Admin;
 use App\User;
-use App\Persona;
-use App\Alumno;
 
 class UserController extends Controller
 {
@@ -62,9 +60,9 @@ class UserController extends Controller
         //
         $admin = Admin::find($id);
         $docente = User::find($id);
-        $persona = Persona::find($id);
-        $alumno = Alumno::find($id);
-        return view('admin.docentes.show', compact('docente','admin','persona','alumno'));
+        $pdf= PDF::loadView('admin.pdf.show',compact('docente','admin'));
+        return $pdf->stream('Archivo_Administrador.pdf');
+        return view('admin.pdf.show', compact('docente','admin'));
     }
 
     /**

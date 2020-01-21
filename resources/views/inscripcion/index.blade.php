@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Docentes')
+@section('title','Inscripcion')
 @section('css')
 @parent
 {{-- link de css --}}
@@ -32,9 +32,9 @@
     <div class="row">
         <div class="col-md-9 col-md-offset-3">
             <div class="panel panel-default">
-                <div class="panel-heading">Bienvenidos</div>
+                <div class="panel-heading">Inscripcion</div>
                 <div class="panel-body">
-                    .
+                    inscripcion
                 </div>
             </div>
         </div>

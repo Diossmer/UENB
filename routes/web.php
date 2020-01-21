@@ -1,5 +1,5 @@
 <?php
-use Barryvdh\DomPDF\Facade as PDF;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,14 +27,13 @@ Route::prefix('admin')->group(function(){
     Route::get('/create','Admin\AdminController@create')->name("admin.create");
     Route::get('/', 'Admin\AdminController@index')->name('admin.dashboard');
     Route::get('/logout','Admin\AdminLoginController@logout')->name('admin.logout');
-    //PDF falta...
 });
 Route::resource('user', 'Admin\UserController');
 Route::get('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 Route::get('/home', 'HomeController@index')->name('home');
 //AQUI EMPIEZA EL USUARIO.....
-Route::resource('inscripcion', 'PersonaController');
-Route::resource('anioescolar', 'AnioEscolarController');
+Route::resource('periodoescolar', 'PeriodoEscolarController');
+Route::resource('seccion', 'SeccionController');
 Route::resource('representante', 'RepresentanteController');
 Route::resource('alumno', 'AlumnoController');
-// ACUERDATE DE CREAR UNA SESSION EN DOCENTE CADA USUARIO...
+Route::resource('inscripcion', 'InscripcionController');

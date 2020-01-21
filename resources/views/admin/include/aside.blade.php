@@ -14,9 +14,9 @@
                     </li>
                 </ul>
             </li>
-            <li>
-            <a href="">Generar Archivo</a>
-            </li>
+            {{-- <li>
+            <a href="" target="_blank">Generar Archivo</a>
+            </li> --}}
         </ul>
     </nav>
 </div>
