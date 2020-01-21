@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\PeriodoEscolar;
 use Illuminate\Http\Request;
-
+use App\User;
 class PeriodoEscolarController extends Controller
 {
     /**

@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\PeriodoEscolar;
+use App\Alumno;
+use App\Seccion;
 use App\Inscripcion;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;

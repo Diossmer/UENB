@@ -15,6 +15,6 @@ class Representante extends Model
         'telefono','sexo'
     ];
     public function alumnos(){
-        return $this->hasMany('App\Alumno');
+        return $this->hasOne('App\Alumno');
     }
 }

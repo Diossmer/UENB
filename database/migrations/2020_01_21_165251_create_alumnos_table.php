@@ -25,7 +25,7 @@ class CreateAlumnosTable extends Migration
             $table->string('dia');
             $table->string('mes');
             $table->string('año');
-            $table->string('cedula');
+            $table->string('cedula')->nullable();
             $table->string('email');
             $table->string('sexo');
             $table->string('camisa');

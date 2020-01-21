@@ -14,4 +14,7 @@ class PeriodoEscolar extends Model
     public function seccions(){
         return $this->hasMany('App\Seccion');
     }
+    public function inscripcions(){
+        return $this->belongsToMany('App\Inscripcion');
+    }
 }

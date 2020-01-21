@@ -15,6 +15,9 @@ class Alumno extends Model
         'enfermedade_padecida','enfermedade_psicologica','representante_id'
     ];
     public function representantes(){
-        return $this->hasMany('App\Representante');
+        return $this->belongsTo('App\Representante','representante_id');
+    }
+    public function inscripcions(){
+        return $this->belongsToMany('App\Inscripcion');
     }
 }
