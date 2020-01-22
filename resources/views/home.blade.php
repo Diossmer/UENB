@@ -36,7 +36,7 @@
                 <div class="panel-body">
 
         <table class="table table-active">
-            <caption class="text-primary">Periodo Escolar {!! link_to_route("periodoescolar.create", "Nuevo", null,$attributes = ['class'=>'btn btn-primary']) !!}</caption>
+            <caption class="text-center text-success">Periodo Escolar {!! link_to_route("periodoescolar.create", "Nuevo", null,$attributes = ['class'=>'btn btn-primary']) !!}</caption>
             <thead>
                 <tr>
                     <th>Descripcion</th>

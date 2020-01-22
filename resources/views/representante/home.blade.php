@@ -35,7 +35,7 @@
                 <div class="panel-heading">Representante</div>
                 <div class="panel-body">
                     <table class="table" cellpadding="" cellspacing="" border="2">
-                        <caption>{!! link_to_route("representante.create", "Nuevo", null, ["class"=>"btn btn-primary"]) !!}</caption>
+                        <caption class="text-center text-success">Representantes{!! link_to_route("representante.create", "Nuevo", null, ["class"=>"btn btn-primary"]) !!}</caption>
                         <thead>
                             <tr valing="middle" align="center">
                                 <th>nombre</th>

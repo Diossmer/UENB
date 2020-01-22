@@ -69,7 +69,7 @@
                         </div>
                         <div class="col-md-3">
                             {!! Form::label("trabajo", "Trabajo", ["class"=>"label label-primary"]) !!}
-                            {!! Form::text("trabajo", $representante->trabajo, ["class"=>"form-control","placeholder"=>"Si/No"]) !!}
+                            {!! Form::text("trabajo", $representante->trabajo, ["class"=>"form-control","placeholder"=>"Si/No","maxlength"=>"2"]) !!}
                         </div>
                     </div>
                     <div class="row">
@@ -87,7 +87,7 @@
                         </div>
                         <div class="col-md-3">
                             {!! Form::label("telefono", "Telefono", ["class"=>"label label-primary"]) !!}
-                            {!! Form::text("telefono", $representante->telefono, ["class"=>"form-control","placeholder"=>"0212-xxx-xx-xx"]) !!}
+                            {!! Form::text("telefono", $representante->telefono, ["class"=>"form-control","placeholder"=>"0212-xxx-xx-xx","maxlength"=>"11"]) !!}
                         </div>
                     </div>
                     <div class="row">

@@ -35,8 +35,8 @@
                 <div class="panel-heading">Alumno</div>
                 <div class="panel-body">
                     <table class="table">
-                        <caption>{!! link_to_route('alumno.create', "Nuevo", null, ["class"=>"btn btn-primary"]) !!}</caption>
-                        <tr>
+                        <caption class="text-center text-success"> Alumnos {!! link_to_route('alumno.create', "Nuevo", null, ["class"=>"btn btn-primary"]) !!}</caption>
+                        <tr valing="" aling="">
                             <th>fotos</th>
                             <th>nombre</th>
                             <th>segundo_nombre</th>
@@ -47,32 +47,32 @@
                             <th>dia</th>
                             <th>mes</th>
                             <th>año</th>
+                            <th>edad</th>
+                            <th>action</th>
                         </tr>
 
                         @foreach ($alumno as $alumnos)
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                            <tr valing="middle" aling="center">
+                            <td><img src="/images/{{$alumnos->fotos}}" alt="" height="100" width="100"></td>
+                                <td>{{$alumnos->nombre}}</td>
+                                <td>{{$alumnos->segundo_nombre}}</td>
+                                <td>{{$alumnos->apellido}}</td>
+                                <td>{{$alumnos->segundo_apellido}}</td>
+                                <td>{{$alumnos->lugar_nacimiento}}</td>
+                                <td>{{$alumnos->direccion}}</td>
+                                <td>{{$alumnos->dia}}</td>
+                                <td>{{$alumnos->mes}}</td>
+                                <td>{{$alumnos->año}}</td>
+                                <td>{{\Carbon\Carbon::createFromDate($alumnos->año)->age}}</td>
+                                <td>
+                                    {!! link_to_route("alumno.edit", "Editar", $parameters = [$alumnos->id], $attributes = ["class"=>"btn btn-success"]) !!}
+                                </td>
                             </tr>
                         @endforeach
+                    </table>
+                        <table class="table">
                         <thead>
-                            <tr>
+                            <tr valing="middle" aling="center">
                                 <th>enfermedade_padecida</th>
                                 <th>enfermedade_psicologica</th>
                                 <th>cedula</th>
@@ -87,25 +87,19 @@
                         </thead>
                         <tbody>
                             @foreach ($alumno as $alumnos)
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                            <tr valing="middle" aling="center">
+                                <td>{{$alumnos->enfermedade_padecida}}</td>
+                                <td>{{$alumnos->enfermedade_psicologica}}</td>
+                                <td>{{$alumnos->cedula}}</td>
+                                <td>{{$alumnos->email}}</td>
+                                <td>{{$alumnos->sexo}}</td>
+                                <td>{{$alumnos->camisa}}</td>
+                                <td>{{$alumnos->pantalon}}</td>
+                                <td>{{$alumnos->zapato}}</td>
+                                <td>{{$alumnos->representante_id}}</td>
+                                <td>
+                                    {!! link_to_route("alumno.edit", "Editar", $parameters = [$alumnos->id], $attributes = ["class"=>"btn btn-success"]) !!}
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>

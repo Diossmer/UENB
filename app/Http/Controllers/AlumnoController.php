@@ -91,10 +91,12 @@ class AlumnoController extends Controller
      * @param  \App\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function edit(Alumno $alumno)
+    public function edit($alumno)
     {
         //
-        return view('alumno.edit');
+        $alumno=Alumno::find($alumno);
+        $representante=Representante::pluck('nombre','id');
+        return view('alumno.edit',compact('alumno','representante'));
     }
 
     /**
