@@ -119,7 +119,13 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" maxlength="10" required>
                             </div>
                         </div>
-
+                        @if (session('error'))
+                        <div class="alert alert-danger">
+                            <ul>
+                                <li>{{session('error')}}</li>
+                            </ul>
+                        </div>
+                    @endif
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

@@ -16,7 +16,9 @@ class AlumnoController extends Controller
     public function index()
     {
         //
-        return view('alumno.index');
+        $representante=Representante::pluck('nombre','id');
+        $alumno = Alumno::paginate(5);
+        return view('alumno.home',compact('alumno','representante'));
     }
 
     /**
@@ -27,7 +29,8 @@ class AlumnoController extends Controller
     public function create()
     {
         //
-        return view('alumno.create');
+        $representante=Representante::pluck('nombre','id');
+        return view('alumno.create',compact('representante'));
     }
 
     /**
@@ -45,6 +48,7 @@ class AlumnoController extends Controller
             $nombre= time().$archivo->getClientOriginalName();
             $archivo->move(public_path().'/images/',$nombre);
         }
+
         $alumno = new Alumno();
         $alumno->fotos=$nombre;
         $alumno->nombre = $request->nombre;

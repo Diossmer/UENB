@@ -34,7 +34,33 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Bienvenidos</div>
                 <div class="panel-body">
-                    .
+
+        <table class="table table-active">
+            <caption class="text-primary">Periodo Escolar {!! link_to_route("periodoescolar.create", "Nuevo", null,$attributes = ['class'=>'btn btn-primary']) !!}</caption>
+            <thead>
+                <tr>
+                    <th>Descripcion</th>
+                    <th>Fecha inicio</th>
+                    <th>Fecha fin</th>
+                    <th>Estatus</th>
+                    <th>Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($periodo as $periodos)
+                    <tr>
+                        <td>{{$periodos->descripcion}}</td>
+                        <td>{{$periodos->fecha_inicio}}</td>
+                        <td>{{$periodos->fecha_fin}}</td>
+                        <td>{{$periodos->estatus}}</td>
+                        <td>
+                            {!! link_to_route("periodoescolar.edit", "Editar", $parameters = [$periodos->id], $attributes = ["class"=>"btn btn-success"]) !!}
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+
                 </div>
             </div>
         </div>

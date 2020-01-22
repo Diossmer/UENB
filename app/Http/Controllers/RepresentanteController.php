@@ -15,7 +15,8 @@ class RepresentanteController extends Controller
     public function index()
     {
         //
-        return view('representante.index');
+        $representante=Representante::paginate(5);
+        return view('representante.home',compact('representante'));
     }
 
     /**
@@ -74,10 +75,11 @@ class RepresentanteController extends Controller
      * @param  \App\Representante  $representante
      * @return \Illuminate\Http\Response
      */
-    public function edit(Representante $representante)
+    public function edit($representante)
     {
         //
-        return view('representante.edit');
+        $representante = Representante::find($representante);
+        return view('representante.edit',compact('representante'));
     }
 
     /**

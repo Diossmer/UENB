@@ -16,7 +16,8 @@ class SeccionController extends Controller
     public function index()
     {
         //
-        return view('seccion.index');
+        $seccion=Seccion::paginate(5);
+        return view('seccion.home',compact('seccion'));
     }
 
     /**
@@ -27,7 +28,9 @@ class SeccionController extends Controller
     public function create()
     {
         //
-        return view('seccion.index');
+        $docente=User::pluck('name','id');
+        $periodo=PeriodoEscolar::pluck('descripcion','id');
+        return view('seccion.create',compact('docente','periodo'));
     }
 
     /**
@@ -67,10 +70,13 @@ class SeccionController extends Controller
      * @param  \App\Seccion  $seccion
      * @return \Illuminate\Http\Response
      */
-    public function edit(Seccion $seccion)
+    public function edit($seccion)
     {
         //
-        return view('seccion.edit');
+        $seccion=Seccion::find($seccion);
+        $docente=User::pluck('name','id');
+        $periodo=PeriodoEscolar::pluck('descripcion','id');
+        return view('seccion.edit',compact('seccion','docente','periodo'));
     }
 
     /**

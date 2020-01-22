@@ -44,9 +44,14 @@ class UserController extends Controller
         $docente->name = $request->name;
         $docente ->apellido = $request->apellido;
         $docente->email = $request->email;
-        $docente->password = bcrypt($request->password);
-        $docente->save();
-        return redirect("admin");
+        if($request->password == $request->password_confirmation){
+            $docente->password = bcrypt($request->password);
+            $docente->save();
+            return redirect("admin");
+        }
+            return back()->with('error','Vuelva intentarlo, algo fallo.');
+
+
     }
 
     /**

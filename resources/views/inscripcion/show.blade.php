@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Periodo Escolar')
+@section('title','Mostrar')
 @section('css')
 @parent
 {{-- link de css --}}
@@ -32,9 +32,9 @@
     <div class="row">
         <div class="col-md-9 col-md-offset-3">
             <div class="panel panel-default">
-                <div class="panel-heading">Periodo Escolar</div>
+                <div class="panel-heading">Inscripcion</div>
                 <div class="panel-body">
-                    Periodo escolar
+                    inscripcion
                 </div>
             </div>
         </div>

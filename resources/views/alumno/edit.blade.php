@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Alumno')
+@section('title','Actualizar')
 @section('css')
 @parent
 {{-- link de css --}}

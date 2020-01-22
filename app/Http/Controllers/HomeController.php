@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\PeriodoEscolar;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 
@@ -24,7 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $periodo = PeriodoEscolar::paginate(5);
+        return view('home',compact('periodo'));
     }
     // public function ExportarPDF($id){
     //     $representante = Representante::find($id)->orderBy('nombres','asc')->all();
