@@ -48,7 +48,7 @@
                 @endif
                 <div class="panel-body">
                     <table class="table">
-                        <caption>Inscripcion {!! link_to_route("inscripcion.create", "Nuevo", null,$attributes = ['class'=>'btn btn-primary']) !!}</caption>
+                        <caption class="text-center text-success">Inscripcion {!! link_to_route("inscripcion.create", "Nuevo", null,$attributes = ['class'=>'btn btn-primary']) !!}</caption>
                         <thead>
                             <th>alumno_id</th>
                             <th>seccion_id</th>
