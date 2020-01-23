@@ -72,7 +72,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             {!! Form::label("cedula","Cedula", ["class"=>"label label-primary"]) !!}
-                            {!! Form::text("cedula", $representante->cedula, ["class"=>"form-control","maxlength"=>"8","placeholder"=>"V-xxxxxxxx"]) !!}
+                            {!! Form::text("cedula", $representante->cedula, ["class"=>"form-control","maxlength"=>"8","placeholder"=>"xxxxxxxx","min"=>"0","max"=>"40000000"]) !!}
                         </div>
                         <div class="col-md-3">
                             {!! Form::label("email", "email", ["class"=>"label label-primary"]) !!}

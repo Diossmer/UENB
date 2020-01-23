@@ -26,10 +26,10 @@ class AlumnoValidation extends FormRequest
         return [
             //
             'nombre'=>'required',
-            'segundo_nombre'=>'required',
+            // 'segundo_nombre'=>'required',
             'apellido'=>'required',
             // 'segundo_apellido'=>'required',
-            // 'lugar_nacimiento'=>'required',
+            'lugar_nacimiento'=>'required',
             'direccion'=>'required',
             'dia'=>'required',
             'mes'=>'required',

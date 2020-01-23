@@ -71,8 +71,8 @@
                     </div>
                     <div class="row">
                         <div class="col-md-3">
-                            {!! Form::label("cedula","Cedula", ["class"=>"label label-primary"]) !!}
-                            {!! Form::number("cedula", null, ["class"=>"form-control","maxlength"=>"10","placeholder"=>"xxxxxxxx"]) !!}
+                            {!! Form::label("cedula","Cedula (V/E)", ["class"=>"label label-primary"]) !!}
+                            {!! Form::number("cedula", null, ["class"=>"form-control","maxlength"=>"10","placeholder"=>"xxxxxxxx","min"=>"0","max"=>"40000000"]) !!}
                         </div>
                         <div class="col-md-3">
                             {!! Form::label("email", "email", ["class"=>"label label-primary"]) !!}

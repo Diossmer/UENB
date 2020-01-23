@@ -98,7 +98,7 @@
                         </div>
                         <div class="col-md-3">
                             {!! Form::label("cedula", "cedula", ["class"=>"label label-primary"]) !!}
-                            {!! Form::number("cedula", $alumno->cedula, ["class"=>"form-control","maxlength"=>"9"]) !!}
+                            {!! Form::number("cedula", $alumno->cedula, ["class"=>"form-control","maxlength"=>"8","min"=>"0","max"=>"40000000"]) !!}
                         </div>
                         <div class="col-md-3">
                             {!! Form::label("email", "email", ["class"=>"label label-primary"]) !!}
