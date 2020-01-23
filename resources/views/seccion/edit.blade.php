@@ -33,8 +33,22 @@
         <div class="col-md-9 col-md-offset-3">
             <div class="panel panel-default">
                 <div class="panel-heading">Seccion</div>
-                <div class="panel-body">
 
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+                </ul>
+                </div>
+                @elseif(session('seccion'))
+                <div class="alert alert-info" role="alert">
+                    <li>{{session('seccion')}}</li>
+                </div>
+                @endif
+
+                <div class="panel-body">
                     {!! Form::open(["route"=>['seccion.update',$seccion->id],"method"=>"PUT","autocomplete"=>"off"]) !!}
                     {!! Form::token() !!}
                     <div class="row">
@@ -49,13 +63,13 @@
                                 "f"=>"F"
                         ], $seccion->descripcion, ["class"=>"form-control"]) !!}
                         </div>
-                        <div class="col-md-1">
+                        <div class="col-md-2">
                             {!! Form::label("grado", "Grado", ["class"=>"label label-primary"]) !!}
-                            {!! Form::text("grado", $seccion->grado, ["class"=>"form-control","maxlength"=>"1","min"=>"1","max"=>"9"]) !!}
+                            {!! Form::number("grado", $seccion->grado, ["class"=>"form-control","placeholder"=>"1-6","maxlength"=>"1","min"=>"1","max"=>"6"]) !!}
                         </div>
                         <div class="col-md-2">
                             {!! Form::label("cuposdisponible", "Cupos Disponible", ["class"=>"label label-primary"]) !!}
-                            {!! Form::text("cuposdisponible", $seccion->cuposdisponible, ["class"=>"form-control","maxlength"=>"2","min"=>"0","max"=>"30"]) !!}
+                            {!! Form::number("cuposdisponible", $seccion->cuposdisponible, ["class"=>"form-control","placeholder"=>"1-30","maxlength"=>"2","min"=>"0","max"=>"30"]) !!}
                         </div>
                         <div class="col-md-3">
                             {!! Form::label("docente_id", "Docente", ["class"=>"label label-primary"]) !!}

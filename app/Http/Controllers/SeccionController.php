@@ -5,6 +5,7 @@ use App\User;
 use App\PeriodoEscolar;
 use App\Seccion;
 use Illuminate\Http\Request;
+use App\Http\Requests\SeccionValidation;
 
 class SeccionController extends Controller
 {
@@ -39,7 +40,7 @@ class SeccionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SeccionValidation $request)
     {
         //
         $seccion = new Seccion();
@@ -86,7 +87,7 @@ class SeccionController extends Controller
      * @param  \App\Seccion  $seccion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $seccion)
+    public function update(SeccionValidation $request, $seccion)
     {
         //
         $seccion = Seccion::find($seccion);

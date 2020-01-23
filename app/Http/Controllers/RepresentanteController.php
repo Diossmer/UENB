@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Representante;
 use Illuminate\Http\Request;
+use App\Http\Requests\RepresentanteValidation;
 
 class RepresentanteController extends Controller
 {
@@ -36,7 +37,7 @@ class RepresentanteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RepresentanteValidation $request)
     {
         //
         $representante = new Representante();
@@ -89,7 +90,7 @@ class RepresentanteController extends Controller
      * @param  \App\Representante  $representante
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $representante)
+    public function update(RepresentanteValidation $request, $representante)
     {
         //
         $representante = Representante::find($representante);

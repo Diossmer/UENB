@@ -33,9 +33,24 @@
         <div class="col-md-11 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Representante</div>
+
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+                </ul>
+                </div>
+                @elseif(session('representante'))
+                <div class="alert alert-info" role="alert">
+                    <li>{{session('representante')}}</li>
+                </div>
+                @endif
+
                 <div class="panel-body">
                     <table class="table" cellpadding="" cellspacing="" border="2">
-                        <caption class="text-center text-success">Representantes{!! link_to_route("representante.create", "Nuevo", null, ["class"=>"btn btn-primary"]) !!}</caption>
+                        <caption class="text-center text-success">Representantes {!! link_to_route("representante.create", "Nuevo", null, ["class"=>"btn btn-primary"]) !!}</caption>
                         <thead>
                             <tr valing="middle" align="center">
                                 <th>nombre</th>

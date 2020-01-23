@@ -33,6 +33,21 @@
         <div class="col-md-9 col-md-offset-3">
             <div class="panel panel-default">
                 <div class="panel-heading">Alumno</div>
+
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+                </ul>
+                </div>
+                @elseif(session('alumno'))
+                <div class="alert alert-info" role="alert">
+                    <li>{{session('alumno')}}</li>
+                </div>
+                @endif
+
                 <div class="panel-body">
                     {!! Form::open(["route"=>['alumno.store'],"method"=>"Post", "autocomplete" =>"off","enctype"=>"multipart/form-data"]) !!}
                     {!! Form::token() !!}
@@ -79,11 +94,11 @@
                         </div>
                         <div class="col-md-3">
                             {!! Form::label("año", "año", ["class"=>"label label-primary"]) !!}
-                            {!! Form::number("año", null, ["class"=>"form-control","min"=>"1990","max"=>"2030","placeholder"=>"1990-2030","maxlength"=>"4"]) !!}
+                            {!! Form::number("año", null, ["class"=>"form-control","min"=>"1990","max"=>"2020","placeholder"=>"1990-2030","maxlength"=>"4"]) !!}
                         </div>
                         <div class="col-md-3">
                             {!! Form::label("cedula", "cedula", ["class"=>"label label-primary"]) !!}
-                            {!! Form::number("cedula", null, ["class"=>"form-control","maxlength"=>"9"]) !!}
+                            {!! Form::number("cedula", null, ["class"=>"form-control","maxlength"=>"8"]) !!}
                         </div>
                         <div class="col-md-3">
                             {!! Form::label("email", "email", ["class"=>"label label-primary"]) !!}
@@ -108,20 +123,20 @@
                         </div>
                         <div class="col-md-2">
                             {!! Form::label("zapato", "zapato", ["class"=>"label label-primary"]) !!}
-                            {!! Form::text("zapato", null, ["class"=>"form-control","placeholder"=>"Talla","maxlength"=>"2"]) !!}
+                            {!! Form::number("zapato", null, ["class"=>"form-control","placeholder"=>"Talla","maxlength"=>"2","min"=>"0", "max"=>"39"]) !!}
                         </div>
                         <div class="col-md-3">
-                            {!! Form::label("enfermedade_padecida", "enfermedade_padecida", ["class"=>"label label-primary"]) !!}
-                            {!! Form::text("enfermedade_padecida", null, ["class"=>"form-control","placeholder"=>"Enfermedades Padecida"]) !!}
+                            {!! Form::label("enfermedades_padecida", "enfermedades_padecida", ["class"=>"label label-primary"]) !!}
+                            {!! Form::text("enfermedades_padecida", null, ["class"=>"form-control","placeholder"=>"Enfermedades Padecida"]) !!}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-3">
-                        {!! Form::label("enfermedade_psicologica", "enfermedade_psicologica", ["class"=>"label label-primary"]) !!}
-                        {!! Form::text("enfermedade_psicologica", null, ["class"=>"form-control","placeholder"=>"Enfermedades Psicologica"]) !!}
+                        {!! Form::label("enfermedades_psicologica", "enfermedades_psicologica", ["class"=>"label label-primary"]) !!}
+                        {!! Form::text("enfermedades_psicologica", null, ["class"=>"form-control","placeholder"=>"Enfermedades Psicologica"]) !!}
                         </div>
                         <div class="col-md-3">
-                        {!! Form::label("representante_id", "representante_id", ["class"=>"label label-primary"]) !!}
+                        {!! Form::label("representante_id", "representante", ["class"=>"label label-primary"]) !!}
                         {!! Form::select("representante_id", $representante, ["placeholder" => "seleccione"], ["class"=>"form-control"]) !!}
                         </div>
                     </div>

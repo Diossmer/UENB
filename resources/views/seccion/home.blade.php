@@ -33,6 +33,21 @@
         <div class="col-md-9 col-md-offset-3">
             <div class="panel panel-default">
                 <div class="panel-heading">Seccion</div>
+
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+                </ul>
+                </div>
+                @elseif(session('seccion'))
+                <div class="alert alert-info" role="alert">
+                    <li>{{session('seccion')}}</li>
+                </div>
+                @endif
+
                 <div class="panel-body">
                     <table class="table table-active">
                         <caption class="text-center text-success"> Seccion {!! link_to_route("seccion.create", "Nuevo", null, ["class"=>"btn btn-primary"]) !!}</caption>

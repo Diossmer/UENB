@@ -33,6 +33,21 @@
         <div class="col-md-11 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Alumno</div>
+
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+                </ul>
+                </div>
+                @elseif(session('alumno'))
+                <div class="alert alert-info" role="alert">
+                    <li>{{session('alumno')}}</li>
+                </div>
+                @endif
+
                 <div class="panel-body">
                     <table class="table">
                         <caption class="text-center text-success"> Alumnos {!! link_to_route('alumno.create', "Nuevo", null, ["class"=>"btn btn-primary"]) !!}</caption>
@@ -73,23 +88,23 @@
                         <table class="table">
                         <thead>
                             <tr valing="middle" aling="center">
-                                <th>enfermedade_padecida</th>
-                                <th>enfermedade_psicologica</th>
+                                <th>enfermedades_padecida</th>
+                                <th>enfermedades_psicologica</th>
                                 <th>cedula</th>
                                 <th>email</th>
                                 <th>sexo</th>
                                 <th>camisa</th>
                                 <th>pantalon</th>
                                 <th>zapato</th>
-                                <th>representante_id</th>
+                                <th>representante</th>
                                 <th>action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($alumno as $alumnos)
                             <tr valing="middle" aling="center">
-                                <td>{{$alumnos->enfermedade_padecida}}</td>
-                                <td>{{$alumnos->enfermedade_psicologica}}</td>
+                                <td>{{$alumnos->enfermedades_padecida}}</td>
+                                <td>{{$alumnos->enfermedades_psicologica}}</td>
                                 <td>{{$alumnos->cedula}}</td>
                                 <td>{{$alumnos->email}}</td>
                                 <td>{{$alumnos->sexo}}</td>

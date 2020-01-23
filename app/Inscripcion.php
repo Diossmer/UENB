@@ -9,10 +9,10 @@ class Inscripcion extends Model
     //
     protected $table="inscripcions";
     protected $fillable=[
-        'matricula','periodoescolar_id','alumno_id','seccion_id'
+        'estatus_id','alumno_id','seccion_id'
     ];
     public function periodo_escolars(){
-        return $this->belongsToMany('App\PeriodoEscolar','periodoescolar_id');
+        return $this->belongsToMany('App\PeriodoEscolar','estatus_id');
     }
     public function alumnos(){
         return $this->belongsToMany('App\Alumno','alumno_id');

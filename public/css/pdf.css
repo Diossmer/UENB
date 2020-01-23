@@ -1,0 +1,19 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    background-color: #ccc;
+}
+body{
+    margin: 50px;
+    padding: 10px;
+}
+.container{
+    color: black;
+    font-size: 0.7em;
+}
+caption{
+    color: green;
+}

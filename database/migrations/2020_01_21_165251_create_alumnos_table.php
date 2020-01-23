@@ -26,13 +26,13 @@ class CreateAlumnosTable extends Migration
             $table->string('mes');
             $table->string('año');
             $table->string('cedula')->nullable();
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->string('sexo');
             $table->string('camisa');
             $table->string('pantalon');
             $table->string('zapato');
-            $table->string('enfermedade_padecida');
-            $table->string('enfermedade_psicologica');
+            $table->string('enfermedades_padecida');
+            $table->string('enfermedades_psicologica');
             $table->unsignedBigInteger('representante_id');
             $table->foreign('representante_id')->references('id')->on('representantes')->onDelete('cascade');
             $table->timestamps();

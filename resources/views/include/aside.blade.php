@@ -3,7 +3,7 @@
     <nav id="sidebar">
     <div class="sidebar-header">
     <a href="{{route('home')}}" style="font-size:2em;font-weight:900;text-decoration:none; color:#61ff54;">
-        La Vega<br>Inicio</a>
+        La Vega<br>Periodo Escolar</a>
         </div>
         <ul class="list-unstyled components">
             <li class="active">
@@ -25,7 +25,7 @@
                 </ul>
             </li>
             {{-- <li>
-            <a href="">Generar Archivo</a>
+            <a href="{{route('inscripcion.index')}}">Generar PDF</a>
             </li> --}}
         </ul>
     </nav>

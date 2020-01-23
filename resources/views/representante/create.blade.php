@@ -33,6 +33,21 @@
         <div class="col-md-9 col-md-offset-3">
             <div class="panel panel-default">
                 <div class="panel-heading">Representante</div>
+
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+                </ul>
+                </div>
+                @elseif(session('representante'))
+                <div class="alert alert-info" role="alert">
+                    <li>{{session('representante')}}</li>
+                </div>
+                @endif
+
                 <div class="panel-body">
                     {!! Form::open(["route"=>['representante.store'],"method"=>"Post", "autocomplete" =>"off"]) !!}
                     {!! Form::token() !!}
@@ -57,7 +72,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             {!! Form::label("cedula","Cedula", ["class"=>"label label-primary"]) !!}
-                            {!! Form::text("cedula", null, ["class"=>"form-control","maxlength"=>"8","placeholder"=>"V-xxxxxxxx"]) !!}
+                            {!! Form::number("cedula", null, ["class"=>"form-control","maxlength"=>"10","placeholder"=>"xxxxxxxx"]) !!}
                         </div>
                         <div class="col-md-3">
                             {!! Form::label("email", "email", ["class"=>"label label-primary"]) !!}
@@ -87,7 +102,7 @@
                         </div>
                         <div class="col-md-3">
                             {!! Form::label("telefono", "Telefono", ["class"=>"label label-primary"]) !!}
-                            {!! Form::number("telefono", null, ["class"=>"form-control","placeholder"=>"0212-xxx-xx-xx","maxlength"=>"11"]) !!}
+                            {!! Form::number("telefono", null, ["class"=>"form-control","placeholder"=>"0212-xxx-xx-xx","maxlength"=>"11","max"=>"02129999999"]) !!}
                         </div>
                     </div>
                     <div class="row">
@@ -100,7 +115,7 @@
                         </div>
                     </div>
                     {!! Form::submit("Registrar", ["class"=>"btn btn-primary"]) !!}
-                    {!! link_to_route("representante.index", "Editar", $parameters = [null], $attributes = ["class"=>"btn btn-success"]) !!}
+                    {!! link_to_route("representante.index", "Regresar", $parameters = [null], $attributes = ["class"=>"btn btn-success"]) !!}
                     {!! Form::close() !!}
                 </div>
             </div>

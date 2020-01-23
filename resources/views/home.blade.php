@@ -33,8 +33,21 @@
         <div class="col-md-9 col-md-offset-3">
             <div class="panel panel-default">
                 <div class="panel-heading">Bienvenidos</div>
-                <div class="panel-body">
 
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+                </ul>
+                </div>
+                @elseif(session('periodoescolar'))
+                <div class="alert alert-info" role="alert">
+                    <li>{{session('periodoescolar')}}</li>
+                </div>
+                @endif
+                <div class="panel-body">
         <table class="table table-active">
             <caption class="text-center text-success">Periodo Escolar {!! link_to_route("periodoescolar.create", "Nuevo", null,$attributes = ['class'=>'btn btn-primary']) !!}</caption>
             <thead>

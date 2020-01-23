@@ -33,6 +33,21 @@
         <div class="col-md-9 col-md-offset-3">
             <div class="panel panel-default">
                 <div class="panel-heading">Alumno</div>
+
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+                </ul>
+                </div>
+                @elseif(session('alumno'))
+                <div class="alert alert-info" role="alert">
+                    <li>{{session('alumno')}}</li>
+                </div>
+                @endif
+
                 <div class="panel-body">
                     {!! Form::open(["route"=>['alumno.update',$alumno->id],"method"=>"PUT", "autocomplete" => "off","enctype"=>"multipart/form-data"]) !!}
                     {!! Form::token() !!}
@@ -79,7 +94,7 @@
                         </div>
                         <div class="col-md-3">
                             {!! Form::label("año", "año", ["class"=>"label label-primary"]) !!}
-                            {!! Form::number("año", $alumno->año, ["class"=>"form-control","min"=>"1990","max"=>"2030","placeholder"=>"1990-2030","maxlength"=>"4"]) !!}
+                            {!! Form::number("año", $alumno->año, ["class"=>"form-control","min"=>"1990","max"=>"2020","placeholder"=>"1990-2030","maxlength"=>"4"]) !!}
                         </div>
                         <div class="col-md-3">
                             {!! Form::label("cedula", "cedula", ["class"=>"label label-primary"]) !!}
@@ -121,7 +136,7 @@
                         {!! Form::text("enfermedade_psicologica", $alumno->enfermedade_psicologica, ["class"=>"form-control","placeholder"=>"Enfermedades Psicologica"]) !!}
                         </div>
                         <div class="col-md-3">
-                        {!! Form::label("representante_id", "representante_id", ["class"=>"label label-primary"]) !!}
+                        {!! Form::label("representante_id", "representante", ["class"=>"label label-primary"]) !!}
                         {!! Form::select("representante_id", $representante, ["placeholder" => "seleccione"], ["class"=>"form-control"]) !!}
                         </div>
                     </div>

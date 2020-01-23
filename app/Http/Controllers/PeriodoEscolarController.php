@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\PeriodoEscolar;
 use Illuminate\Http\Request;
 use App\User;
+use App\Http\Requests\PeriodoValidation;
 class PeriodoEscolarController extends Controller
 {
     /**
@@ -34,7 +35,7 @@ class PeriodoEscolarController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PeriodoValidation $request)
     {
         //
         $periodo = new PeriodoEscolar();
@@ -78,7 +79,7 @@ class PeriodoEscolarController extends Controller
      * @param  \App\PeriodoEscolar  $periodoEscolar
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $periodoEscolar)
+    public function update(PeriodoValidation $request, $periodoEscolar)
     {
         //
         $periodo = PeriodoEscolar::find($periodoEscolar);
@@ -87,7 +88,7 @@ class PeriodoEscolarController extends Controller
         $periodo->fecha_fin = $request->fecha_fin;
         $periodo->estatus = $request->estatus;
         if($periodo->save()){
-            return redirect('periodoescolar')->with('periodoescolar','Actualización Completada');
+            return redirect('home')->with('periodoescolar','Actualización Completada');
         }
     }
 

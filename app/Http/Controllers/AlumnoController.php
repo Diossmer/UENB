@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Alumno;
 use App\Representante;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\AlumnoValidation;
 class AlumnoController extends Controller
 {
     /**
@@ -39,7 +39,7 @@ class AlumnoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AlumnoValidation $request)
     {
         //
         if($request->hasFile('fotos')){
@@ -66,8 +66,8 @@ class AlumnoController extends Controller
         $alumno->camisa = $request->camisa;
         $alumno->pantalon = $request->pantalon;
         $alumno->zapato = $request->zapato;
-        $alumno->enfermedade_padecida = $request->enfermedade_padecida;
-        $alumno->enfermedade_psicologica = $request->enfermedade_psicologica;
+        $alumno->enfermedades_padecida = $request->enfermedades_padecida;
+        $alumno->enfermedades_psicologica = $request->enfermedades_psicologica;
         $alumno->representante_id = $request->representante_id;
         if($alumno->save()){
             return redirect('alumno')->with('alumno','Creación Completada');
@@ -106,7 +106,7 @@ class AlumnoController extends Controller
      * @param  \App\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $alumno)
+    public function update(AlumnoValidation $request, $alumno)
     {
         //
         $alumno = Alumno::find($alumno);
@@ -132,8 +132,8 @@ class AlumnoController extends Controller
         $alumno->camisa = $request->camisa;
         $alumno->pantalon = $request->pantalon;
         $alumno->zapato = $request->zapato;
-        $alumno->enfermedade_padecida = $request->enfermedade_padecida;
-        $alumno->enfermedade_psicologica = $request->enfermedade_psicologica;
+        $alumno->enfermedades_padecida = $request->enfermedades_padecida;
+        $alumno->enfermedades_psicologica = $request->enfermedades_psicologica;
         $alumno->representante_id = $request->representante_id;
         if($alumno->save()){
             return redirect('alumno')->with('alumno','Actualización Completada');

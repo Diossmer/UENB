@@ -18,7 +18,7 @@ class CreatePeriodoEscolarsTable extends Migration
             $table->string('descripcion');
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
-            $table->enum('estatus',['activo','inactivo']);
+            $table->enum('estatus',['activo','inactivo','regular']);
             $table->timestamps();
         });
     }

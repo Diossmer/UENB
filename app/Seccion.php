@@ -9,7 +9,7 @@ class Seccion extends Model
     //
     protected $table = "seccions";
     protected $fillable = [
-        'descripcion', 'grado', 'cuposdisponible','docente_id','periodo_id',
+        'descripcion', 'grado', 'cuposdisponible','docente_id','periodo_id'
     ];
     public function users(){
         return $this->belongsTo('App\User','docente_id');
@@ -18,6 +18,6 @@ class Seccion extends Model
         return $this->belongsTo('App\PeriodoEscolar','periodo_id');
     }
     public function inscripcions(){
-        return $this->belongsToMany('App\Inscripcion');
+        return $this->belongsToMany('App\Inscripcion','docente_id','periodo_id');
     }
 }

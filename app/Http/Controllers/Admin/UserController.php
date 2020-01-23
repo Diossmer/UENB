@@ -49,7 +49,7 @@ class UserController extends Controller
             $docente->save();
             return redirect("admin");
         }
-            return back()->with('error','Vuelva intentarlo, algo fallo.');
+            return back()->with('error','La contraseña no coinciden, intente nuevamente.');
 
 
     }

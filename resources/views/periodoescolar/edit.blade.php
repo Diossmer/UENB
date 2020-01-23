@@ -33,8 +33,22 @@
         <div class="col-md-9 col-md-offset-3">
             <div class="panel panel-default">
                 <div class="panel-heading">Periodo Escolar</div>
-                <div class="panel-body">
 
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+                </ul>
+                </div>
+                @elseif(session('periodoescolar'))
+                <div class="alert alert-info" role="alert">
+                    <li>{{session('periodoescolar')}}</li>
+                </div>
+                @endif
+
+                <div class="panel-body">
                     {!! Form::open(["route"=>['periodoescolar.update',$periodo->id],"method"=>"PUT", "autocomplete" => "off"]) !!}
                     {!! Form::token() !!}
                     <div class="row">
