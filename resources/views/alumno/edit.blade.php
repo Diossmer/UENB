@@ -102,7 +102,7 @@
                         </div>
                         <div class="col-md-3">
                             {!! Form::label("email", "email", ["class"=>"label label-primary"]) !!}
-                            {!! Form::email("email", $alumno->email, ["class"=>"form-control","placeholder"=>"Correo@Email.com"]) !!}
+                            {!! Form::text("email", $alumno->email, ["class"=>"form-control","placeholder"=>"Correo@Email.com"]) !!}
                         </div>
                     </div>
                     <div class="row">
