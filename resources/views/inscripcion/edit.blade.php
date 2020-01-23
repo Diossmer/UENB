@@ -72,7 +72,7 @@
 
                         </div>
                     </div>
-                    {!! Form::submit("Registrar", ["class"=>"btn btn-primary"]) !!}
+                    {!! Form::submit("Actualizar", ["class"=>"btn btn-primary"]) !!}
                     {!! link_to_route("inscripcion.index", "Regresar", $parameters = [null], $attributes = ["class"=>"btn btn-success"]) !!}
                     {!! Form::close() !!}
                 </div>
