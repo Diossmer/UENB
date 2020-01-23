@@ -102,7 +102,7 @@
                         </div>
                         <div class="col-md-3">
                             {!! Form::label("telefono", "Telefono", ["class"=>"label label-primary"]) !!}
-                            {!! Form::numeric("telefono", $representante->telefono, ["class"=>"form-control","placeholder"=>"0212-xxx-xx-xx","maxlength"=>"11","max"=>"02129999999"]) !!}
+                            {!! Form::number("telefono", $representante->telefono, ["class"=>"form-control","placeholder"=>"0212-xxx-xx-xx","maxlength"=>"11","max"=>"02129999999"]) !!}
                         </div>
                     </div>
                     <div class="row">
