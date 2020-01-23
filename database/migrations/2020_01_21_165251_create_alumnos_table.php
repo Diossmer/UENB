@@ -17,9 +17,9 @@ class CreateAlumnosTable extends Migration
             $table->bigIncrements('id');
             $table->string('fotos');
             $table->string('nombre');
-            $table->string('segundo_nombre');
+            $table->string('segundo_nombre')->nullable();
             $table->string('apellido');
-            $table->string('segundo_apellido');
+            $table->string('segundo_apellido')->nullable();
             $table->string('lugar_nacimiento');
             $table->text('direccion');
             $table->string('dia');

@@ -56,33 +56,17 @@
                             <th>action</th>
                         </thead>
                         <tbody>
-{{--
-                            @if($inscrip)
-
-		                    @foreach($datos as $dato)
-
-		                    <tr>
-		                    			<td>{{ $dato->empresa }}</td>
-		                    			<td>{{ $dato->categoria }}</td>
-		                    			<td>{{ $dato->sub_categoria }}</td>
-		                    			<td>{{ $dato->actividad }}</td>
-		                    			<td>{{ $dato->materiales }}</td>
-		                    			<td>{{ $dato->descripcion }}</td>
-		                    			<td>{{ $dato->fecha }}</td>
-		                    </tr>
-		                    		@endforeach
-		                    		@else
-		                    		todavia no hay reportes generados
-		                    		@endif
- --}}
-
-
-
+		                    @foreach($inscripcion as $inscripcions)
+		                        <tr>
+                                    <td>{{ $inscripcions->alumno_id }}</td>
+                                    <td>{{ $inscripcions->seccion_id }}</td>
+                                    <td>{{ $inscripcions->estatus_id }}</td>
                                 <td>
-                                    {{-- {!! link_to_route("inscripcion.edit", "Editar", $parameters = [$inscripcion->id], $attributes = ["class"=>"btn btn-success"]) !!}
-                                    {!! link_to_route("inscripcion.show", "Generar PDF", $parameters = [$inscripcion->id], $attributes = ["class"=>"btn btn-success"]) !!} --}}
-                                </td>
+                                {!! link_to_route("inscripcion.edit", "Editar", $parameters = [$inscripcions->id], $attributes = ["class"=>"btn btn-success"]) !!}
+                                {!! link_to_route("inscripcion.show", "Generar PDF", $parameters = [$inscripcions->id], $attributes = ["class"=>"btn btn-success"]) !!}
+                            </td>
                             </tr>
+                            @endforeach
                         </tbody>
                         {{$inscripcion->links()}}
                     </table>

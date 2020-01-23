@@ -35,10 +35,10 @@ class InscripcionController extends Controller
         //
 
         $alumno = Alumno::pluck('nombre','id')->all();
-        $seccion = Seccion::pluck('descripcion')->all();
+        $seccion = Seccion::pluck('grado','id')->all();
         $estatus = PeriodoEscolar::pluck('estatus','id')->all();
         $inscripcion = Inscripcion::paginate(5);
-        return view('inscripcion.create',compact('inscripcion','estatus','seccion','alumno'));
+        return view('inscripcion.create',compact('seccion','estatus','inscripcion','alumno'));
 
     }
 
@@ -61,7 +61,7 @@ class InscripcionController extends Controller
 
         ]
     }' ;
-dd($prueba);
+    //dd($prueba);
         $inscripcion = new Inscripcion();
         $inscripcion->estatus_id = $request->estatus_id;
         $inscripcion->alumno_id = $request->alumno_id;
@@ -93,7 +93,11 @@ dd($prueba);
     public function edit($inscripcion)
     {
         //
-        return view('inscripcion.edit');
+        $alumno = Alumno::find($inscripcion)->pluck('nombre');
+        $seccion = Seccion::find($inscripcion)->pluck('grado');
+        $estatus = PeriodoEscolar::find($inscripcion)->pluck('estatus');
+        $inscripcion = Inscripcion::find($inscripcion);
+        return view('inscripcion.edit',compact('inscripcion','estatus','seccion','alumno'));
     }
 
     /**
@@ -106,6 +110,13 @@ dd($prueba);
     public function update(InscripcionValidation $request, $inscripcion)
     {
         //
+        $inscripcion = Inscripcion::find($inscripcion);
+        $inscripcion->estatus_id = $request->estatus_id;
+        $inscripcion->alumno_id = $request->alumno_id;
+        $inscripcion->seccion_id = $request->seccion_id;
+        if($inscripcion->save()){
+            return redirect()->route('inscripcion.index')->with('inscripcion','Actialización Completada');
+        }
     }
 
     /**

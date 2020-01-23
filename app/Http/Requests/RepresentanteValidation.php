@@ -26,9 +26,9 @@ class RepresentanteValidation extends FormRequest
         return [
             //
             'nombre'=>'required',
-            'segundo_nombre'=>'required',
+            // 'segundo_nombre'=>'required',
             'apellido'=>'required',
-            'segundo_apellido'=>'required',
+            // 'segundo_apellido'=>'required',
             'cedula'=>'required|numeric',
             'email'=>'required|email',
             'fecha_nacimiento'=>'required|date',

@@ -56,7 +56,7 @@
                         </div>
                         <div class="col-md-3">
                             {!! Form::label("seccion_id", "seccion", ["class"=>"label label-primary"]) !!}
-                            {!! Form::select("seccion_id", $seccion, null, ["class"=>"form-control"]) !!}
+                            {!! Form::select("seccion_id", $seccion, [], ["class"=>"form-control"]) !!}
                         </div>
                         <div class="col-md-3">
                             {!! Form::label("estatus_id", "estatus", ["class"=>"label label-primary"]) !!}
