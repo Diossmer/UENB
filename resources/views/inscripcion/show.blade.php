@@ -65,9 +65,13 @@
             <div class="firma">
                 <p>Firma de Representante:</p>
                 <hr>
+                <p>
+                    {{$alumno->representantes->nombre}}
+                    <br>v-{{$alumno->representantes->cedula}}
+                </p>
             </div>
             <div class="firma">
-                <p>Firma de director:</p>
+                <p>Firma de Docente:</p>
                 <hr>
             </div>
     </div>
