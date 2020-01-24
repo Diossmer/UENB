@@ -50,7 +50,10 @@
 
                 <div class="panel-body">
                     <table class="table" cellpadding="" cellspacing="" border="2">
-                        <caption class="text-center text-success">Representantes {!! link_to_route("representante.create", "Nuevo", null, ["class"=>"btn btn-primary"]) !!}</caption>
+                        <caption class="text-center text-success">Representantes
+                            {!! link_to_route("representante.create", "Nuevo", null, ["class"=>"btn btn-primary"]) !!}
+                            {!! link_to_route("alumno.index", "Siguiente", null, ["class"=>"btn btn-danger"]) !!}
+                        </caption>
                         <thead>
                             <tr valing="middle" align="center">
                                 <th>nombre</th>

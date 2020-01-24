@@ -47,7 +47,8 @@
                         <th>camisa</th>
                         <th>zapato</th>
                         <th>pantalon</th>
-                        <th>padece de enfermedad</th>
+                        <th>enfermedad que padece</th>
+                        <th>enfermedad psicologica</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -57,9 +58,18 @@
                         <td>{{$alumno->zapato}}</td>
                         <td>{{$alumno->pantalon}}</td>
                         <td>{{$alumno->enfermedades_padecida}}</td>
+                        <td>{{$alumno->enfermedades_psicologica}}</td>
                     </tr>
                 </tbody>
             </table>
+            <div class="firma">
+                <p>Firma de Representante:</p>
+                <hr>
+            </div>
+            <div class="firma">
+                <p>Firma de director:</p>
+                <hr>
+            </div>
     </div>
 </div>
 

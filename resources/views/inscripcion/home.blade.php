@@ -60,16 +60,29 @@
                             @foreach($inscripcion as $inscripcions)
                             <tr>
                                 <td>{{$inscripcions->id}}</td>
-                            <td>
-                                {{$inscripcions->alumno_id}}
-                            </td>
-                            <td>{{$inscripcions->seccion_id}}</td>
-                            <td>{{$inscripcions->estatus_id}}</td>
                                 <td>
-                                {!! link_to_route("inscripcion.edit", "Editar", $parameters = [$inscripcions->id], $attributes = ["class"=>""]) !!} |
-                                {!! link_to_route("inscripcion.show", "Generar PDF", $parameters = [$inscripcions->id], $attributes = ["class"=>"","target"=>"_blank"]) !!} <br>
+                                @foreach ($alumno as $alumnos)
+                                {{$alumnos}}
+                                <br>
                                 @endforeach
                             </td>
+                            <td>
+                                @foreach ($seccion as $seccions)
+                                {{$seccions}}
+                                <br>
+                                @endforeach
+                            </td>
+                            <td>
+                                @foreach ($estatus as $estatu)
+                                {{$estatu}}
+                                <br>
+                                @endforeach
+                            </td>
+                            <td>
+                                {!! link_to_route("inscripcion.edit", "Editar", $parameters = [$inscripcions->id], $attributes = ["class"=>""]) !!} |
+                                {!! link_to_route("inscripcion.show", "Generar PDF", $parameters = [$inscripcions->id], $attributes = ["class"=>"","target"=>"_blank"]) !!} <br>
+                            </td>
+                            @endforeach
                             </tr>
                         </tbody>
                         {{-- {{$inscripcion->links()}} --}}

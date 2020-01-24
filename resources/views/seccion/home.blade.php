@@ -50,7 +50,10 @@
 
                 <div class="panel-body">
                     <table class="table table-active">
-                        <caption class="text-center text-success">Seccion {!! link_to_route("seccion.create", "Nuevo", null, ["class"=>"btn btn-primary"]) !!}</caption>
+                        <caption class="text-center text-success">Seccion
+                            {!! link_to_route("home", "Regresar", null, ["class"=>"btn btn-danger"]) !!}
+                            {!! link_to_route("seccion.create", "Nuevo", null, ["class"=>"btn btn-primary"]) !!}
+                        </caption>
                         <thead>
                             <tr>
                                 <th>Descripcion</th>

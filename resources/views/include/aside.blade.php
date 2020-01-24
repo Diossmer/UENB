@@ -2,8 +2,8 @@
     <!-- Sidebar -->
     <nav id="sidebar">
     <div class="sidebar-header">
-    <a href="{{route('home')}}" style="font-size:2em;font-weight:900;text-decoration:none; color:#61ff54;">
-        La Vega<br>Periodo Escolar</a>
+    <i style="font-size:2em;font-weight:900;text-decoration:none; color:#61ff54;">
+        Parroquia La Vega</i>
         </div>
         <ul class="list-unstyled components">
             <li class="active">
@@ -11,13 +11,10 @@
                     Registros</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li>
-                    <a href="{{route('seccion.index')}}">Seccion</a>
+                        <a href="{{route('home')}}">Periodo Escolar</a>
                     </li>
                     <li>
                     <a href="{{route('representante.index')}}">Representante</a>
-                    </li>
-                    <li>
-                    <a href="{{route('alumno.index')}}">Alumno</a>
                     </li>
                     <li>
                     <a href="{{route('inscripcion.index')}}">Inscripción</a>
