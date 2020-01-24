@@ -69,7 +69,7 @@
                         </div>
                         <div class="col-md-3">
                             {!! Form::label("fecha_fin", "Fecha fin", ["class" => "label label-primary"]) !!}
-                            {!! Form::date("fecha_fin", \Carbon\Carbon::now(), ["class"=>"form-control","min"=>"2020-02-01","max"=>"2024-12-31"]) !!}
+                            {!! Form::date("fecha_fin", \Carbon\Carbon::create(2020,2,1), ["class"=>"form-control","min"=>"2020-02-01","max"=>"2024-12-31"]) !!}
                         </div>
                         <div class="col-md-3">
                             {!! Form::label("estatus", "Estatus", ["class"=>"label label-primary"]) !!}

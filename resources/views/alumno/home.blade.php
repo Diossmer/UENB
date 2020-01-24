@@ -30,7 +30,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-11 col-md-offset-2">
+        <div class="col-md-12 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">Alumno</div>
 
@@ -111,7 +111,7 @@
                                 <td>{{$alumnos->camisa}}</td>
                                 <td>{{$alumnos->pantalon}}</td>
                                 <td>{{$alumnos->zapato}}</td>
-                                <td>{{$alumnos->representante_id}}</td>
+                                <td>{{$alumnos->representantes->nombre}}</td>
                                 <td>
                                     {!! link_to_route("alumno.edit", "Editar", $parameters = [$alumnos->id], $attributes = ["class"=>"btn btn-success"]) !!}
                                 </td>

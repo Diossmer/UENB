@@ -102,7 +102,8 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">{{$docentes->id}}</th>
-                                    <td>{!! link_to_route("user.show", $docentes->name,$docentes->id,["target"=>"_blank"]) !!}</td>
+                                    <td>{{$docentes->name}}</td>
+                                    {{-- <td>{!! link_to_route("user.show", $docentes->name,$docentes->id,["target"=>"_blank"]) !!}</td> --}}
                                     <td>{{$docentes->apellido}}</td>
                                     <td>{{$docentes->email}}</td>
                                     <td>{{$docentes->created_at}}</td>

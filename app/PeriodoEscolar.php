@@ -12,9 +12,9 @@ class PeriodoEscolar extends Model
         'descripcion', 'fecha_inicio', 'fecha_fin', 'estatus',
     ];
     public function seccions(){
-        return $this->hasMany('App\Seccion');
+        return $this->hasMany(Seccion::class);
     }
     public function inscripcions(){
-        return $this->belongsToMany('App\Inscripcion');
+        return $this->belongsTo(Inscripcion::class);
     }
 }

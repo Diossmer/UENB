@@ -16,7 +16,7 @@ class AlumnoController extends Controller
     public function index()
     {
         //
-        $representante=Representante::pluck('nombre','id');
+        $representante=Representante::all();
         $alumno = Alumno::paginate(5);
         return view('alumno.home',compact('alumno','representante'));
     }

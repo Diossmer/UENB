@@ -50,25 +50,29 @@
                     <table class="table">
                         <caption class="text-center text-success">Inscripcion {!! link_to_route("inscripcion.create", "Nuevo", null,$attributes = ['class'=>'btn btn-primary']) !!}</caption>
                         <thead>
+                            <th>id</th>
                             <th>alumno_id</th>
                             <th>seccion_id</th>
-                            <th>status_id</th>
+                            <th>estatus_id</th>
                             <th>action</th>
                         </thead>
                         <tbody>
-		                    @foreach($inscripcion as $inscripcions)
-		                        <tr>
-                                    <td>{{ $inscripcions->alumno_id }}</td>
-                                    <td>{{ $inscripcions->seccion_id }}</td>
-                                    <td>{{ $inscripcions->estatus_id }}</td>
+                            @foreach($inscripcion as $inscripcions)
+                            <tr>
+                                <td>{{$inscripcions->id}}</td>
+                            <td>
+                                {{$inscripcions->alumno_id}}
+                            </td>
+                            <td>{{$inscripcions->seccion_id}}</td>
+                            <td>{{$inscripcions->estatus_id}}</td>
                                 <td>
-                                {!! link_to_route("inscripcion.edit", "Editar", $parameters = [$inscripcions->id], $attributes = ["class"=>"btn btn-success"]) !!}
-                                {!! link_to_route("inscripcion.show", "Generar PDF", $parameters = [$inscripcions->id], $attributes = ["class"=>"btn btn-success"]) !!}
+                                {!! link_to_route("inscripcion.edit", "Editar", $parameters = [$inscripcions->id], $attributes = ["class"=>""]) !!} |
+                                {!! link_to_route("inscripcion.show", "Generar PDF", $parameters = [$inscripcions->id], $attributes = ["class"=>"","target"=>"_blank"]) !!} <br>
+                                @endforeach
                             </td>
                             </tr>
-                            @endforeach
                         </tbody>
-                        {{$inscripcion->links()}}
+                        {{-- {{$inscripcion->links()}} --}}
                     </table>
                 </div>
             </div>

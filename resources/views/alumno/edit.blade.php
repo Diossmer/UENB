@@ -127,13 +127,13 @@
                         </div>
                         <div class="col-md-3">
                             {!! Form::label("enfermedades_padecida", "enfermedades_padecida", ["class"=>"label label-primary"]) !!}
-                            {!! Form::text("enfermedades_padecida", $alumno->enfermedade_padecida, ["class"=>"form-control","placeholder"=>"Enfermedades Padecida"]) !!}
+                            {!! Form::text("enfermedades_padecida", $alumno->enfermedades_padecida, ["class"=>"form-control","placeholder"=>"Enfermedades Padecida"]) !!}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-3">
                         {!! Form::label("enfermedades_psicologica", "enfermedades_psicologica", ["class"=>"label label-primary"]) !!}
-                        {!! Form::text("enfermedades_psicologica", $alumno->enfermedade_psicologica, ["class"=>"form-control","placeholder"=>"Enfermedades Psicologica"]) !!}
+                        {!! Form::text("enfermedades_psicologica", $alumno->enfermedades_psicologica, ["class"=>"form-control","placeholder"=>"Enfermedades Psicologica"]) !!}
                         </div>
                         <div class="col-md-3">
                         {!! Form::label("representante_id", "representante", ["class"=>"label label-primary"]) !!}

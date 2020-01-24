@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Database\Eloquent\Model;
 
 class Inscripcion extends Model
@@ -12,12 +13,12 @@ class Inscripcion extends Model
         'estatus_id','alumno_id','seccion_id'
     ];
     public function periodo_escolars(){
-        return $this->belongsToMany('App\PeriodoEscolar','estatus_id');
+        return $this->hasMany(PeriodoEscolar::class,'estatus_id','seccion_id','alumno_id');
     }
     public function alumnos(){
-        return $this->belongsToMany('App\Alumno','alumno_id');
+        return $this->hasMany(Alumno::class,'alumno_id','seccion_id','estatus_id');
     }
     public function seccions(){
-        return $this->belongsToMany('App\Seccion','seccion_id');
+        return $this->hasMany(Seccion::class,'seccion_id','estatus_id','alumno_id');
     }
 }

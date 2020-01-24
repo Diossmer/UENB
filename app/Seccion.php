@@ -12,12 +12,12 @@ class Seccion extends Model
         'descripcion', 'grado', 'cuposdisponible','docente_id','periodo_id'
     ];
     public function users(){
-        return $this->belongsTo('App\User','docente_id');
+        return $this->belongsTo(User::class,'docente_id');
     }
     public function periodo_escolars(){
-        return $this->belongsTo('App\PeriodoEscolar','periodo_id');
+        return $this->belongsTo(PeriodoEscolar::class,'periodo_id');
     }
     public function inscripcions(){
-        return $this->belongsToMany('App\Inscripcion','docente_id','periodo_id');
+        return $this->belongsTo(Inscripcion::class,'docente_id','periodo_id');
     }
 }

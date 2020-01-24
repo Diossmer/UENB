@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\PeriodoEscolar;
 use App\Alumno;
+use App\User;
 use App\Seccion;
 use App\Inscripcion;
 use Illuminate\Http\Request;
@@ -18,11 +19,12 @@ class InscripcionController extends Controller
     public function index()
     {
         //
-        $alumno = Alumno::all();
-        $seccion = Seccion::all();
-        $estatus = PeriodoEscolar::all();
-        $inscripcion = Inscripcion::paginate(5);
-        return view('inscripcion.home',compact('inscripcion','estatus','seccion','alumno'));
+        $alumno = Alumno::pluck('nombre','id')->all();
+        $seccion = Seccion::pluck('grado','id')->all();
+        $estatus = PeriodoEscolar::pluck('estatus','id')->all();
+        $inscripcion = Inscripcion::all();
+        // dd($inscripcion);
+        return view('inscripcion.home',compact('inscripcion','alumno','seccion','estatus'));
     }
 
     /**
@@ -77,10 +79,15 @@ class InscripcionController extends Controller
      * @param  \App\Inscripcion  $inscripcion
      * @return \Illuminate\Http\Response
      */
-    public function show(Inscripcion $inscripcion)
+    public function show($id)
     {
         //
-        $pdf= PDF::loadView('inscripcion.show');
+        $alumno=Alumno::find($id);
+        $periodo =PeriodoEscolar::find($id);
+        $texto  =Inscripcion::find($id);
+        $seccion   =Seccion::find($id);
+        $docente = User::find($id);
+        $pdf= PDF::loadView('inscripcion.show',compact('texto','periodo','alumno','seccion','docente'));
         return $pdf->stream('FicheroUsuario.pdf');
     }
 

@@ -67,8 +67,8 @@
                                     <td>{{$secciones->descripcion}}</td>
                                     <td>{{$secciones->grado}}</td>
                                     <td>{{$secciones->cuposdisponible}}</td>
-                                    <td>{{$secciones->docente_id}}</td>
-                                    <td>{{$secciones->periodo_id}}</td>
+                                    <td>{{$secciones->users->name}}</td>
+                                    <td>{{$secciones->periodo_escolars->descripcion}}</td>
                                     <td>
                                         {!! link_to_route("seccion.edit", "Editar", $parameters = [$secciones->id], $attributes = ["class"=>"btn btn-success"]) !!}
                                     </td>

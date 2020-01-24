@@ -80,7 +80,7 @@
                         </div>
                         <div class="col-md-3">
                             {!! Form::label("fecha_nacimiento", "Fecha Nacimiento", ["class"=>"label label-primary"]) !!}
-                            {!! Form::date("fecha_nacimiento", null, ["class"=>"form-control"]) !!}
+                            {!! Form::date("fecha_nacimiento", \Carbon\Carbon::now(), ["class"=>"form-control"]) !!}
                         </div>
                         <div class="col-md-3">
                             {!! Form::label("trabajo", "Trabajo", ["class"=>"label label-primary"]) !!}
@@ -102,7 +102,7 @@
                         </div>
                         <div class="col-md-3">
                             {!! Form::label("telefono", "Telefono", ["class"=>"label label-primary"]) !!}
-                            {!! Form::number("telefono", null, ["class"=>"form-control","placeholder"=>"0212-xxx-xx-xx","maxlength"=>"11","max"=>"02129999999"]) !!}
+                            {!! Form::number("telefono", null, ["class"=>"form-control","placeholder"=>"0426-xxx-xx-xx","maxlength"=>"11","max"=>"04269999999"]) !!}
                         </div>
                     </div>
                     <div class="row">

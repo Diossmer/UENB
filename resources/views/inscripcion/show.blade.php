@@ -8,7 +8,60 @@
     <title>Archivo Usuario</title>
 </head>
 <body>
-
+<div class="conteiner">
+    <div class="header">
+        <h1>Periodo - {{$periodo->descripcion}}</h1>
+    <h2>Docente : {{$seccion->users->name}}</h2>
+    </div>
+    <div class="content">
+        <table cellspacing="2" cellpadding="2" border="3">
+        <caption></caption>
+            <thead>
+                <tr vgaling="middle" align="center">
+                    <th>foto</th>
+                    <th>alumno</th>
+                    <th>estatus</th>
+                    <th>Fecha de inicio</th>
+                    <th>Fecha de fin</th>
+                    <th>grado</th>
+                    <th>seccion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr vgaling="middle" align="center">
+                    <td><img src="images/{{$alumno->fotos}}" alt="" sizes="" srcset="" height="100" width="100"></td>
+                    <td>{{$alumno->nombre}}</td>
+                    <td>{{$periodo->estatus}}</td>
+                    <td>{{$periodo->fecha_inicio}}</td>
+                    <td>{{$periodo->fecha_fin}}</td>
+                    <td>{{$seccion->grado}}</td>
+                    <td>{{$seccion->descripcion}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table cellspacing="2" cellpadding="2" border="3">
+            <caption></caption>
+                <thead>
+                    <tr vgaling="middle" align="center">
+                        <th>fecha de nacimiento</th>
+                        <th>camisa</th>
+                        <th>zapato</th>
+                        <th>pantalon</th>
+                        <th>padece de enfermedad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr vgaling="middle" align="center">
+                        <td>{{$alumno->dia}}-{{$alumno->mes}}-{{$alumno->año}}</td>
+                        <td>{{$alumno->camisa}}</td>
+                        <td>{{$alumno->zapato}}</td>
+                        <td>{{$alumno->pantalon}}</td>
+                        <td>{{$alumno->enfermedades_padecida}}</td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+</div>
 
 
 

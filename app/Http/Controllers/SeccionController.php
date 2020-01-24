@@ -17,8 +17,10 @@ class SeccionController extends Controller
     public function index()
     {
         //
+        $docente=User::all();
+        $periodo=PeriodoEscolar::all();
         $seccion=Seccion::paginate(5);
-        return view('seccion.home',compact('seccion'));
+        return view('seccion.home',compact('seccion','docente','periodo'));
     }
 
     /**
